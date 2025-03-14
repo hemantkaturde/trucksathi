@@ -29,7 +29,7 @@ if($this->config->item('company_name')!=='')
   
 
 
-  <div class="row">
+<!-- <div class="row">
      <?php $successMessage = $this->session->flashdata('successmessage');  
            $warningmessage = $this->session->flashdata('warningmessage');                    
       if (isset($successMessage)) { echo '<div id="alertmessage" class="col-md-12">
@@ -45,11 +45,52 @@ if($this->config->item('company_name')!=='')
                   </div>
           </div>'; }    
       ?>
-</div>
+</div> -->
+
+
+  <div class="row">
+      <?php 
+      $successMessage = $this->session->flashdata('successmessage');  
+      $warningMessage = $this->session->flashdata('warningmessage'); 
+
+      if (!empty($successMessage)) { 
+          echo '<div id="alertmessage" class="col-md-12">
+                  <div class="alert alert-success alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      '. output($successMessage) .'
+                  </div>
+                </div>'; 
+
+          // Unset flashdata manually
+          $this->session->unset_userdata('successmessage'); 
+      } 
+
+      if (!empty($warningMessage)) { 
+          echo '<div id="alertmessage" class="col-md-12">
+                  <div class="alert alert-warning alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      '. output($warningMessage) .'
+                  </div>
+                </div>'; 
+
+          // Unset flashdata manually
+          $this->session->unset_userdata('warningmessage'); 
+      } 
+      ?>
+  </div>
+
+
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg"><?php 
+
+      <!-- Logo Section -->
+      <div class="text-center">
+            <img src="<?= base_url('assets/images/truck sathi.png'); ?>" alt="Company Logo" class="login-logo" style="width: 150px; height: auto;">
+      </div>
+
+      
+      <!-- <p class="login-box-msg"><?php 
       $siteinfo =array();
       $CI =& get_instance();
       $CI->db->from('settings');
@@ -62,7 +103,7 @@ if($this->config->item('company_name')!=='')
       } else {
         echo 'Vehicle Management System';
       }
-     ?></p>
+     ?></p> -->
                    
     
       <form action="<?= base_url().'login/login_action'; ?>" method="post">
