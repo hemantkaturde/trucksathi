@@ -384,11 +384,11 @@
                      </a>
                   </li>
                </ul>
-            </li>
+            </li>-->
             <?php } if(userpermission('lr_settings')) { ?>
             <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('websitesetting_traccar'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('smtpconfig'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('email_template'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('edit_email_template'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('websitesetting');?><?php echo activate_menu('email_template');?><?php echo activate_menu('websitesetting_traccar');?> <?php echo activate_menu('smtpconfig');?><?php echo activate_menu('edit_email_template');?>">
-                  <i class="nav-icon fa fa-dollar-sign"></i>
+                  <i class="nav-icon fa fa-cog"></i>
                   <p>
                      Setting's
                      <i class="right fas fa-angle-left"></i>
@@ -444,7 +444,7 @@
                   </li>
                </ul>
             </li>
-            <?php } ?> -->
+            <?php } ?> 
             <li class="nav-item">
                <a href="<?= base_url(); ?>resetpassword" class="nav-link <?php echo activate_menu('resetpassword');?>">
                   <i class="nav-icon fa fa-key"></i>
