@@ -35,12 +35,11 @@
 */
 
 // The following values will probably need to be changed.
-$db['default']['username'] = "root";
-$db['default']['password'] = "";
-$db['default']['database'] = "trucksathi";
-
+$db['default']['username'] = TH_DB_USER;
+$db['default']['password'] = TH_DB_PASSWORD;
+$db['default']['database'] = TH_DB_DBNAME;
 // The following values can probably stay the same.
-$db['default']['hostname'] = "localhost";
+$db['default']['hostname'] = TH_DB_HOST;
 $db['default']['dbdriver'] = "mysqli"; //Updated to latest driver.
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;

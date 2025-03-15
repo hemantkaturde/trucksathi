@@ -23,7 +23,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = "http://localhost/qelocity_technologies/trucksathi/";
+//$config['base_url'] = "http://localhost/qelocity_technologies/trucksathi/";
+
+if($_SERVER['HTTP_HOST']=='localhost'){
+    $base  = "http://".$_SERVER['HTTP_HOST'];
+    $base .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+    $config['base_url'] = $base;
+
+    define('TH_DB_HOST','localhost');
+    define('TH_DB_USER','root');
+    define('TH_DB_PASSWORD','');
+    define('TH_DB_DBNAME','trucksathi');
+
+}else{
+    $base  = "https://".$_SERVER['HTTP_HOST'];
+    $base .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+    $config['base_url'] = $base;
+
+    define('TH_DB_HOST','localhost');
+    define('TH_DB_USER','u907887697_truckdb');
+    define('TH_DB_PASSWORD','Truckdb@2025');
+    define('TH_DB_DBNAME','u907887697_truckdb');
+}
+
+define("ADMIN_PATH",$config['base_url']);
+define("ICONPATH",ADMIN_PATH.'/assets/icons');
+
+
 
 /*
 |--------------------------------------------------------------------------
