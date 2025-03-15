@@ -136,3 +136,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
 	    return $result;
 	}
+
+
+	if (!function_exists('setContentLength'))
+    {
+		//Add content length header to response and echo it
+		function setContentLength($data) 
+		{
+			$returnData = json_encode($data);
+			header('Content-Length: '.strlen($returnData)); 
+			echo $returnData;
+			exit;	
+		}	
+   }

@@ -14,6 +14,8 @@ class Api extends REST_Controller {
         $this->load->database();
         $this->load->model('api_model');
         $this->load->model('geofence_model');
+        $this->load->library('form_validation');
+
 
     }
     public function index_get() {
@@ -65,6 +67,7 @@ class Api extends REST_Controller {
            } 
        }
     }
+
     public function positions_post()     //Postion feed to front end   
     {
         $this->db->select("*");
@@ -146,4 +149,95 @@ class Api extends REST_Controller {
             }
         }
     }
+
+
+    public function sendotp_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')));
+		}
+		else
+		{
+            $status = 'Success';
+            $message = 'OTP Genrated';
+            $data = array('mobile_number' => $this->input->post('mobile_number'));
+            //$user_data = $this->Api_model->getAuthtoken($data);
+            $data = array('otp' =>12345);
+        }
+
+        $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+		setContentLength($responseData);
+    }
+
+
+    public function verifyotp_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+        $this->form_validation->set_rules('otp', 'OTP', 'trim|required');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'otp' =>strip_tags(form_error('otp')));
+		}
+		else
+		{
+            //$data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+            //$user_data = $this->Api_model->getAuthtoken($data);
+
+            if(trim($this->input->post('otp'))=='12345'){
+                $status = 'Success';
+                $message = 'OTP verified';
+                $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+            }else{
+                $status = 'Failure';
+		    	$message = 'Validation error';
+                $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+            }
+        }
+
+        $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+		setContentLength($responseData);
+    }
+
+
+    public function getcategory_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')));
+		}
+		else
+		{
+
+                $array_owner  = array('category_head'=>'owner','category_subhead'=>'this us for owner only');
+                $array_driver  = array('category_head'=>'driver','category_subhead'=>'this us for driver only');
+                $array_booking_agent  = array('category_head'=>'booking agent','category_subhead'=>'this us for booking agen only');
+                $array_manufacturer  = array('category_head'=>'manufacturer','category_subhead'=>'this us for manufacturer agen only');
+            
+                $categorylist = array('owner'=>$array_owner,'driver'=>$array_driver,'booking_agent'=>$array_booking_agent,'manufacturer'=>$array_manufacturer);
+             
+                $status = 'Success';
+                $message = 'OTP verified';
+                $data = array('mobile_number' => $this->input->post('mobile_number'),'categorylist' => $categorylist);
+          
+        }
+
+        $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+		setContentLength($responseData);
+
+
+    }
+
+
 }
