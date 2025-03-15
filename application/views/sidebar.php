@@ -15,7 +15,7 @@
                   </p>
                </a>
             </li>
-            <?php if(userpermission('lr_vech_availablity')) { ?>
+            <!-- <?php if(userpermission('lr_vech_availablity')) { ?>
             <li class="nav-item">
                <a href="<?= base_url(); ?>vehicleavailablity" class="nav-link <?php echo activate_menu('vehicleavailablity');?>">
                   <i class="nav-icon fa fa-calendar" aria-hidden="true"></i>
@@ -349,8 +349,8 @@
                   <?php } ?>
                </ul>
             </li>
-          <?php }  if(userpermission('lr_reports')) { ?>
-            <li class="nav-item has-treeview <?php echo ((activate_menu('driversreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('incomeexpense'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('booking'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('fuels'))=='active') ? 'menu-open':'' ?>">
+          <?php }  if(userpermission('lr_reports')) { ?> -->
+            <!-- <li class="nav-item has-treeview <?php echo ((activate_menu('driversreport'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('incomeexpense'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('booking'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('fuels'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('booking');?><?php echo activate_menu('fuels');?><?php echo activate_menu('driversreport');?><?php echo activate_menu('incomeexpense');?>">
                   <i class="nav-icon fa fa-calculator" aria-hidden="true"></i>
                   <p>
@@ -444,7 +444,7 @@
                   </li>
                </ul>
             </li>
-            <?php } ?>
+            <?php } ?> -->
             <li class="nav-item">
                <a href="<?= base_url(); ?>resetpassword" class="nav-link <?php echo activate_menu('resetpassword');?>">
                   <i class="nav-icon fa fa-key"></i>
