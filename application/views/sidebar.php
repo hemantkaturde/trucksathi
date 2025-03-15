@@ -11,7 +11,7 @@
                <a href="<?= base_url(); ?>dashboard" class="nav-link <?php echo activate_menu('dashboard');?>">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                     Dashboard Trcuk 
+                     Dashboard 
                   </p>
                </a>
             </li>
