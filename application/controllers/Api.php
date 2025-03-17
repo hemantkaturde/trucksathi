@@ -220,12 +220,12 @@ class Api extends REST_Controller {
 		else
 		{
 
-                $array_owner  = array('category_head'=>'owner','category_subhead'=>'this us for owner only');
-                $array_driver  = array('category_head'=>'driver','category_subhead'=>'this us for driver only');
-                $array_booking_agent  = array('category_head'=>'booking agent','category_subhead'=>'this us for booking agen only');
-                $array_manufacturer  = array('category_head'=>'manufacturer','category_subhead'=>'this us for manufacturer agen only');
+                $array_owner  = array('category'=>'owner','category_head'=>'owner','category_subhead'=>'this us for owner only');
+                $array_driver  = array('category'=>'driver','category_head'=>'driver','category_subhead'=>'this us for driver only');
+                $array_booking_agent  = array('category'=>'booking_agent','category_head'=>'booking agent','category_subhead'=>'this us for booking agen only');
+                $array_manufacturer  = array('category'=>'manufacturer','category_head'=>'manufacturer','category_subhead'=>'this us for manufacturer agen only');
             
-                $categorylist = array('owner'=>$array_owner,'driver'=>$array_driver,'booking_agent'=>$array_booking_agent,'manufacturer'=>$array_manufacturer);
+                $categorylist = array($array_owner,$array_driver,$array_booking_agent,$array_manufacturer);
              
                 $status = 'Success';
                 $message = 'OTP verified';
