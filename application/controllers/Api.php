@@ -220,10 +220,17 @@ class Api extends REST_Controller {
 		else
 		{
 
-                $array_owner  = array('category_head'=>'owner','category_subhead'=>'this us for owner only');
-                $array_driver  = array('category_head'=>'driver','category_subhead'=>'this us for driver only');
-                $array_booking_agent  = array('category_head'=>'booking agent','category_subhead'=>'this us for booking agen only');
-                $array_manufacturer  = array('category_head'=>'manufacturer','category_subhead'=>'this us for manufacturer agen only');
+                $icon1 =  's';
+                $icon2 = 's';
+                $icon3 =  's';
+                $icon4 ='s';
+                
+                $array_owner  = array('cat_id'=>1,'category_head'=>'Owner','category_subhead'=>'this us for owner only','category_icon'=>$icon1);
+                $array_driver  = array('cat_id'=>2,'category_head'=>'Driver','category_subhead'=>'this us for driver only','category_icon'=>$icon2);
+                $array_booking_agent  = array('cat_id'=>3,'category_head'=>'Booking Agent','category_subhead'=>'this us for booking agen only','category_icon'=>$icon3);
+                $array_manufacturer  = array('cat_id'=>4,'category_head'=>'Manufacturer','category_subhead'=>'this us for manufacturer agen only','category_icon'=>$icon4);
+
+
             
                 $categorylist = array('owner'=>$array_owner,'driver'=>$array_driver,'booking_agent'=>$array_booking_agent,'manufacturer'=>$array_manufacturer);
              
