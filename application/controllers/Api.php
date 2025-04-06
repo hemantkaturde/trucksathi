@@ -232,7 +232,7 @@ class Api extends REST_Controller {
 
 
             
-                $categorylist = array('owner'=>$array_owner,'driver'=>$array_driver,'booking_agent'=>$array_booking_agent,'manufacturer'=>$array_manufacturer);
+                $categorylist = array($array_owner,$array_driver,$array_booking_agent,$array_manufacturer);
              
                 $status = 'Success';
                 $message = 'OTP verified';
