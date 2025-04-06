@@ -222,10 +222,10 @@ class Api extends REST_Controller {
                 $base  = "https://".$_SERVER['HTTP_HOST'];
                 $base .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
-                $icon1 = $base.'asset/images/icon1.jpg';
-                $icon2 = $base.'asset/images/icon2.jpg';
-                $icon3 = $base.'asset/images/icon3.jpg';
-                $icon4 = $base.'asset/images/icon4.jpg';
+                $icon1 = $base.'assets/images/icon1.jpg';
+                $icon2 = $base.'assets/images/icon2.jpg';
+                $icon3 = $base.'assets/images/icon3.jpg';
+                $icon4 = $base.'assets/images/icon4.jpg';
                 
                 $array_owner  = array('cat_id'=>1,'category_head'=>'Owner','category_subhead'=>'this us for owner only','category_icon'=>$icon1);
                 $array_driver  = array('cat_id'=>2,'category_head'=>'Driver','category_subhead'=>'this us for driver only','category_icon'=>$icon2);
