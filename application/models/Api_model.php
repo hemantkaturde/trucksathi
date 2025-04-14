@@ -12,6 +12,25 @@ class Api_model extends CI_Model{
 			return $query->result_array();
 		} 
 	} 
+	public function submitOTP($data){
+		 // Prepare data array
+		 $post_data = array(
+			'mobile_number' => $data['mobile_number'],
+			'otp' => $data['otp']
+		);
+		// Insert into the database
+		if (!$this->db->insert('tbl_appuser_otp', $post_data)) {
+			$error = $this->db->error();
+			return FALSE;
+		}else{
+			return TRUE;
+		}
+	}
+	public function verify_otp($data){
+		$where = array('mobile_number>='=>$data['mobile_number'],'otp'=> $data['otp']);
+		$otp_data = $this->db->select('*')->from('tbl_appuser_otp')->where($where)->order_by('id','desc')->limit(1)->get()->result_array();
+		return $otp_data;
+	}
 
 
 } 

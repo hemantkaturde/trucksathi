@@ -149,3 +149,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			exit;	
 		}	
    }
+
+
+    if(!function_exists('sendotp')){
+		//Add content length header to response and echo it
+		function sendotp($data) 
+		{	
+				$mobile_number = '+91'.$data['mobile_number'];;
+				$otp = $data['otp'];
+				$template_id = '67fca817d6fc05536d016132';
+
+				$postfield = [
+					"template_id" => $template_id,
+					"short_url" => "0",
+					"realTimeResponse"=> "1", 
+					"recipients" => [
+						[
+							"mobiles" => $mobile_number,
+							"var1"=>$otp,
+						]
+					]
+				];
+
+				$curl = curl_init();
+				curl_setopt_array($curl, [
+				CURLOPT_URL => "https://control.msg91.com/api/v5/flow",
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => "",
+				CURLOPT_MAXREDIRS => 10,
+				CURLOPT_TIMEOUT => 30,
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => "POST",
+				CURLOPT_POSTFIELDS => json_encode($postfield),
+				CURLOPT_HTTPHEADER => [
+					"accept: application/json",
+					"authkey: 443673AH0H3QcrT67fcc3b6P1",
+					"content-type: application/json"
+				],
+				]);
+
+				$response = curl_exec($curl);
+				$err = curl_error($curl);
+
+				curl_close($curl);
+
+				if ($err) {
+				  echo "cURL Error #:" . $err;
+				} else {
+				  return $response;
+				}
+		}	
+    }

@@ -1,7 +1,7 @@
 <?php
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
+// header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+// header("Cache-Control: post-check=0, pre-check=0", false);
+// header("Pragma: no-cache");
 
 use Restserver\Libraries\REST_Controller;
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -152,7 +152,7 @@ class Api extends REST_Controller {
 
 
     public function sendotp_post(){
-
+     
         $post_submit = $this->input->post();
         $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
 		if ($this->form_validation->run() == FALSE)
@@ -163,13 +163,24 @@ class Api extends REST_Controller {
 		}
 		else
 		{
-            $status = 'Success';
-            $message = 'OTP Genrated';
-            $data = array('mobile_number' => $this->input->post('mobile_number'));
-            //$user_data = $this->Api_model->getAuthtoken($data);
-            $data = array('otp' =>12345);
+            $random_otp = random_int(100000, 999999);
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'otp'=>$random_otp);
+            $saveotptodatabase = $this->api_model->submitOTP($data);
+            if($saveotptodatabase){
+               $send_otp_to_devoice = sendotp($data);
+               $data_extrct = json_decode($send_otp_to_devoice, true); // Decode JSON as an associative array
+               if($data_extrct['type']=='success'){
+                 $status = 'Success';
+                 $message = 'OTP Genrated';
+                 $data = array('mobile_number' => $this->input->post('mobile_number'),'otp'=>$random_otp);
+               }else{
+                 $status = 'Failure';
+			     $message = 'OTP Not Verifiled';
+                 $data = array('mobile_number' =>'','otp'=>'');
+               }
+            
+            }
         }
-
         $responseData = array('status' => $status,'message'=> $message,'data' => $data);
 		setContentLength($responseData);
     }
@@ -188,17 +199,23 @@ class Api extends REST_Controller {
 		}
 		else
 		{
-            //$data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
-            //$user_data = $this->Api_model->getAuthtoken($data);
-
-            if(trim($this->input->post('otp'))=='12345'){
-                $status = 'Success';
-                $message = 'OTP verified';
-                $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+    
+            $verify_otp = $this->api_model->verify_otp($data);
+            if($verify_otp){
+                if($verify_otp[0]['otp']==trim($this->input->post('otp'))){
+                    $status = 'Success';
+                    $message = 'OTP verified';
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+                }else{
+                    $status = 'Failure';
+                    $message = 'OTP verification Failed';
+                    $data = array('mobile_number' => '','otp' => '');
+                }
             }else{
                 $status = 'Failure';
-		    	$message = 'Validation error';
-                $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+                $message = 'OTP verification Failed';
+                $data = array('mobile_number' => '','otp' => '');
             }
         }
 
