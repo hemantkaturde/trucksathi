@@ -166,6 +166,8 @@ class Api extends REST_Controller {
             $random_otp = random_int(100000, 999999);
             $data = array('mobile_number' => $this->input->post('mobile_number'),'otp'=>$random_otp);
             $saveotptodatabase = $this->api_model->submitOTP($data);
+            print_r($saveotptodatabase);
+            exit;
             if($saveotptodatabase){
              $send_otp_to_devoice = sendotp($data);
              if($send_otp_to_devoice){
