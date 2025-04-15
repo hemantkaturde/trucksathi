@@ -2684,3 +2684,52 @@ INFO - 2025-04-14 12:39:36 --> Model "Api_model" initialized
 INFO - 2025-04-14 12:39:36 --> Model "Geofence_model" initialized
 DEBUG - 2025-04-14 12:39:36 --> Form_validation class already loaded. Second attempt ignored.
 INFO - 2025-04-14 12:39:36 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 2025-04-14 12:54:17 --> Config Class Initialized
+INFO - 2025-04-14 12:54:17 --> Hooks Class Initialized
+DEBUG - 2025-04-14 12:54:17 --> UTF-8 Support Enabled
+INFO - 2025-04-14 12:54:17 --> Utf8 Class Initialized
+INFO - 2025-04-14 12:54:17 --> URI Class Initialized
+INFO - 2025-04-14 12:54:17 --> Router Class Initialized
+INFO - 2025-04-14 12:54:17 --> Output Class Initialized
+INFO - 2025-04-14 12:54:17 --> Security Class Initialized
+DEBUG - 2025-04-14 12:54:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-04-14 12:54:17 --> Input Class Initialized
+INFO - 2025-04-14 12:54:17 --> Language Class Initialized
+INFO - 2025-04-14 12:54:17 --> Loader Class Initialized
+INFO - 2025-04-14 12:54:17 --> Helper loaded: common_helper
+DEBUG - 2025-04-14 12:54:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-04-14 12:54:17 --> Session: Class initialized using 'files' driver.
+INFO - 2025-04-14 12:54:17 --> Helper loaded: form_helper
+INFO - 2025-04-14 12:54:17 --> Form Validation Class Initialized
+INFO - 2025-04-14 12:54:17 --> Controller Class Initialized
+INFO - 2025-04-14 12:54:17 --> Helper loaded: url_helper
+INFO - 2025-04-14 12:54:17 --> Helper loaded: directory_helper
+DEBUG - 2025-04-14 12:54:17 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-04-14 12:54:17 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-04-14 12:54:17 --> Database Driver Class Initialized
+INFO - 2025-04-14 12:54:17 --> Config Class Initialized
+INFO - 2025-04-14 12:54:17 --> Hooks Class Initialized
+DEBUG - 2025-04-14 12:54:17 --> UTF-8 Support Enabled
+INFO - 2025-04-14 12:54:17 --> Utf8 Class Initialized
+INFO - 2025-04-14 12:54:17 --> URI Class Initialized
+INFO - 2025-04-14 12:54:17 --> Router Class Initialized
+INFO - 2025-04-14 12:54:17 --> Output Class Initialized
+INFO - 2025-04-14 12:54:17 --> Security Class Initialized
+DEBUG - 2025-04-14 12:54:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-04-14 12:54:17 --> Input Class Initialized
+INFO - 2025-04-14 12:54:17 --> Language Class Initialized
+INFO - 2025-04-14 12:54:17 --> Loader Class Initialized
+INFO - 2025-04-14 12:54:17 --> Helper loaded: common_helper
+DEBUG - 2025-04-14 12:54:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-04-14 12:54:17 --> Session: Class initialized using 'files' driver.
+INFO - 2025-04-14 12:54:17 --> Helper loaded: form_helper
+INFO - 2025-04-14 12:54:17 --> Form Validation Class Initialized
+INFO - 2025-04-14 12:54:17 --> Controller Class Initialized
+INFO - 2025-04-14 12:54:17 --> Helper loaded: url_helper
+INFO - 2025-04-14 12:54:17 --> Helper loaded: directory_helper
+DEBUG - 2025-04-14 12:54:17 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-04-14 12:54:17 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-04-14 12:54:17 --> Database Driver Class Initialized
+INFO - 2025-04-14 12:54:17 --> File loaded: C:\xampp\htdocs\trucksathi\application\views\login.php
+INFO - 2025-04-14 12:54:17 --> Final output sent to browser
+DEBUG - 2025-04-14 12:54:17 --> Total execution time: 0.0446
