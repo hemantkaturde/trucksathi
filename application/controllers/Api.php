@@ -169,10 +169,6 @@ class Api extends REST_Controller {
           
             if($saveotptodatabase){
              $send_otp_to_devoice = sendotp($data);
-
-             print_r($send_otp_to_devoice);
-             exit;
-
              if($send_otp_to_devoice){
                 $status = 'Success';
                 $message = 'OTP Genrated';
