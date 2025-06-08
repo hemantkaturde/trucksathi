@@ -33,7 +33,6 @@ class Api_model extends CI_Model{
 	}
 
 	public function submitbasicdetails($id,$data){
-    
 		if($id != '') {
             $this->db->where('id', $id);
             if($this->db->update('tbl_appuser_info', $data)){
@@ -48,6 +47,15 @@ class Api_model extends CI_Model{
                 return FALSE;
             }
         }
+	}
+
+	public function check_if_basic_details_are_filled_or_not($userid){
+        $this->db->select('*');
+		$this->db->where('app_user_id', $userid);
+        $query = $this->db->get("tbl_appuser_info");
+		if ($query->num_rows() >= 1) {
+			return $query->result_array();
+		} 
 	}
 
 
