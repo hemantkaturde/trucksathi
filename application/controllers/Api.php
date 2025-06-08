@@ -311,11 +311,42 @@ class Api extends REST_Controller {
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
             setContentLength($responseData);
-          
         }
 
     }
 
+    public function submitkyc_details(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
+
+
+        if ($this->form_validation->run() == FALSE)
+		{
+            $status = 'Failure';
+			$message = 'Validation error';
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile')),'email' =>strip_tags(form_error('email')),'address' =>strip_tags(form_error('address')),'city' =>strip_tags(form_error('city')),'pincode' =>strip_tags(form_error('pincode')));
+        }else{
+
+            $data = array('app_user_id'=> $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
+            $submitdetails = $this->api_model->submitbasicdetails('',$data);
+
+             if($submitdetails){
+                $status = 'Success';
+                $message = 'Data Submitted';
+                $data = array('userid' => $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
+             }else{
+                $status = 'Failure';
+                $message = 'Failure data not Submitted';
+                $data = array('userid' => '','category_id'=>'','name'=>'','mobile'=>'','email'=>'','address'=>'','city'=>'','pincode'=>'');
+             }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+            setContentLength($responseData);
+        }
+    }
 
 
 }
