@@ -211,8 +211,18 @@ class Api extends REST_Controller {
                     if($check_basic_details){
                         $userinfo = $check_basic_details;
                     }else{
-                        $userinfo = false;
+                        $userinfo = array();
                     }
+
+
+                    // $check_basic_details = $this->api_model->check_if_basic_details_are_filled_or_not($userid);
+                    // if($check_basic_details){
+                    //     $userinfo = $check_basic_details;
+                    // }else{
+                    //     $userinfo = array();
+                    // }
+
+
             
                     $status = 'Success';
                     $message = 'OTP verified';
@@ -315,32 +325,199 @@ class Api extends REST_Controller {
 
     }
 
-    public function submitkyc_details(){
+    public function submitkyc_details_post(){
 
         $post_submit = $this->input->post();
+
         $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
-
-
+        // $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
+        // $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
+        // $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
+        // $this->form_validation->set_rules('gst', 'GST', 'trim|required');
+        // $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
+        // $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
+    
         if ($this->form_validation->run() == FALSE)
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile')),'email' =>strip_tags(form_error('email')),'address' =>strip_tags(form_error('address')),'city' =>strip_tags(form_error('city')),'pincode' =>strip_tags(form_error('pincode')));
+			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
-            $data = array('app_user_id'=> $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
-            $submitdetails = $this->api_model->submitbasicdetails('',$data);
+                if(!empty($_FILES['aadhar_card']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/aadhar_card'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('aadhar_card')){ 
+                       $aadhar_card = $filename; 
+                    }else{
+                        $aadhar_card =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $aadhar_card = trim($this->input->post('existing_img'));
+                }
+
+
+                if(!empty($_FILES['pan_card']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['pan_card']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/pan_card'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('pan_card')){ 
+                       $pan_card = $filename; 
+                    }else{
+                        $pan_card =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $pan_card = trim($this->input->post('existing_img'));
+                }
+
+
+                if(!empty($_FILES['licence']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['licence']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/licence'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('licence')){ 
+                       $licence = $filename; 
+                    }else{
+                        $licence =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $licence = trim($this->input->post('existing_img'));
+                }
+
+
+                if(!empty($_FILES['gst']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['gst']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/gst'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('gst')){ 
+                       $gst = $filename; 
+                    }else{
+                       $gst =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $gst = trim($this->input->post('existing_img'));
+                }
+
+                
+                if(!empty($_FILES['rc_book']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['rc_book']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/rc_book'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('rc_book')){ 
+                       $rc_book = $filename; 
+                    }else{
+                       $rc_book =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $rc_book = trim($this->input->post('existing_img'));
+                }
+
+
+                if(!empty($_FILES['user_photo']['name'])){
+
+                    $file = rand(1000,100000)."-".$_FILES['user_photo']['name'];
+                    $filename = str_replace(' ','_',$file);
+    
+                    $config['upload_path'] = 'uploads/user_photo'; 
+                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config['max_size'] = '100000'; // max_size in kb 
+                    $config['file_name'] = $filename; 
+           
+                    // Load upload library 
+                    $this->load->library('upload',$config); 
+            
+                    // File upload
+                    if($this->upload->do_upload('user_photo')){ 
+                       $user_photo = $filename; 
+                    }else{
+                       $user_photo =trim($this->input->post('existing_img'));
+                    }
+    
+                }else{
+                    $user_photo = trim($this->input->post('existing_img'));
+                }
+
+
+                      $data = array(
+                        //   'userinfoid'=> $this->input->post('userinfoid'),
+                        //   'userid'=>$this->input->post('userid'),
+                        //   'category_id'=>$this->input->post('category_id'),
+                          'aadhar_card'=> $aadhar_card,
+                          'pan_card'=>$pan_card,
+                          'licence'=>$licence,
+                          'gst'=>$gst,
+                          'rc_book'=>$rc_book,
+                          'user_photo'=>$user_photo,
+                        );
+
+            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userinfoid'),$data);
 
              if($submitdetails){
                 $status = 'Success';
                 $message = 'Data Submitted';
-                $data = array('userid' => $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
+			    $data = array('userinfoid'=>$this->input->post('userinfoid'),'userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-                $data = array('userid' => '','category_id'=>'','name'=>'','mobile'=>'','email'=>'','address'=>'','city'=>'','pincode'=>'');
+			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
