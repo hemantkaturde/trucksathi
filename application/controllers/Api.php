@@ -178,18 +178,7 @@ class Api extends REST_Controller {
                 $message = 'OTP Not Genrated';
                 $data = array('mobile_number' =>'','otp'=>'');
              }
-
-            //    $data_extrct = json_decode($send_otp_to_devoice, true); // Decode JSON as an associative array
-            //    if($data_extrct['type']=='success'){
-            //    $status = 'Success';
-            //    $message = 'OTP Genrated';
-            //    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp'=>$random_otp);
-            //    }else{
-            //      $status = 'Failure';
-			//      $message = 'OTP Not Verifiled';
-            //      $data = array('mobile_number' =>'','otp'=>'');
-            //    }
-            
+          
             }
         }
         $responseData = array('status' => $status,'message'=> $message,'data' => $data);
