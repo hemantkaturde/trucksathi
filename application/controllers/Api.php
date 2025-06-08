@@ -214,19 +214,16 @@ class Api extends REST_Controller {
                         $userinfo = array();
                     }
 
-
-                    // $check_basic_details = $this->api_model->check_if_basic_details_are_filled_or_not($userid);
-                    // if($check_basic_details){
-                    //     $userinfo = $check_basic_details;
-                    // }else{
-                    //     $userinfo = array();
-                    // }
-
-
+                    $check_kyc_details = $this->api_model->check_if_kyc_details_are_filled_or_not($userid);
+                    if($check_kyc_details){
+                        $kyc_info = $check_kyc_details;
+                    }else{
+                        $kyc_info = array();
+                    }
             
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo);
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'kyc_info'=>$kyc_info);
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
@@ -284,7 +281,6 @@ class Api extends REST_Controller {
 
 
     }
-
 
     public function submitdetails_post(){
 
@@ -513,7 +509,7 @@ class Api extends REST_Controller {
 
              if($submitdetails){
                 $status = 'Success';
-                $message = 'Data Submitted';
+                $message = 'KYC Submitted';
 			    $data = array('userinfoid'=>$this->input->post('userinfoid'),'userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
              }else{
                 $status = 'Failure';

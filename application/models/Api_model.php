@@ -59,4 +59,16 @@ class Api_model extends CI_Model{
 	}
 
 
+	public function check_if_kyc_details_are_filled_or_not($userid){
+        $this->db->select('*');
+		$this->db->where('kyc_status', 1);
+		$this->db->where('app_user_id', $userid);
+        $query = $this->db->get("tbl_appuser_info");
+		if ($query->num_rows() >= 1) {
+			return $query->result_array();
+		} 
+	}
+
+
+
 } 
