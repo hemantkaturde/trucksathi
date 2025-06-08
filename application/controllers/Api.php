@@ -506,6 +506,7 @@ class Api extends REST_Controller {
                           'gst'=>$gst,
                           'rc_book'=>$rc_book,
                           'user_photo'=>$user_photo,
+                          'kyc_status'=>1
                         );
 
             $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userinfoid'),$data);
