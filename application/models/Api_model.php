@@ -32,5 +32,23 @@ class Api_model extends CI_Model{
 		return $otp_data;
 	}
 
+	public function submitbasicdetails($id,$data){
+    
+		if($id != '') {
+            $this->db->where('id', $id);
+            if($this->db->update('tbl_appuser_info', $data)){
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        } else {
+            if($this->db->insert('tbl_appuser_info', $data)) {
+                return $this->db->insert_id();
+            } else {
+                return FALSE;
+            }
+        }
+	}
+
 
 } 

@@ -206,7 +206,8 @@ class Api extends REST_Controller {
                 if($verify_otp[0]['otp']==trim($this->input->post('otp'))){
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+                    $userid =  $verify_otp[0]['id'];
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid);
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
@@ -264,6 +265,49 @@ class Api extends REST_Controller {
 
 
     }
+
+
+    public function submitdetails_post(){
+
+        $post_submit = $this->input->post();
+
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('name', 'Name', 'trim');
+        $this->form_validation->set_rules('mobile', 'mobile', 'trim|required');
+        $this->form_validation->set_rules('email', 'email', 'trim');
+        $this->form_validation->set_rules('address', 'address', 'trim');
+        $this->form_validation->set_rules('city', 'city', 'trim');
+        $this->form_validation->set_rules('pincode', 'pincode', 'trim');
+
+        if ($this->form_validation->run() == FALSE)
+		{
+            $status = 'Failure';
+			$message = 'Validation error';
+			$data = array('userid' =>strip_tags(form_error('userid')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile')),'email' =>strip_tags(form_error('email')),'address' =>strip_tags(form_error('address')),'city' =>strip_tags(form_error('city')),'pincode' =>strip_tags(form_error('pincode')));
+        }else{
+
+            $data = array('app_user_id'=> $this->input->post('userid'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
+            $submitdetails = $this->api_model->submitbasicdetails('',$data);
+
+             if($submitdetails){
+                $status = 'Success';
+                $message = 'Data Submitted';
+                $data = array('userid' => $this->input->post('userid'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'),'pincode'=>$this->input->post('pincode'));
+             }else{
+                $status = 'Failure';
+                $message = 'Failure data not Submitted';
+                $data = array('userid' => '','name'=>'','mobile'=>'','email'=>'','address'=>'','city'=>'','pincode'=>'');
+             }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+            setContentLength($responseData);
+          
+        }
+
+    }
+
+
+
 
 
 }
