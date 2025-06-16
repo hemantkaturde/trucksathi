@@ -266,7 +266,6 @@ class Api extends REST_Controller {
                 $array_booking_agent  = array('cat_id'=>3,'category_head'=>'Booking Agent','category_subhead'=>'this us for booking agen only','category_icon'=>$icon3);
                 $array_manufacturer  = array('cat_id'=>4,'category_head'=>'Manufacturer','category_subhead'=>'this us for manufacturer agen only','category_icon'=>$icon4);
 
-
             
                 $categorylist = array($array_owner,$array_driver,$array_booking_agent,$array_manufacturer);
              
