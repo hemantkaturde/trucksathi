@@ -1573,3 +1573,431 @@ INFO - 2025-06-17 21:10:50 --> File loaded: C:\xampp\htdocs\trucksathi\applicati
 INFO - 2025-06-17 21:10:50 --> File loaded: C:\xampp\htdocs\trucksathi\application\views\template.php
 INFO - 2025-06-17 21:10:50 --> Final output sent to browser
 DEBUG - 2025-06-17 21:10:50 --> Total execution time: 0.5374
+INFO - 2025-06-17 21:37:42 --> Config Class Initialized
+INFO - 2025-06-17 21:37:42 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:37:43 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:37:43 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:37:43 --> URI Class Initialized
+DEBUG - 2025-06-17 21:37:43 --> No URI present. Default controller set.
+INFO - 2025-06-17 21:37:43 --> Router Class Initialized
+INFO - 2025-06-17 21:37:43 --> Output Class Initialized
+INFO - 2025-06-17 21:37:43 --> Security Class Initialized
+DEBUG - 2025-06-17 21:37:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:37:43 --> Input Class Initialized
+INFO - 2025-06-17 21:37:43 --> Language Class Initialized
+INFO - 2025-06-17 21:37:43 --> Loader Class Initialized
+INFO - 2025-06-17 21:37:43 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:37:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:37:44 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:37:44 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:37:44 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:37:44 --> Controller Class Initialized
+INFO - 2025-06-17 21:37:44 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:37:44 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:37:44 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:37:44 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:37:44 --> Database Driver Class Initialized
+ERROR - 2025-06-17 21:37:52 --> Severity: Warning --> mysqli::real_connect(): Error while reading greeting packet. PID=10024 F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2025-06-17 21:37:52 --> Severity: error --> Exception: MySQL server has gone away F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\system\database\drivers\mysqli\mysqli_driver.php 203
+INFO - 2025-06-17 21:38:13 --> Config Class Initialized
+INFO - 2025-06-17 21:38:13 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:38:13 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:38:13 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:38:13 --> URI Class Initialized
+DEBUG - 2025-06-17 21:38:13 --> No URI present. Default controller set.
+INFO - 2025-06-17 21:38:13 --> Router Class Initialized
+INFO - 2025-06-17 21:38:13 --> Output Class Initialized
+INFO - 2025-06-17 21:38:13 --> Security Class Initialized
+DEBUG - 2025-06-17 21:38:13 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:38:13 --> Input Class Initialized
+INFO - 2025-06-17 21:38:13 --> Language Class Initialized
+INFO - 2025-06-17 21:38:13 --> Loader Class Initialized
+INFO - 2025-06-17 21:38:13 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:38:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:38:13 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:38:13 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:38:13 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:38:13 --> Controller Class Initialized
+INFO - 2025-06-17 21:38:13 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:38:13 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:38:13 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:38:13 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:38:13 --> Database Driver Class Initialized
+ERROR - 2025-06-17 21:38:17 --> Severity: error --> Exception: No connection could be made because the target machine actively refused it F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\system\database\drivers\mysqli\mysqli_driver.php 203
+INFO - 2025-06-17 21:44:22 --> Config Class Initialized
+INFO - 2025-06-17 21:44:22 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:23 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:23 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:23 --> URI Class Initialized
+INFO - 2025-06-17 21:44:23 --> Router Class Initialized
+INFO - 2025-06-17 21:44:23 --> Output Class Initialized
+INFO - 2025-06-17 21:44:23 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:23 --> Input Class Initialized
+INFO - 2025-06-17 21:44:23 --> Language Class Initialized
+INFO - 2025-06-17 21:44:23 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:24 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:24 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:24 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:24 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:24 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:24 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:24 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:24 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:24 --> Helper loaded: string_helper
+DEBUG - 2025-06-17 21:44:24 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:24 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:25 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "session_data" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php 5
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php 5
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Undefined array key "userroles" F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 95
+ERROR - 2025-06-17 21:44:27 --> Severity: Warning --> Trying to access array offset on value of type null F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\helpers\common_helper.php 96
+INFO - 2025-06-17 21:44:27 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:27 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\vehicle_availability.php
+INFO - 2025-06-17 21:44:27 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:27 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:27 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:27 --> Total execution time: 4.7206
+INFO - 2025-06-17 21:44:27 --> Config Class Initialized
+INFO - 2025-06-17 21:44:27 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:27 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:27 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:27 --> URI Class Initialized
+INFO - 2025-06-17 21:44:27 --> Router Class Initialized
+INFO - 2025-06-17 21:44:27 --> Output Class Initialized
+INFO - 2025-06-17 21:44:27 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:27 --> Input Class Initialized
+INFO - 2025-06-17 21:44:27 --> Language Class Initialized
+INFO - 2025-06-17 21:44:27 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:27 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:27 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:27 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:27 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:27 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:27 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:27 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:44:27 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:27 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:27 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:27 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\login.php
+INFO - 2025-06-17 21:44:27 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:27 --> Total execution time: 0.2476
+INFO - 2025-06-17 21:44:36 --> Config Class Initialized
+INFO - 2025-06-17 21:44:36 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:36 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:36 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:36 --> URI Class Initialized
+INFO - 2025-06-17 21:44:36 --> Router Class Initialized
+INFO - 2025-06-17 21:44:36 --> Output Class Initialized
+INFO - 2025-06-17 21:44:36 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:36 --> Input Class Initialized
+INFO - 2025-06-17 21:44:36 --> Language Class Initialized
+INFO - 2025-06-17 21:44:36 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:36 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:36 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:36 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:36 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:36 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:36 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:36 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:36 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:44:36 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:36 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:36 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:36 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 2025-06-17 21:44:36 --> Model "Login_model" initialized
+INFO - 2025-06-17 21:44:37 --> Config Class Initialized
+INFO - 2025-06-17 21:44:37 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:37 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:37 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:37 --> URI Class Initialized
+INFO - 2025-06-17 21:44:37 --> Router Class Initialized
+INFO - 2025-06-17 21:44:37 --> Output Class Initialized
+INFO - 2025-06-17 21:44:37 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:37 --> Input Class Initialized
+INFO - 2025-06-17 21:44:37 --> Language Class Initialized
+INFO - 2025-06-17 21:44:37 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:37 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:37 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:37 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:37 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:37 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:37 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:37 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:37 --> Helper loaded: url_helper
+DEBUG - 2025-06-17 21:44:37 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:37 --> Model "Dashboard_model" initialized
+INFO - 2025-06-17 21:44:37 --> Model "Geofence_model" initialized
+INFO - 2025-06-17 21:44:38 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:44:38 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:38 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\dashboard.php
+INFO - 2025-06-17 21:44:38 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:38 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:38 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:38 --> Total execution time: 1.0986
+INFO - 2025-06-17 21:44:40 --> Config Class Initialized
+INFO - 2025-06-17 21:44:40 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:40 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:40 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:40 --> URI Class Initialized
+INFO - 2025-06-17 21:44:40 --> Router Class Initialized
+INFO - 2025-06-17 21:44:40 --> Output Class Initialized
+INFO - 2025-06-17 21:44:40 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:40 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:40 --> Input Class Initialized
+INFO - 2025-06-17 21:44:40 --> Language Class Initialized
+INFO - 2025-06-17 21:44:40 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:40 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:40 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:40 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:40 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:40 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:40 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:40 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:40 --> Helper loaded: url_helper
+DEBUG - 2025-06-17 21:44:40 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:40 --> Model "Dashboard_model" initialized
+INFO - 2025-06-17 21:44:40 --> Model "Geofence_model" initialized
+INFO - 2025-06-17 21:44:40 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:44:40 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:40 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\dashboard.php
+INFO - 2025-06-17 21:44:40 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:40 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:40 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:40 --> Total execution time: 0.0598
+INFO - 2025-06-17 21:44:45 --> Config Class Initialized
+INFO - 2025-06-17 21:44:45 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:45 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:45 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:45 --> URI Class Initialized
+INFO - 2025-06-17 21:44:45 --> Router Class Initialized
+INFO - 2025-06-17 21:44:45 --> Output Class Initialized
+INFO - 2025-06-17 21:44:45 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:45 --> Input Class Initialized
+INFO - 2025-06-17 21:44:45 --> Language Class Initialized
+INFO - 2025-06-17 21:44:45 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:45 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:45 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:45 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:45 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:45 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:45 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:45 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:45 --> Model "User_model" initialized
+INFO - 2025-06-17 21:44:45 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:45 --> Helper loaded: string_helper
+DEBUG - 2025-06-17 21:44:45 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:45 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:45 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:44:45 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:45 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\user_management.php
+INFO - 2025-06-17 21:44:45 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:45 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:45 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:45 --> Total execution time: 0.3423
+INFO - 2025-06-17 21:44:47 --> Config Class Initialized
+INFO - 2025-06-17 21:44:47 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:47 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:47 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:47 --> URI Class Initialized
+INFO - 2025-06-17 21:44:47 --> Router Class Initialized
+INFO - 2025-06-17 21:44:47 --> Output Class Initialized
+INFO - 2025-06-17 21:44:47 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:47 --> Input Class Initialized
+INFO - 2025-06-17 21:44:47 --> Language Class Initialized
+INFO - 2025-06-17 21:44:47 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:47 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:47 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:47 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:47 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:47 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:47 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:47 --> Model "User_model" initialized
+INFO - 2025-06-17 21:44:47 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:47 --> Helper loaded: string_helper
+DEBUG - 2025-06-17 21:44:47 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:47 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:47 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:44:47 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:47 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\user_management.php
+INFO - 2025-06-17 21:44:47 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:47 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:47 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:47 --> Total execution time: 0.0439
+INFO - 2025-06-17 21:44:52 --> Config Class Initialized
+INFO - 2025-06-17 21:44:52 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:44:52 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:44:52 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:44:52 --> URI Class Initialized
+INFO - 2025-06-17 21:44:52 --> Router Class Initialized
+INFO - 2025-06-17 21:44:52 --> Output Class Initialized
+INFO - 2025-06-17 21:44:52 --> Security Class Initialized
+DEBUG - 2025-06-17 21:44:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:44:52 --> Input Class Initialized
+INFO - 2025-06-17 21:44:52 --> Language Class Initialized
+INFO - 2025-06-17 21:44:52 --> Loader Class Initialized
+INFO - 2025-06-17 21:44:52 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:44:52 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:44:52 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:44:52 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:44:52 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:44:52 --> Controller Class Initialized
+INFO - 2025-06-17 21:44:52 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:44:52 --> Model "User_model" initialized
+INFO - 2025-06-17 21:44:52 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:44:52 --> Helper loaded: string_helper
+DEBUG - 2025-06-17 21:44:52 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:44:52 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:44:52 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:44:52 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:44:52 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\user_add.php
+INFO - 2025-06-17 21:44:52 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:44:52 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:44:52 --> Final output sent to browser
+DEBUG - 2025-06-17 21:44:52 --> Total execution time: 0.6399
+INFO - 2025-06-17 21:45:07 --> Config Class Initialized
+INFO - 2025-06-17 21:45:07 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:45:07 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:45:07 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:45:07 --> URI Class Initialized
+INFO - 2025-06-17 21:45:07 --> Router Class Initialized
+INFO - 2025-06-17 21:45:07 --> Output Class Initialized
+INFO - 2025-06-17 21:45:07 --> Security Class Initialized
+DEBUG - 2025-06-17 21:45:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:45:07 --> Input Class Initialized
+INFO - 2025-06-17 21:45:07 --> Language Class Initialized
+INFO - 2025-06-17 21:45:07 --> Loader Class Initialized
+INFO - 2025-06-17 21:45:07 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:45:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:45:07 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:45:07 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:45:07 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:45:07 --> Controller Class Initialized
+INFO - 2025-06-17 21:45:07 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:45:07 --> Model "User_model" initialized
+INFO - 2025-06-17 21:45:07 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:45:07 --> Helper loaded: string_helper
+DEBUG - 2025-06-17 21:45:07 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:45:07 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:45:07 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:45:07 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:45:07 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\user_add.php
+INFO - 2025-06-17 21:45:07 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:45:07 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:45:07 --> Final output sent to browser
+DEBUG - 2025-06-17 21:45:07 --> Total execution time: 0.0549
+INFO - 2025-06-17 21:45:56 --> Config Class Initialized
+INFO - 2025-06-17 21:45:56 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:45:56 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:45:56 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:45:56 --> URI Class Initialized
+INFO - 2025-06-17 21:45:56 --> Router Class Initialized
+INFO - 2025-06-17 21:45:56 --> Output Class Initialized
+INFO - 2025-06-17 21:45:56 --> Security Class Initialized
+DEBUG - 2025-06-17 21:45:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:45:56 --> Input Class Initialized
+INFO - 2025-06-17 21:45:56 --> Language Class Initialized
+INFO - 2025-06-17 21:45:56 --> Loader Class Initialized
+INFO - 2025-06-17 21:45:56 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:45:56 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:45:56 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:45:56 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:45:56 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:45:56 --> Controller Class Initialized
+INFO - 2025-06-17 21:45:56 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:45:56 --> Helper loaded: url_helper
+DEBUG - 2025-06-17 21:45:56 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:45:56 --> Model "Dashboard_model" initialized
+INFO - 2025-06-17 21:45:56 --> Model "Geofence_model" initialized
+INFO - 2025-06-17 21:45:56 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:45:56 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:45:56 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\dashboard.php
+INFO - 2025-06-17 21:45:56 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:45:56 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:45:56 --> Final output sent to browser
+DEBUG - 2025-06-17 21:45:56 --> Total execution time: 0.0524
+INFO - 2025-06-17 21:45:59 --> Config Class Initialized
+INFO - 2025-06-17 21:45:59 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:45:59 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:45:59 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:45:59 --> URI Class Initialized
+INFO - 2025-06-17 21:45:59 --> Router Class Initialized
+INFO - 2025-06-17 21:45:59 --> Output Class Initialized
+INFO - 2025-06-17 21:45:59 --> Security Class Initialized
+DEBUG - 2025-06-17 21:45:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:45:59 --> Input Class Initialized
+INFO - 2025-06-17 21:45:59 --> Language Class Initialized
+INFO - 2025-06-17 21:45:59 --> Loader Class Initialized
+INFO - 2025-06-17 21:45:59 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:45:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:45:59 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:45:59 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:45:59 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:45:59 --> Controller Class Initialized
+INFO - 2025-06-17 21:45:59 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:45:59 --> Helper loaded: url_helper
+DEBUG - 2025-06-17 21:45:59 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:45:59 --> Model "Dashboard_model" initialized
+INFO - 2025-06-17 21:45:59 --> Model "Geofence_model" initialized
+INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\dashboard.php
+INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:45:59 --> Final output sent to browser
+DEBUG - 2025-06-17 21:45:59 --> Total execution time: 0.0527

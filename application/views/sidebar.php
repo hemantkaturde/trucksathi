@@ -15,6 +15,100 @@
                   </p>
                </a>
             </li>
+
+
+            <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('websitesetting_traccar'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('smtpconfig'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('email_template'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('edit_email_template'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('websitesetting');?><?php echo activate_menu('email_template');?><?php echo activate_menu('websitesetting_traccar');?> <?php echo activate_menu('smtpconfig');?><?php echo activate_menu('edit_email_template');?>">
+                  <i class="nav-icon fa fa-file"></i>
+                  <p>
+                     Masters
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('websitesetting');?>">
+                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <p>Device Master</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Category Master</p>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+
+             <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('websitesetting_traccar'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('smtpconfig'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('email_template'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('edit_email_template'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('websitesetting');?><?php echo activate_menu('email_template');?><?php echo activate_menu('websitesetting_traccar');?> <?php echo activate_menu('smtpconfig');?><?php echo activate_menu('edit_email_template');?>">
+                  <i class="nav-icon fa fa-file"></i>
+                  <p>
+                     App User's
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('websitesetting');?>">
+                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <p>Owner</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Driver</p>
+                     </a>
+                  </li>
+
+                   <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Manufacture</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Booking Agent</p>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+
+
+
+
+            <li class="nav-item has-treeview <?php echo ((activate_menu('users'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('adduser'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('edituser'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?><?php echo activate_menu('adduser');?>">
+                  <i class="nav-icon fa fa-user"></i>
+                  <p>
+                    System User's
+                     <i class="right fas fa-angle-left"></i>
+                  </p>
+               </a>
+               <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>users" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?>">
+                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <p>User Management</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>users/adduser" class="nav-link <?php echo activate_menu('adduser');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Add User</p>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+
+
+      
+
             <!-- <?php if(userpermission('lr_vech_availablity')) { ?>
             <li class="nav-item">
                <a href="<?= base_url(); ?>vehicleavailablity" class="nav-link <?php echo activate_menu('vehicleavailablity');?>">
