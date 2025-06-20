@@ -86,6 +86,82 @@
                         <div class="col-sm-12 col-md-12 table-responsive">
                             <table class="table no-border">
                                 <tr>
+                                    <td><label class="form-label">Device Master</label></td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['dm_list'])) { echo ($userdetails[0]['dm_list']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[dm_list]" class="custom-control-input"
+                                                id="dm_list">
+                                            <label class="custom-control-label" for="dm_list">All List</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['dm_list'])) { echo ($userdetails[0]['dm_edit']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[dm_edit]" class="custom-control-input"
+                                                id="dm_edit">
+                                            <label class="custom-control-label" for="dm_edit">Edit</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['dm_del'])) { echo ($userdetails[0]['dm_del']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[dm_del]" class="custom-control-input" id="dm_del">
+                                            <label class="custom-control-label" for="dm_del">Delete</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['dm_list'])) { echo ($userdetails[0]['dm_add']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[dm_add]" class="custom-control-input" id="dm_add">
+                                            <label class="custom-control-label" for="dm_add">Add New</label>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><label class="form-label">Category Master</label></td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['cm_list'])) { echo ($userdetails[0]['cm_list']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[cm_list]" class="custom-control-input"
+                                                id="cm_list">
+                                            <label class="custom-control-label" for="cm_list">All List</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['cm_list'])) { echo ($userdetails[0]['cm_edit']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[cm_edit]" class="custom-control-input"
+                                                id="cm_edit">
+                                            <label class="custom-control-label" for="cm_edit">Edit</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['cm_del'])) { echo ($userdetails[0]['cm_del']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[cm_del]" class="custom-control-input" id="cm_del">
+                                            <label class="custom-control-label" for="cm_del">Delete</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" value="1"
+                                                <?php if(isset($userdetails[0]['cm_list'])) { echo ($userdetails[0]['cm_add']==1 ? 'checked' : ''); } ?>
+                                                name="permissions[cm_add]" class="custom-control-input" id="cm_add">
+                                            <label class="custom-control-label" for="cm_add">Add New</label>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
                                     <td><label class="form-label">Vehicle</label></td>
                                     <td>
                                         <div class="custom-control custom-checkbox">

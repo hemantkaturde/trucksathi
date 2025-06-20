@@ -41,12 +41,16 @@ class Users extends CI_Controller {
 	{
 		$u_id = $this->uri->segment(3);
 		$data['userdetails'] = $this->user_model->get_userdetails($u_id);
+		// echo "<pre>";print_r($data['userdetails']); die;
+
 		$this->template->template_render('user_add',$data);
 	}
 
 	public function updateuser()
 	{
 		if(isset($_POST)){
+			// print_r($_POST); die;
+			
 			$response = $this->user_model->update_user($this->input->post());
 				if($response) {
 					$this->session->set_flashdata('successmessage', 'user updated successfully..');

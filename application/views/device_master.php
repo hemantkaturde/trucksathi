@@ -21,8 +21,8 @@
 <!-- Main content -->
 <section class="content">
    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body p-0">
+        <div class="row">
+            <div class="col-12 m-1">
                 <a href="<?php echo base_url().'device/addnew_device'; ?>"><button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add Device</button></a>
             </div>
         </div>

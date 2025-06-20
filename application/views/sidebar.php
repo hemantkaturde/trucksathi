@@ -17,8 +17,8 @@
             </li>
 
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('smtpconfig'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('email_template'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('category_add'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?= base_url().'category'; ?><?= base_url().'category_add'; ?>">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                      Masters
@@ -33,7 +33,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="" class="nav-link <?php echo activate_menu('masters');?>">
+                     <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('masters');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>Category Master</p>
                      </a>
