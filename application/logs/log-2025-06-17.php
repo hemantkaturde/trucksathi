@@ -2001,3 +2001,82 @@ INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technol
 INFO - 2025-06-17 21:45:59 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
 INFO - 2025-06-17 21:45:59 --> Final output sent to browser
 DEBUG - 2025-06-17 21:45:59 --> Total execution time: 0.0527
+INFO - 2025-06-17 21:47:08 --> Config Class Initialized
+INFO - 2025-06-17 21:47:08 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:47:08 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:47:08 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:47:08 --> URI Class Initialized
+INFO - 2025-06-17 21:47:08 --> Router Class Initialized
+INFO - 2025-06-17 21:47:08 --> Output Class Initialized
+INFO - 2025-06-17 21:47:08 --> Security Class Initialized
+DEBUG - 2025-06-17 21:47:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:47:08 --> Input Class Initialized
+INFO - 2025-06-17 21:47:08 --> Language Class Initialized
+INFO - 2025-06-17 21:47:08 --> Loader Class Initialized
+INFO - 2025-06-17 21:47:08 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:47:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:47:08 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:47:08 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:47:08 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:47:08 --> Controller Class Initialized
+INFO - 2025-06-17 21:47:08 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:47:08 --> Helper loaded: url_helper
+DEBUG - 2025-06-17 21:47:08 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:47:08 --> Model "Dashboard_model" initialized
+INFO - 2025-06-17 21:47:08 --> Model "Geofence_model" initialized
+INFO - 2025-06-17 21:47:08 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\header.php
+INFO - 2025-06-17 21:47:08 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\sidebar.php
+INFO - 2025-06-17 21:47:08 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\dashboard.php
+INFO - 2025-06-17 21:47:08 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\footer.php
+INFO - 2025-06-17 21:47:08 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\template.php
+INFO - 2025-06-17 21:47:08 --> Final output sent to browser
+DEBUG - 2025-06-17 21:47:08 --> Total execution time: 0.0505
+INFO - 2025-06-17 21:47:10 --> Config Class Initialized
+INFO - 2025-06-17 21:47:10 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:47:10 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:47:10 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:47:10 --> URI Class Initialized
+INFO - 2025-06-17 21:47:10 --> Router Class Initialized
+INFO - 2025-06-17 21:47:10 --> Output Class Initialized
+INFO - 2025-06-17 21:47:10 --> Security Class Initialized
+DEBUG - 2025-06-17 21:47:10 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:47:10 --> Input Class Initialized
+INFO - 2025-06-17 21:47:10 --> Language Class Initialized
+INFO - 2025-06-17 21:47:10 --> Loader Class Initialized
+INFO - 2025-06-17 21:47:10 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:47:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:47:10 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:47:10 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:47:10 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:47:10 --> Controller Class Initialized
+INFO - 2025-06-17 21:47:10 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:47:10 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:47:10 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:47:10 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:47:10 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:47:10 --> Config Class Initialized
+INFO - 2025-06-17 21:47:10 --> Hooks Class Initialized
+DEBUG - 2025-06-17 21:47:10 --> UTF-8 Support Enabled
+INFO - 2025-06-17 21:47:10 --> Utf8 Class Initialized
+INFO - 2025-06-17 21:47:10 --> URI Class Initialized
+INFO - 2025-06-17 21:47:10 --> Router Class Initialized
+INFO - 2025-06-17 21:47:10 --> Output Class Initialized
+INFO - 2025-06-17 21:47:10 --> Security Class Initialized
+DEBUG - 2025-06-17 21:47:10 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-17 21:47:10 --> Input Class Initialized
+INFO - 2025-06-17 21:47:10 --> Language Class Initialized
+INFO - 2025-06-17 21:47:10 --> Loader Class Initialized
+INFO - 2025-06-17 21:47:10 --> Helper loaded: common_helper
+DEBUG - 2025-06-17 21:47:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-06-17 21:47:10 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-17 21:47:10 --> Helper loaded: form_helper
+INFO - 2025-06-17 21:47:10 --> Form Validation Class Initialized
+INFO - 2025-06-17 21:47:10 --> Controller Class Initialized
+INFO - 2025-06-17 21:47:10 --> Helper loaded: url_helper
+INFO - 2025-06-17 21:47:10 --> Helper loaded: directory_helper
+DEBUG - 2025-06-17 21:47:10 --> Form_validation class already loaded. Second attempt ignored.
+DEBUG - 2025-06-17 21:47:10 --> Session class already loaded. Second attempt ignored.
+INFO - 2025-06-17 21:47:10 --> Database Driver Class Initialized
+INFO - 2025-06-17 21:47:10 --> File loaded: F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\views\login.php
+INFO - 2025-06-17 21:47:10 --> Final output sent to browser
+DEBUG - 2025-06-17 21:47:10 --> Total execution time: 0.0346
