@@ -16,6 +16,15 @@
                </a>
             </li>
 
+            <li class="nav-item">
+               <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?>">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                     App User's
+                  </p>
+               </a>
+            </li>
+
 
             <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('category_add'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?= base_url().'category'; ?><?= base_url().'category_add'; ?>">
