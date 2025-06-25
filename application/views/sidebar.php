@@ -16,16 +16,6 @@
                </a>
             </li>
 
-            <li class="nav-item">
-               <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?>">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                     App User's
-                  </p>
-               </a>
-            </li>
-
-
             <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('category_add'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?= base_url().'category'; ?><?= base_url().'category_add'; ?>">
                   <i class="nav-icon fa fa-file"></i>
@@ -49,47 +39,14 @@
                   </li>
                </ul>
             </li>
-
-             <li class="nav-item has-treeview <?php echo ((activate_menu('websitesetting'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('websitesetting_traccar'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('smtpconfig'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('email_template'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('edit_email_template'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('websitesetting');?><?php echo activate_menu('email_template');?><?php echo activate_menu('websitesetting_traccar');?> <?php echo activate_menu('smtpconfig');?><?php echo activate_menu('edit_email_template');?>">
-                  <i class="nav-icon fa fa-file"></i>
+            <li class="nav-item">
+               <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?>">
+                  <i class="nav-icon fas fa-users"></i>
                   <p>
                      App User's
-                     <i class="right fas fa-angle-left"></i>
                   </p>
                </a>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="" class="nav-link <?php echo activate_menu('websitesetting');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>Owner</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Driver</p>
-                     </a>
-                  </li>
-
-                   <li class="nav-item">
-                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Manufacture</p>
-                     </a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a href="" class="nav-link <?php echo activate_menu('smtpconfig');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Booking Agent</p>
-                     </a>
-                  </li>
-               </ul>
             </li>
-
-
-
 
             <li class="nav-item has-treeview <?php echo ((activate_menu('users'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('adduser'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('edituser'))=='active') ? 'menu-open':'' ?>">
                <a href="#" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?><?php echo activate_menu('adduser');?>">

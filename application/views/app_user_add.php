@@ -23,10 +23,12 @@
                     <?php if(isset($appuserdetails)) { ?>
                       <input type="hidden" name="id" id="id" value="<?php echo (isset($appuserdetails)) ? $appuserdetails[0]['id']:'' ?>" >
                     <?php } ?>
+
                     <div class="col-sm-12 offset-md-3 col-md-6">
                       <div class="form-group">
                           <label class="form-label">Name<span class="text-danger form-required">*</span></label>
                           <input type="text"  class="form-control" value="<?php echo (isset($appuserdetails)) ? $appuserdetails[0]['name']:'' ?>" id="name" name="name" placeholder="Enter Name">
+                          <input type="hidden" id="check_id" value="<?php echo (isset($appuserdetails)) ? $appuserdetails[0]['id']:0 ?>" >
                       </div>
                     </div>
                     <div class="col-sm-12 offset-md-3 col-md-6">
@@ -57,7 +59,7 @@
                       </div>
                     </div>
                     
-                    <div class="col-sm-12 offset-md-3 col-md-6">
+                    <!-- <div class="col-sm-12 offset-md-3 col-md-6">
                       <div class="form-group">
                           <label for="kyc_status" class="form-label">KYC Status</label>
                         <select id="kyc_status" name="kyc_status" class="form-control " required="">
@@ -66,7 +68,7 @@
                           <option <?php echo (isset($appuserdetails) && $appuserdetails[0]['kyc_status']==0) ? 'selected':'' ?> value="0">Inactive</option> 
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
   
       <div class="modal-footer">
@@ -81,6 +83,8 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
 <script>
     var baseURL = "<?php echo base_url(); ?>";
+    var id = $("#check_id").val();
+    console.log(id);
     $('#myform').validate({
         rules: {
             name:"required",
@@ -94,7 +98,7 @@
             type: "POST",             
             data: $(form).serialize(),
             success: function(data) {
-                // console.log(data);
+                console.log(data);
                 if(data == 1)
                 {
                     window.setTimeout(function(){window.location.href = baseURL+"app_users"; }, 2000);
@@ -103,6 +107,14 @@
                 {
                     window.setTimeout(function(){window.location.href = baseURL+"app_users"; }, 2000);
                     alertmessage('App User updated successfully',1);
+                }else if(data == 3)
+                {
+                    if(id == 0){
+                      window.setTimeout(function(){window.location.href = baseURL+"app_users/addnew_app_user"; }, 2000);
+                    }else{
+                      window.setTimeout(function(){window.location.href = baseURL+"app_users/editapp_users/"+id; }, 2000);
+                    }
+                    alertmessage('App User name already exist',2);
                 }else{
                     window.setTimeout(function(){window.location.href = baseURL+"app_users"; }, 2000);
                     alertmessage('Something went wrong',2);

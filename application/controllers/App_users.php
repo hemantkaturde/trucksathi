@@ -32,16 +32,25 @@ class App_users extends CI_Controller {
     public function insertApp_user(){
         $data = $this->input->post();
         if(isset($data['id'])){
-            $this->db->where('id',$data['id']);
-            // unset($_POST['id']);
-		    $response = $this->db->update('tbl_appuser_info',$data);
-            if($response==1){
-                echo 2;
+            $exist = $this->db->select('*')->from('tbl_appuser_info')->where('id !=',$this->input->post('id'))->where('name',$this->input->post('name'))->get()->num_rows();
+			if($exist == 0) {
+                $this->db->where('id',$data['id']);
+                $response = $this->db->update('tbl_appuser_info',$data);
+                if($response==1){
+                    echo 2;
+                }
+            }else{
+                echo 3;
             }
         }else{
-            $response = $this->db->insert('tbl_appuser_info',$data);
-            if($response==1){
-                echo 1;
+            $exist = $this->db->select('*')->from('tbl_appuser_info')->where('name',$this->input->post('name'))->get()->num_rows();
+            if($exist == 0) {
+                $response = $this->db->insert('tbl_appuser_info',$data);
+                if($response==1){
+                    echo 1;
+                }
+            }else{
+                echo 3;
             }
         }
         
