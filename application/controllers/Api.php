@@ -343,6 +343,60 @@ class Api extends REST_Controller {
 			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
+          
+
+
+                      $data = array(
+                        //   'userinfoid'=> $this->input->post('userinfoid'),
+                        //   'userid'=>$this->input->post('userid'),
+                        //   'category_id'=>$this->input->post('category_id'),
+                          'aadhar_card'=> $aadhar_card,
+                          'pan_card'=>$pan_card,
+                          'licence'=>$licence,
+                          'gst'=>$gst,
+                          'rc_book'=>$rc_book,
+                          'user_photo'=>$user_photo,
+                          'kyc_status'=>1
+                        );
+
+            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userinfoid'),$data);
+
+             if($submitdetails){
+                $status = 'Success';
+                $message = 'KYC Submitted';
+			    $data = array('userinfoid'=>$this->input->post('userinfoid'),'userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+             }else{
+                $status = 'Failure';
+                $message = 'Failure data not Submitted';
+			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+             }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+            setContentLength($responseData);
+        }
+    }
+
+    public function submitkyc_document_post(){
+
+        $post_submit = $this->input->post();
+
+        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
+        // $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
+        // $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
+        // $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
+        // $this->form_validation->set_rules('gst', 'GST', 'trim|required');
+        // $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
+        // $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
+    
+        if ($this->form_validation->run() == FALSE)
+		{
+            $status = 'Failure';
+			$message = 'Validation error';
+			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+        }else{
+
                 if(!empty($_FILES['aadhar_card']['name'])){
 
                     $file = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
@@ -523,7 +577,6 @@ class Api extends REST_Controller {
         }
     }
 
-    
 
 
 }
