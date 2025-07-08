@@ -210,8 +210,10 @@ class Api extends REST_Controller {
                     $check_basic_details = $this->api_model->check_if_basic_details_are_filled_or_not($userid);
                     if($check_basic_details){
                         $userinfo = $check_basic_details;
+                        $userExits = 'YES';
                     }else{
                         $userinfo = array();
+                        $userExits = 'NO';
                     }
 
                     $check_kyc_details = $this->api_model->check_if_kyc_details_are_filled_or_not($userid);
@@ -223,7 +225,7 @@ class Api extends REST_Controller {
             
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'kyc_info'=>$kyc_info);
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'kyc_info'=>$kyc_info,'userExits'=>$userExits);
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
@@ -520,6 +522,8 @@ class Api extends REST_Controller {
             setContentLength($responseData);
         }
     }
+
+    
 
 
 }
