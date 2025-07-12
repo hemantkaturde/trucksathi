@@ -49,9 +49,9 @@ class Api_model extends CI_Model{
         }
 	}
 
-	public function check_if_basic_details_are_filled_or_not($userid){
+	public function check_if_basic_details_are_filled_or_not($mobile_number){
         $this->db->select('*');
-		$this->db->where('app_user_id', $userid);
+		$this->db->where('mobile', $mobile_number);
         $query = $this->db->get("tbl_appuser_info");
 		if ($query->num_rows() >= 1) {
 			return $query->result_array();
