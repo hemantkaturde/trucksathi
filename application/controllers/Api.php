@@ -216,8 +216,6 @@ class Api extends REST_Controller {
                         $userinfo = array();
                     }
 
-
-
                     $check_Inputfiled_details = $this->api_model->check_KYC_filled_or_not($mobile_number);
 
                     if($check_Inputfiled_details){
@@ -228,7 +226,6 @@ class Api extends REST_Controller {
                         $KYC_Input = 'NO';
                     }
 
-
                     $check_kyc_details = $this->api_model->check_KYC_Doc_filled_or_not($mobile_number);
                     if($check_kyc_details){
                         $kyc_doucment_info = $check_kyc_details;
@@ -237,7 +234,6 @@ class Api extends REST_Controller {
                         $kyc_doucment_info = array();
                         $KYC_document_Input = 'NO';
                     }
-
 
                     $status = 'Success';
                     $message = 'OTP verified';
@@ -370,6 +366,7 @@ class Api extends REST_Controller {
                           'state'=>$this->input->post('state'),
                           'pincode'=>$this->input->post('pincode'),
                           'company_name'=>$this->input->post('company_name'),
+                          'kyc_details_status'=>1
                         );
 
             $submitdetails = $this->api_model->submitbasicdetails('',$data);
@@ -377,11 +374,11 @@ class Api extends REST_Controller {
              if($submitdetails){
                 $status = 'Success';
                 $message = 'KYC Submitted';
-			    $data = array('userinfoid'=>$this->input->post('userinfoid'),'userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+			    $data = array('app_user_id'=> $this->input->post('userinfoid'), 'userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=> $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'), 'state'=>$this->input->post('state'), 'pincode'=>$this->input->post('pincode'),'company_name'=>$this->input->post('company_name'),'kyc_details_status'=>1);
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name'=>strip_tags(form_error('name')),'mobile'=>strip_tags(form_error('mobile')),'email'=>strip_tags(form_error('email')),'address'=>strip_tags(form_error('address')),'city'=>strip_tags(form_error('city')),'state'=>strip_tags(form_error('state')),'pincode'=>strip_tags(form_error('pincode')),'company_name'=>strip_tags(form_error('company_name')));
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
