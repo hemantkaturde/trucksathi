@@ -48,9 +48,10 @@ class Api_model extends CI_Model{
             }
         }
 	}
+ 
 
-	public function check_if_basic_details_are_filled_or_not($mobile_number){
-        $this->db->select('*');
+	public function check_user_exits_or_not($mobile_number){
+        $this->db->select('id,app_user_id,category_id,name,mobile');
 		$this->db->where('mobile', $mobile_number);
         $query = $this->db->get("tbl_appuser_info");
 		if ($query->num_rows() >= 1) {
@@ -59,10 +60,20 @@ class Api_model extends CI_Model{
 	}
 
 
-	public function check_if_kyc_details_are_filled_or_not($userid){
+	public function check_KYC_filled_or_not($mobile_number){
         $this->db->select('*');
-		$this->db->where('kyc_status', 1);
-		$this->db->where('app_user_id', $userid);
+		$this->db->where('mobile', $mobile_number);
+		$this->db->where('kyc_details_status', 1);
+        $query = $this->db->get("tbl_appuser_info");
+		if ($query->num_rows() >= 1) {
+			return $query->result_array();
+		} 
+	}
+
+	public function check_KYC_Doc_filled_or_not($mobile_number){
+        $this->db->select('*');
+		$this->db->where('kyc_doc_status', 1);
+		$this->db->where('mobile', $mobile_number);
         $query = $this->db->get("tbl_appuser_info");
 		if ($query->num_rows() >= 1) {
 			return $query->result_array();

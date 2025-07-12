@@ -267,3 +267,183 @@ DEBUG - 2025-07-12 19:20:03 --> Form_validation class already loaded. Second att
 INFO - 2025-07-12 19:20:03 --> Language file loaded: language/english/form_validation_lang.php
 ERROR - 2025-07-12 19:20:03 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 221
 ERROR - 2025-07-12 19:20:03 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 230
+INFO - 2025-07-12 19:26:23 --> Config Class Initialized
+INFO - 2025-07-12 19:26:23 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:26:23 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:26:23 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:26:23 --> URI Class Initialized
+INFO - 2025-07-12 19:26:23 --> Router Class Initialized
+INFO - 2025-07-12 19:26:23 --> Output Class Initialized
+INFO - 2025-07-12 19:26:23 --> Security Class Initialized
+DEBUG - 2025-07-12 19:26:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:26:23 --> Input Class Initialized
+INFO - 2025-07-12 19:26:23 --> Language Class Initialized
+INFO - 2025-07-12 19:26:23 --> Loader Class Initialized
+INFO - 2025-07-12 19:26:23 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:26:23 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:26:23 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:26:23 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:26:23 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:26:23 --> Controller Class Initialized
+INFO - 2025-07-12 19:26:23 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:26:23 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:26:23 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:26:23 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:26:23 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:26:23 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:26:23 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 230
+INFO - 2025-07-12 19:32:55 --> Config Class Initialized
+INFO - 2025-07-12 19:32:55 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:32:55 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:32:55 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:32:55 --> URI Class Initialized
+INFO - 2025-07-12 19:32:55 --> Router Class Initialized
+INFO - 2025-07-12 19:32:55 --> Output Class Initialized
+INFO - 2025-07-12 19:32:55 --> Security Class Initialized
+DEBUG - 2025-07-12 19:32:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:32:55 --> Input Class Initialized
+INFO - 2025-07-12 19:32:55 --> Language Class Initialized
+INFO - 2025-07-12 19:32:55 --> Loader Class Initialized
+INFO - 2025-07-12 19:32:55 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:32:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:32:55 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:32:55 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:32:55 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:32:55 --> Controller Class Initialized
+INFO - 2025-07-12 19:32:55 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:32:55 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:32:55 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:32:55 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:32:55 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:32:55 --> Language file loaded: language/english/form_validation_lang.php
+INFO - 2025-07-12 19:32:55 --> Final output sent to browser
+DEBUG - 2025-07-12 19:32:55 --> Total execution time: 0.1429
+INFO - 2025-07-12 19:33:21 --> Config Class Initialized
+INFO - 2025-07-12 19:33:21 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:33:21 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:33:21 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:33:21 --> URI Class Initialized
+INFO - 2025-07-12 19:33:21 --> Router Class Initialized
+INFO - 2025-07-12 19:33:21 --> Output Class Initialized
+INFO - 2025-07-12 19:33:21 --> Security Class Initialized
+DEBUG - 2025-07-12 19:33:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:33:21 --> Input Class Initialized
+INFO - 2025-07-12 19:33:21 --> Language Class Initialized
+INFO - 2025-07-12 19:33:21 --> Loader Class Initialized
+INFO - 2025-07-12 19:33:21 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:33:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:33:21 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:33:21 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:33:21 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:33:21 --> Controller Class Initialized
+INFO - 2025-07-12 19:33:21 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:33:21 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:33:21 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:33:21 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:33:21 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:33:21 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:33:21 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 229
+INFO - 2025-07-12 19:38:32 --> Config Class Initialized
+INFO - 2025-07-12 19:38:32 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:38:32 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:38:32 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:38:32 --> URI Class Initialized
+INFO - 2025-07-12 19:38:32 --> Router Class Initialized
+INFO - 2025-07-12 19:38:32 --> Output Class Initialized
+INFO - 2025-07-12 19:38:32 --> Security Class Initialized
+DEBUG - 2025-07-12 19:38:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:38:32 --> Input Class Initialized
+INFO - 2025-07-12 19:38:32 --> Language Class Initialized
+INFO - 2025-07-12 19:38:32 --> Loader Class Initialized
+INFO - 2025-07-12 19:38:32 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:38:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:38:32 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:38:32 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:38:32 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:38:32 --> Controller Class Initialized
+INFO - 2025-07-12 19:38:32 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:38:32 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:38:32 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:38:32 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:38:32 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:38:32 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:38:32 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+ERROR - 2025-07-12 19:38:32 --> Severity: Warning --> Array to string conversion F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+ERROR - 2025-07-12 19:38:32 --> Severity: Warning --> Undefined variable $Array F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+INFO - 2025-07-12 19:39:31 --> Config Class Initialized
+INFO - 2025-07-12 19:39:31 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:39:31 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:39:31 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:39:31 --> URI Class Initialized
+INFO - 2025-07-12 19:39:31 --> Router Class Initialized
+INFO - 2025-07-12 19:39:31 --> Output Class Initialized
+INFO - 2025-07-12 19:39:31 --> Security Class Initialized
+DEBUG - 2025-07-12 19:39:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:39:31 --> Input Class Initialized
+INFO - 2025-07-12 19:39:31 --> Language Class Initialized
+INFO - 2025-07-12 19:39:31 --> Loader Class Initialized
+INFO - 2025-07-12 19:39:31 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:39:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:39:31 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:39:31 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:39:31 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:39:31 --> Controller Class Initialized
+INFO - 2025-07-12 19:39:31 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:39:31 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:39:31 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:39:31 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:39:31 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:39:31 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:39:31 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+ERROR - 2025-07-12 19:39:31 --> Severity: Warning --> Array to string conversion F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+ERROR - 2025-07-12 19:39:31 --> Severity: Warning --> Undefined variable $Array F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+INFO - 2025-07-12 19:39:56 --> Config Class Initialized
+INFO - 2025-07-12 19:39:56 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:39:56 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:39:56 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:39:56 --> URI Class Initialized
+INFO - 2025-07-12 19:39:56 --> Router Class Initialized
+INFO - 2025-07-12 19:39:56 --> Output Class Initialized
+INFO - 2025-07-12 19:39:56 --> Security Class Initialized
+DEBUG - 2025-07-12 19:39:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:39:56 --> Input Class Initialized
+INFO - 2025-07-12 19:39:56 --> Language Class Initialized
+INFO - 2025-07-12 19:39:56 --> Loader Class Initialized
+INFO - 2025-07-12 19:39:56 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:39:56 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:39:56 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:39:56 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:39:56 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:39:56 --> Controller Class Initialized
+INFO - 2025-07-12 19:39:56 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:39:56 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:39:56 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:39:56 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:39:56 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:39:56 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:39:56 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 241
+INFO - 2025-07-12 19:42:04 --> Config Class Initialized
+INFO - 2025-07-12 19:42:04 --> Hooks Class Initialized
+DEBUG - 2025-07-12 19:42:04 --> UTF-8 Support Enabled
+INFO - 2025-07-12 19:42:04 --> Utf8 Class Initialized
+INFO - 2025-07-12 19:42:04 --> URI Class Initialized
+INFO - 2025-07-12 19:42:04 --> Router Class Initialized
+INFO - 2025-07-12 19:42:04 --> Output Class Initialized
+INFO - 2025-07-12 19:42:04 --> Security Class Initialized
+DEBUG - 2025-07-12 19:42:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-12 19:42:04 --> Input Class Initialized
+INFO - 2025-07-12 19:42:04 --> Language Class Initialized
+INFO - 2025-07-12 19:42:04 --> Loader Class Initialized
+INFO - 2025-07-12 19:42:04 --> Helper loaded: common_helper
+DEBUG - 2025-07-12 19:42:04 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-12 19:42:04 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-12 19:42:04 --> Helper loaded: form_helper
+INFO - 2025-07-12 19:42:04 --> Form Validation Class Initialized
+INFO - 2025-07-12 19:42:04 --> Controller Class Initialized
+INFO - 2025-07-12 19:42:04 --> Language file loaded: language/english/rest_controller_lang.php
+INFO - 2025-07-12 19:42:04 --> Database Driver Class Initialized
+INFO - 2025-07-12 19:42:04 --> Model "Api_model" initialized
+INFO - 2025-07-12 19:42:04 --> Model "Geofence_model" initialized
+DEBUG - 2025-07-12 19:42:04 --> Form_validation class already loaded. Second attempt ignored.
+INFO - 2025-07-12 19:42:04 --> Language file loaded: language/english/form_validation_lang.php
+ERROR - 2025-07-12 19:42:04 --> Severity: Warning --> Undefined variable $userid F:\xampp_8.2\htdocs\qelocity_technologies\trucksathi\application\controllers\Api.php 245

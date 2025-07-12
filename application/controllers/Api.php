@@ -207,27 +207,41 @@ class Api extends REST_Controller {
 
                     $mobile_number =  $verify_otp[0]['mobile_number'];
                     /* Check if Basic Details are Filled or not */
-                    $check_basic_details = $this->api_model->check_if_basic_details_are_filled_or_not($mobile_number);
-
-
+                    $check_basic_details = $this->api_model->check_user_exits_or_not($mobile_number);
                     if($check_basic_details){
                         $userinfo = $check_basic_details;
                         $userExits = 'YES';
                     }else{
-                        $userinfo = array();
                         $userExits = 'NO';
+                        $userinfo = array();
                     }
 
-                    $check_kyc_details = $this->api_model->check_if_kyc_details_are_filled_or_not($userid);
-                    if($check_kyc_details){
-                        $kyc_info = $check_kyc_details;
+
+
+                    $check_Inputfiled_details = $this->api_model->check_KYC_filled_or_not($mobile_number);
+
+                    if($check_Inputfiled_details){
+                        $KYC_Details_info = $check_Inputfiled_details;
+                        $KYC_Input = 'YES';
                     }else{
-                        $kyc_info = array();
+                        $KYC_Details_info = array();
+                        $KYC_Input = 'NO';
                     }
-            
+
+
+                    $check_kyc_details = $this->api_model->check_KYC_Doc_filled_or_not($mobile_number);
+                    if($check_kyc_details){
+                        $kyc_doucment_info = $check_kyc_details;
+                        $KYC_document_Input = 'YES';
+                    }else{
+                        $kyc_doucment_info = array();
+                        $KYC_document_Input = 'NO';
+                    }
+
+
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'kyc_info'=>$kyc_info,'userExits'=>$userExits);
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'KYC_details_status'=>$KYC_Input,'KYC_details_info'=>$KYC_Details_info,'KYC_document_status'=>$KYC_document_Input,'KYC_document_info'=>$kyc_doucment_info,'userExits'=>$userExits);
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
