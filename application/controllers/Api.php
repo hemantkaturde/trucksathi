@@ -150,7 +150,6 @@ class Api extends REST_Controller {
         }
     }
 
-
     public function sendotp_post(){
      
         $post_submit = $this->input->post();
@@ -184,7 +183,6 @@ class Api extends REST_Controller {
         $responseData = array('status' => $status,'message'=> $message,'data' => $data);
 		setContentLength($responseData);
     }
-
 
     public function verifyotp_post(){
 
@@ -253,7 +251,6 @@ class Api extends REST_Controller {
         $responseData = array('status' => $status,'message'=> $message,'data' => $data);
 		setContentLength($responseData);
     }
-
 
     public function getcategory_post(){
 
@@ -393,12 +390,12 @@ class Api extends REST_Controller {
         $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
-        // $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
-        // $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
-        // $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
-        // $this->form_validation->set_rules('gst', 'GST', 'trim|required');
-        // $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
-        // $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
+        $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
+        $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
+        $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
+        $this->form_validation->set_rules('gst', 'GST', 'trim|required');
+        $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
+        $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
     
         if ($this->form_validation->run() == FALSE)
 		{
@@ -554,9 +551,6 @@ class Api extends REST_Controller {
                 }else{
                     $user_photo = trim($this->input->post('existing_img'));
                 }
-
-
-
 
                       $data = array(
                         //   'userinfoid'=> $this->input->post('userinfoid'),
