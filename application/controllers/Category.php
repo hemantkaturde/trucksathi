@@ -16,7 +16,8 @@ class Category extends CI_Controller {
 	public function index()
 	{
 		$data['categorylist'] = $this->category_model->getall_category();
-		$this->template->template_render('category_master',$data);
+		$globle['pagetitle'] = 'Category List';
+		$this->template->template_render('category_master',$data,$globle);
 	}
 
     public function addnew_category(){

@@ -48,32 +48,7 @@
                </a>
             </li>
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('users'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('adduser'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('edituser'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?><?php echo activate_menu('adduser');?>">
-                  <i class="nav-icon fa fa-user"></i>
-                  <p>
-                    System User's
-                     <i class="right fas fa-angle-left"></i>
-                  </p>
-               </a>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>users" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>User Management</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>users/adduser" class="nav-link <?php echo activate_menu('adduser');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Add User</p>
-                     </a>
-                  </li>
-               </ul>
-            </li>
-
-
-      
+           
 
             <!-- <?php if(userpermission('lr_vech_availablity')) { ?>
             <li class="nav-item">

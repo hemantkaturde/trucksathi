@@ -71,6 +71,8 @@
 <?php 
    if($seg=='vehicleavailablity') { ?>
 <script src="<?php echo base_url(); ?>assets/plugins/fullcalendar/fullcalendar.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/fullcalendar/custom_datatable.js"></script>
+
 <?php } ?>
 <script>
    $('#file').change(function(){
