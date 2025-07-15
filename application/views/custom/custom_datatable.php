@@ -26,7 +26,7 @@
 	            "bProcessing": true,
 	            "serverSide": true,
 	            "ajax":{
-                    url :"<?php echo base_url();?>fetchSupplierpolist",
+                    url :"<?php echo base_url();?>fetchCategorylist",
                     type: "post",
 	            },
 	        });

@@ -63,5 +63,55 @@ class Category_model extends CI_Model{
 		return $this->db->update('tbl_category_master',$this->input->post());
 	}
 
+
+
+	public function getCategoryCount($params){
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+            $this->db->where("(tbl_category_master.po_number LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.date LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.quatation_ref_no LIKE '%".$params['search']['value']."%')");
+        }
+        $query = $this->db->get('tbl_category_master');
+        $rowcount = $query->num_rows();
+        return $rowcount;
+
+	}
+
+
+	public function getCategorydata($params){
+
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+            $this->db->where("(tbl_category_master.po_number LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.date LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.quatation_ref_no LIKE '%".$params['search']['value']."%')");
+        }
+        $query = $this->db->get('tbl_category_master');
+        $fetch_result = $query->result_array();
+
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+                $data[$counter]['po_number'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/category/'.ucwords($value['category_icon']).'>";
+                $data[$counter]['date'] = $value['supdate'];
+                $data[$counter]['quatation_date'] = $quatation_date;
+                $data[$counter]['action'] = '';
+              
+                $counter++; 
+            }
+        }
+
+        return $data;
+        
+		
+	}
+
+
 	
 } 

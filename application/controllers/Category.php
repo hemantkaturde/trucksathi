@@ -20,6 +20,35 @@ class Category extends CI_Controller {
 		$this->template->template_render('category_master',$data,$globle);
 	}
 
+
+	public function fetchCategorylist()
+	{
+		$params = $_REQUEST;
+        $totalRecords = $this->category_model->getCategoryCount($params); 
+        $queryRecords = $this->category_model->getCategorydata($params); 
+
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
+	}
+
+
+
+
     public function addnew_category(){
         $this->template->template_render('category_add');
     }
