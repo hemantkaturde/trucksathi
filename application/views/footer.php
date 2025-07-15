@@ -148,3 +148,6 @@
 </script>
 </body>
 </html>
+<?php
+include 'custom/custom_datatable.php';
+?>
