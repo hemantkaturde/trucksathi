@@ -11,10 +11,12 @@ class Category extends CI_Controller {
           $this->load->helper(array('form', 'url','string'));
           $this->load->library('form_validation');
           $this->load->library('session');
+		  
      }
 
 	public function index()
 	{
+		
 		$data['categorylist'] = $this->category_model->getall_category();
 		$globle['pagetitle'] = 'Category List';
 		$this->template->template_render('category_master',$data,$globle);

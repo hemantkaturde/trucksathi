@@ -23,7 +23,6 @@ class Template {
             $this->template['header']  = $this->CI->load->view('header', $data, TRUE);
             $this->template['sidebar']  = $this->CI->load->view('sidebar', $data, TRUE);
             $this->template['content'] = $this->CI->load->view($content, $data, TRUE);
-            // $this->template['custom_datatable']  = $this->CI->load->view('custom_datatable', $data, TRUE);
             $this->template['footer']  = $this->CI->load->view('footer', $data, TRUE);
             return $this->CI->load->view('template', $this->template);
         }

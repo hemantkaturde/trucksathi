@@ -64,14 +64,14 @@ class Category_model extends CI_Model{
 	}
 
 
-
 	public function getCategoryCount($params){
+		
 		$this->db->select('*');
         if($params['search']['value'] != "") 
         {
-            $this->db->where("(tbl_category_master.po_number LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_category_master.date LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_category_master.quatation_ref_no LIKE '%".$params['search']['value']."%')");
+            $this->db->where("(tbl_category_master.category_head LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.category_subhead LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.created_date LIKE '%".$params['search']['value']."%')");
         }
         $query = $this->db->get('tbl_category_master');
         $rowcount = $query->num_rows();
@@ -85,9 +85,9 @@ class Category_model extends CI_Model{
 		$this->db->select('*');
         if($params['search']['value'] != "") 
         {
-            $this->db->where("(tbl_category_master.po_number LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_category_master.date LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_category_master.quatation_ref_no LIKE '%".$params['search']['value']."%')");
+            $this->db->where("(tbl_category_master.category_head LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.category_subhead LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_category_master.created_date LIKE '%".$params['search']['value']."%')");
         }
         $query = $this->db->get('tbl_category_master');
         $fetch_result = $query->result_array();
@@ -98,10 +98,20 @@ class Category_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-                $data[$counter]['po_number'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/category/'.ucwords($value['category_icon']).'>";
-                $data[$counter]['date'] = $value['supdate'];
-                $data[$counter]['quatation_date'] = $quatation_date;
-                $data[$counter]['action'] = '';
+				$data[$counter]['id'] = $counter+1;
+                $data[$counter]['category_icon'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/category/'.ucwords($value['category_icon'])."'>'.";
+				$data[$counter]['category_head'] = $value['category_head'];
+                $data[$counter]['category_subhead'] = $value['category_subhead'];
+				// $data[$counter]['status'] = "<span class='badge badge-success'>".($value['status']=='1') ? 'Active' : 'Inactive'."</span>";
+				if($value['status']=='1'){
+					$data[$counter]['status'] = "<span class='badge badge-success'>Active</span>";
+				}else{
+					$data[$counter]['status'] = "<span class='badge badge-danger'>Inactive</span>";
+				}
+				
+                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'category/editcategory/'.output($value['cat_id']).'"><i class="fa fa-edit"></i></a>
+				<a data-toggle="modal" href="" onclick="confirmation('.base_url()."category/deletecategory".'","'.output($value['cat_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				';
               
                 $counter++; 
             }

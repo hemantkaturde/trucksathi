@@ -29,7 +29,7 @@
       <div class="card">
          <div class="card-body p-0">
             <div class="table-responsive">
-               <table class="table card-table table-vcenter text-nowrap">
+               <table id="view_category" class="table card-table table-vcenter text-nowrap">
                   <thead>
                      <tr>
                         <th class="w-1">S.No</th>
@@ -37,37 +37,12 @@
                         <th>Category Head</th>
                         <th>Category Subhead</th>
                         <th>Status</th>
-                        <?php if(userpermission('cm_edit') || userpermission('cm_del')) { ?>
+                        <?php //if(userpermission('cm_edit') || userpermission('cm_del')) { ?>
                         <th>Action</th>
-                        <?php } ?>
+                        <?php //} ?>
                      </tr>
                   </thead>
                   <tbody>
-                  
-                  <?php if(!empty($categorylist)){  $count=1;
-                        foreach($categorylist as $categorylist){
-                        ?>
-                     <tr>
-                        <td> <?php echo output($count); $count++; ?></td>
-                        <td><?php if($categorylist['category_icon']!='') { ?>
-                           <img class="img-fluid" style="width: 30px;" src="<?= base_url(); ?>uploads/category/<?= ucwords($categorylist['category_icon']); ?>">
-                        <?php } ?></td>
-                        <td> <?php echo output($categorylist['category_head']); ?></td>
-                        <td> <?php echo output($categorylist['category_subhead']); ?></td>
-                        <td>  <span class="badge <?php echo ($categorylist['status']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($categorylist['status']=='1') ? 'Active' : 'Inactive'; ?></span>  </td>
-                        <td>
-                           <?php //if(userpermission('cm_edit')) { ?>
-                           <a class="icon" href="<?php echo base_url(); ?>category/editcategory/<?php echo output($categorylist['cat_id']); ?>">
-                           <i class="fa fa-edit"></i>
-                           </a>
-                           <?php  //} 
-                           //if(userpermission('cm_del')) { ?> |
-                              <a data-toggle="modal" href="" onclick="confirmation('<?php echo base_url(); ?>category/deletecategory','<?= output($categorylist['cat_id']); ?>')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
-                           </a> 
-                           <?php //} ?>
-                        </td>
-                     </tr>    
-                     <?php }  } ?>
                   </tbody>
                </table>
               
@@ -78,3 +53,27 @@
    </div>
 </section>
 <!-- /.content -->
+ <!-- <script type="text/javascript">
+        $(document).ready(function() {
+            var dt = $('#view_category1').DataTable({
+	            "columnDefs": [ 
+	                 { className: "details-control", "targets": [ 0 ] },
+	                 
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>No Category List Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 5,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>category/fetchCategorylist",
+                    type: "post",
+	            },
+	        });
+	    });
+    </script> -->

@@ -62,5 +62,65 @@ class Device_model extends CI_Model{
 		return $this->db->update('tbl_device_master',$this->input->post());
 	}
 
-	
+	public function getDeviceCount($params){
+		
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+            $this->db->where("(tbl_device_master.device_name LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_device_master.model_number LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_device_master.serial_number  LIKE '%".$params['search']['value']."%')");
+			$this->db->or_where("tbl_device_master.price  LIKE '%".$params['search']['value']."%')");
+			$this->db->or_where("tbl_device_master.description  LIKE '%".$params['search']['value']."%')");
+        }
+        $query = $this->db->get('tbl_device_master');
+        $rowcount = $query->num_rows();
+        return $rowcount;
+	}
+
+	public function getDevicedata($params){
+
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+            $this->db->where("(tbl_device_master.device_name LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_device_master.model_number LIKE '%".$params['search']['value']."%'");
+            $this->db->or_where("tbl_device_master.serial_number  LIKE '%".$params['search']['value']."%')");
+			$this->db->or_where("tbl_device_master.price  LIKE '%".$params['search']['value']."%')");
+			$this->db->or_where("tbl_device_master.description  LIKE '%".$params['search']['value']."%')");
+        }
+        $query = $this->db->get('tbl_device_master');
+        $fetch_result = $query->result_array();
+
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['id'] = $counter+1;
+                $data[$counter]['device_image'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/device_image/'.ucwords($value['device_image'])."'>'.";
+				$data[$counter]['device_name'] = $value['device_name'];
+                $data[$counter]['model_number'] = $value['model_number'];
+				$data[$counter]['serial_number'] = $value['serial_number'];
+				$data[$counter]['price'] = $value['price'];
+				$data[$counter]['description'] = $value['description'];
+				if($value['status']=='1'){
+					$data[$counter]['status'] = "<span class='badge badge-success'>Active</span>";
+				}else{
+					$data[$counter]['status'] = "<span class='badge badge-danger'>Inactive</span>";
+				}
+				
+                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/editdevice/'.output($value['id']).'"><i class="fa fa-edit"></i></a>
+				<a data-toggle="modal" href="" onclick="confirmation('.base_url()."device/deletedevice".'","'.output($value['id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				';
+              
+                $counter++; 
+            }
+        }
+
+        return $data;
+        
+		
+	}
 } 

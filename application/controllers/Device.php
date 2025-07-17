@@ -19,6 +19,30 @@ class Device extends CI_Controller {
 		$this->template->template_render('device_master',$data);
 	}
 
+	public function fetchDevicelist(){
+		$params = $_REQUEST;
+        $totalRecords = $this->device_model->getDeviceCount($params); 
+        $queryRecords = $this->device_model->getDevicedata($params); 
+
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
+	}
+
     public function addnew_device(){
         $this->template->template_render('device_add');
     }
