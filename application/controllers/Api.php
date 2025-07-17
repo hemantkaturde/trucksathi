@@ -583,7 +583,6 @@ class Api extends REST_Controller {
     }
 
     public function switch_account_post(){
-
         $post_submit = $this->input->post();
         $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
@@ -604,7 +603,7 @@ class Api extends REST_Controller {
 
              if($submitdetails){
                 $status = 'Success';
-                $message = 'Data Submitted';
+                $message = 'Account switch Succussfully';
                 $data = array('userinfoid' => $this->input->post('userinfoid'),'userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'ex_category_id'=>$this->input->post('ex_category_id'));
              }else{
                 $status = 'Failure';
