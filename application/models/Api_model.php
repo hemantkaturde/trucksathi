@@ -81,5 +81,17 @@ class Api_model extends CI_Model{
 	}
 
 
+	public function switch_account($userinfoid,$userid,$data){
+
+		    $this->db->where('id', $userinfoid);
+            $this->db->where('userid', $userid);
+            if($this->db->update('tbl_appuser_info', $data)){
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+
+	}
+
 
 } 

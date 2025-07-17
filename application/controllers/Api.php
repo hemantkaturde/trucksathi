@@ -582,6 +582,43 @@ class Api extends REST_Controller {
         }
     }
 
+    public function switch_account_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
+        $this->form_validation->set_rules('ex_category_id', 'ex_categoryid', 'trim|required');
+
+         if ($this->form_validation->run() == FALSE)
+		{
+            $status = 'Failure';
+			$message = 'Validation error';
+			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'ex_category_id'=>strip_tags(form_error('ex_category_id')));
+        }else{
+
+            $userinfoid =  $this->input->post('userinfoid');
+            $userid =  $this->input->post('userid');
+            $data = array('category_id'=>$this->input->post('category_id'));
+            $submitdetails = $this->api_model->switch_account($userinfoid,$userid,$data);
+
+             if($submitdetails){
+                $status = 'Success';
+                $message = 'Data Submitted';
+                $data = array('userinfoid' => $this->input->post('userinfoid'),'userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'ex_category_id'=>$this->input->post('ex_category_id'));
+             }else{
+                $status = 'Failure';
+                $message = 'Failure data not Submitted';
+                $data = array('userinfoid' => '','userid'=>'','category_id'=>'','ex_category_id'=>'');
+             }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+            setContentLength($responseData);
+
+
+        }
+
+    }
 
 
 }
