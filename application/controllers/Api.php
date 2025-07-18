@@ -335,7 +335,7 @@ class Api extends REST_Controller {
              if($submitdetails){
                 $status = 'Success';
                 $message = 'KYC Details Submitted';
-			    $data = array('app_user_id'=> $this->input->post('userinfoid'), 'userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=> $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'), 'state'=>$this->input->post('state'), 'pincode'=>$this->input->post('pincode'),'company_name'=>$this->input->post('company_name'),'kyc_details_status'=>1);
+			    $data = array('userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=> $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'), 'state'=>$this->input->post('state'), 'pincode'=>$this->input->post('pincode'),'company_name'=>$this->input->post('company_name'),'kyc_details_status'=>1);
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
