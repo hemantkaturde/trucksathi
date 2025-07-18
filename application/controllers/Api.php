@@ -580,7 +580,6 @@ class Api extends REST_Controller {
 
     }
 
-
     public function updateprofiledetails_post(){
 
         $post_submit = $this->input->post();
@@ -620,7 +619,6 @@ class Api extends REST_Controller {
         }
     }
 
-    
     public function getuserdetails_post(){
 
         $post_submit = $this->input->post();
