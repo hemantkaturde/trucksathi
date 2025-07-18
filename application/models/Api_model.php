@@ -81,10 +81,9 @@ class Api_model extends CI_Model{
 	}
 
 
-	public function switch_account($userinfoid,$userid,$data){
+	public function switch_account($userid,$data){
 
-		    $this->db->where('id', $userinfoid);
-            // $this->db->where('userid', $userid);
+		    $this->db->where('id', $userid);
             if($this->db->update('tbl_appuser_info', $data)){
                 return TRUE;
             } else {
@@ -110,5 +109,46 @@ class Api_model extends CI_Model{
             }
         }
 	}
+
+	public function getuserdetails($data){
+
+		$this->db->select('*');
+		$this->db->where('mobile', $data['mobile_number']);
+        $query = $this->db->get("tbl_appuser_info");
+		$fetch_result = $query->result_array();
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['userid'] = $value['id'];
+                $data[$counter]['category_id'] = $value['category_id'];
+				$data[$counter]['name'] = $value['name'];
+                $data[$counter]['mobile'] = $value['mobile'];
+				$data[$counter]['email'] = $value['email'];
+				$data[$counter]['address'] = $value['address'];
+                $data[$counter]['state'] = $value['state'];
+				$data[$counter]['city'] = $value['city'];
+				$data[$counter]['pincode'] = $value['pincode'];
+				$data[$counter]['company_name'] = $value['company_name'];
+				$data[$counter]['kyc_details_status'] = $value['kyc_details_status'];
+				$data[$counter]['kyc_doc_status'] = $value['kyc_doc_status'];
+				$data[$counter]['aadhar_card'] = $value['aadhar_card'];
+				$data[$counter]['pan_card'] = $value['pan_card'];
+				$data[$counter]['licence'] = $value['licence'];
+				$data[$counter]['gst'] = $value['gst'];
+				$data[$counter]['rc_book'] = $value['rc_book'];
+				$data[$counter]['user_photo'] = $value['user_photo'];
+				$data[$counter]['status'] = $value['status'];
+				$data[$counter]['created_date'] = $value['created_date'];
+
+			}
+
+		}
+
+		  return $data;
+	}
+
 
 } 

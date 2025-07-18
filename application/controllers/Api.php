@@ -202,40 +202,9 @@ class Api extends REST_Controller {
             $verify_otp = $this->api_model->verify_otp($data);
             if($verify_otp){
                 if($verify_otp[0]['otp']==trim($this->input->post('otp'))){
-
-                    $mobile_number =  $verify_otp[0]['mobile_number'];
-                    /* Check if Basic Details are Filled or not */
-                    $check_basic_details = $this->api_model->check_user_exits_or_not($mobile_number);
-                    if($check_basic_details){
-                        $userinfo = $check_basic_details;
-                        $userExits = 'YES';
-                    }else{
-                        $userExits = 'NO';
-                        $userinfo = array();
-                    }
-
-                    $check_Inputfiled_details = $this->api_model->check_KYC_filled_or_not($mobile_number);
-
-                    if($check_Inputfiled_details){
-                        $KYC_Details_info = $check_Inputfiled_details;
-                        $KYC_Input = 'YES';
-                    }else{
-                        $KYC_Details_info = array();
-                        $KYC_Input = 'NO';
-                    }
-
-                    $check_kyc_details = $this->api_model->check_KYC_Doc_filled_or_not($mobile_number);
-                    if($check_kyc_details){
-                        $kyc_doucment_info = $check_kyc_details;
-                        $KYC_document_Input = 'YES';
-                    }else{
-                        $kyc_doucment_info = array();
-                        $KYC_document_Input = 'NO';
-                    }
-
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userid' => $userid,'userinfo'=> $userinfo,'KYC_details_status'=>$KYC_Input,'KYC_details_info'=>$KYC_Details_info,'KYC_document_status'=>$KYC_document_Input,'KYC_document_info'=>$kyc_doucment_info,'userExits'=>$userExits);
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
@@ -296,7 +265,6 @@ class Api extends REST_Controller {
 
         $post_submit = $this->input->post();
 
-        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('name', 'Name', 'trim');
         $this->form_validation->set_rules('mobile', 'mobile', 'trim|required');
@@ -308,13 +276,13 @@ class Api extends REST_Controller {
 			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile')));
         }else{
 
-            $data = array('app_user_id'=> $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'));
+            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'));
             $submitdetails = $this->api_model->submitbasicdetails('',$data);
 
              if($submitdetails){
                 $status = 'Success';
                 $message = 'Data Submitted';
-                $data = array('userid' => $this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'));
+                $data = array('category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
@@ -330,8 +298,6 @@ class Api extends REST_Controller {
     public function submitkyc_details_post(){
 
         $post_submit = $this->input->post();
-
-        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('name', 'Name', 'trim');
@@ -348,11 +314,10 @@ class Api extends REST_Controller {
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
                       $data = array(
-                          'app_user_id'=> $this->input->post('userinfoid'),
                           'userid'=>$this->input->post('userid'),
                           'category_id'=>$this->input->post('category_id'),
                           'name'=> $this->input->post('name'),
@@ -366,7 +331,7 @@ class Api extends REST_Controller {
                           'kyc_details_status'=>1
                         );
 
-            $submitdetails = $this->api_model->submitbasicdetails('',$data);
+            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
 
              if($submitdetails){
                 $status = 'Success';
@@ -386,8 +351,6 @@ class Api extends REST_Controller {
     public function submitkyc_document_post(){
 
         $post_submit = $this->input->post();
-
-        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
@@ -401,7 +364,7 @@ class Api extends REST_Controller {
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
                 if(!empty($_FILES['aadhar_card']['name'])){
@@ -565,16 +528,16 @@ class Api extends REST_Controller {
                           'kyc_status'=>1
                         );
 
-            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userinfoid'),$data);
+            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
 
              if($submitdetails){
                 $status = 'Success';
                 $message = 'KYC Submitted';
-			    $data = array('userinfoid'=>$this->input->post('userinfoid'),'userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+			    $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+			    $data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
@@ -584,7 +547,6 @@ class Api extends REST_Controller {
 
     public function switch_account_post(){
         $post_submit = $this->input->post();
-        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('ex_category_id', 'ex_categoryid', 'trim|required');
@@ -593,22 +555,21 @@ class Api extends REST_Controller {
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'ex_category_id'=>strip_tags(form_error('ex_category_id')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'ex_category_id'=>strip_tags(form_error('ex_category_id')));
         }else{
 
-            $userinfoid =  $this->input->post('userinfoid');
             $userid =  $this->input->post('userid');
             $data = array('category_id'=>$this->input->post('category_id'));
-            $submitdetails = $this->api_model->switch_account($userinfoid,$userid,$data);
+            $submitdetails = $this->api_model->switch_account($userid,$data);
 
              if($submitdetails){
                 $status = 'Success';
                 $message = 'Account switch Succussfully';
-                $data = array('userinfoid' => $this->input->post('userinfoid'),'userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'ex_category_id'=>$this->input->post('ex_category_id'));
+                $data = array('userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'ex_category_id'=>$this->input->post('ex_category_id'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-                $data = array('userinfoid' => '','userid'=>'','category_id'=>'','ex_category_id'=>'');
+                $data = array('userid'=>'','category_id'=>'','ex_category_id'=>'');
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
@@ -623,8 +584,7 @@ class Api extends REST_Controller {
     public function updateprofiledetails_post(){
 
         $post_submit = $this->input->post();
-
-        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required');
 
@@ -632,11 +592,11 @@ class Api extends REST_Controller {
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
+			$data = array('name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
         }else{
 
 
-            $userinfoid =$this->input->post('userinfoid');
+            $userid =$this->input->post('userid');
 
             $data = array(
                 'name'=> $this->input->post('name'),
@@ -648,11 +608,11 @@ class Api extends REST_Controller {
              if($submitdetails){
                 $status = 'Success';
                 $message = 'KYC Details Submitted';
-			    $data = array('userinfoid'=> $this->input->post('userinfoid'),'name'=> $this->input->post('name'),'pincode'=>$this->input->post('pincode'));
+			    $data = array('name'=> $this->input->post('name'),'pincode'=>$this->input->post('pincode'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
+			    $data = array('name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
@@ -660,7 +620,39 @@ class Api extends REST_Controller {
         }
     }
 
+    
+    public function getuserdetails_post(){
 
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+
+	    if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')));
+		}
+		else
+		{
+            $data = array('mobile_number' => $this->input->post('mobile_number'));
+            $getuserdetailsData = $this->api_model->getuserdetails($data);
+            if($getuserdetailsData){
+                    $status = 'Success';
+                    $message = 'User Details Data';
+                    $data = $getuserdetailsData;
+            }else{
+                    $status = 'Failure';
+                    $message = 'OTP verification Failed';
+                    $data = array();
+
+            }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $getuserdetailsData);
+            setContentLength($responseData);
+
+        }
+
+    }
 
 
 
