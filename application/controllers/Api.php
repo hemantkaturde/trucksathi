@@ -620,13 +620,44 @@ class Api extends REST_Controller {
     }
 
 
-    public function update_details_post(){
+    public function updateprofiledetails_post(){
 
         $post_submit = $this->input->post();
-        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
-        $this->form_validation->set_rules('otp', 'OTP', 'trim|required');
+
+        $this->form_validation->set_rules('userinfoid', 'userinfoid', 'trim|required');
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required');
+
+          if ($this->form_validation->run() == FALSE)
+		{
+            $status = 'Failure';
+			$message = 'Validation error';
+			$data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
+        }else{
 
 
+            $userinfoid =$this->input->post('userinfoid');
+
+            $data = array(
+                'name'=> $this->input->post('name'),
+                'pincode'=>$this->input->post('pincode'),
+            );
+
+            $submitdetails = $this->api_model->updateprofiledetails($userinfoid,$data);
+
+             if($submitdetails){
+                $status = 'Success';
+                $message = 'KYC Details Submitted';
+			    $data = array('userinfoid'=> $this->input->post('userinfoid'),'name'=> $this->input->post('name'),'pincode'=>$this->input->post('pincode'));
+             }else{
+                $status = 'Failure';
+                $message = 'Failure data not Submitted';
+			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'name' =>strip_tags(form_error('name')),'pincode'=>strip_tags(form_error('pincode')));
+             }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+            setContentLength($responseData);
+        }
     }
 
 
