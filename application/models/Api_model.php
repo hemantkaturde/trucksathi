@@ -124,6 +124,7 @@ class Api_model extends CI_Model{
             {
 				$data[$counter]['userid'] = $value['id'];
                 $data[$counter]['category_id'] = $value['category_id'];
+				$data[$counter]['category_name'] = 'Owner';
 				$data[$counter]['name'] = $value['name'];
                 $data[$counter]['mobile'] = $value['mobile'];
 				$data[$counter]['email'] = $value['email'];
