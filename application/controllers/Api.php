@@ -366,32 +366,26 @@ class Api extends REST_Controller {
 			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
-                if(!empty($_FILES['aadhar_card']['name'])){
-
+                if($_FILES['aadhar_card']['name']){
                     $file = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
-                    $filename = str_replace(' ','_',$file);
+                    $filename_aadhar_card = str_replace(' ','_',$file);
     
                     $config['upload_path'] = 'uploads/aadhar_card'; 
                     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
                     $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                    $config['file_name'] = $filename_aadhar_card; 
            
                     // Load upload library 
                     $this->load->library('upload',$config); 
             
                     // File upload
                     if($this->upload->do_upload('aadhar_card')){ 
-                       $aadhar_card = $filename; 
-                    }else{
-                        $aadhar_card =trim($this->input->post('existing_img'));
+                        $aadhar_card = $filename_aadhar_card; 
                     }
-    
-                }else{
-                    $aadhar_card = trim($this->input->post('existing_img'));
                 }
 
 
-                if(!empty($_FILES['pan_card']['name'])){
+                if($_FILES['pan_card']['name']){
 
                     $file = rand(1000,100000)."-".$_FILES['pan_card']['name'];
                     $filename = str_replace(' ','_',$file);
