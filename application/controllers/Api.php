@@ -620,4 +620,17 @@ class Api extends REST_Controller {
     }
 
 
+    public function update_details_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+        $this->form_validation->set_rules('otp', 'OTP', 'trim|required');
+
+
+    }
+
+
+
+
+
 }
