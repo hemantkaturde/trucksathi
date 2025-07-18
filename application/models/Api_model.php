@@ -51,7 +51,7 @@ class Api_model extends CI_Model{
  
 
 	public function check_user_exits_or_not($mobile_number){
-        $this->db->select('id,app_user_id,category_id,name,mobile');
+        $this->db->select('id,app_user_id,category_id,category_name,name,mobile,pincode');
 		$this->db->where('mobile', $mobile_number);
         $query = $this->db->get("tbl_appuser_info");
 		if ($query->num_rows() >= 1) {
