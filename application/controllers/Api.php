@@ -318,7 +318,6 @@ class Api extends REST_Controller {
         }else{
 
                       $data = array(
-                          'userid'=>$this->input->post('userid'),
                           'category_id'=>$this->input->post('category_id'),
                           'name'=> $this->input->post('name'),
                           'mobile'=>$this->input->post('mobile'),
