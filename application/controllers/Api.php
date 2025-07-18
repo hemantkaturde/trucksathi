@@ -352,12 +352,12 @@ class Api extends REST_Controller {
         $post_submit = $this->input->post();
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
-        $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
-        $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
-        $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
-        $this->form_validation->set_rules('gst', 'GST', 'trim|required');
-        $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
-        $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
+        // $this->form_validation->set_rules('aadhar_card', 'Adhar Card', 'trim|required');
+        // $this->form_validation->set_rules('pan_card', 'Pan Card', 'trim|required');
+        // $this->form_validation->set_rules('licence', 'Licence', 'trim|required');
+        // $this->form_validation->set_rules('gst', 'GST', 'trim|required');
+        // $this->form_validation->set_rules('rc_book', 'RC Book', 'trim|required');
+        // $this->form_validation->set_rules('user_photo', 'User Photo', 'trim|required');
     
         if ($this->form_validation->run() == FALSE)
 		{
@@ -524,7 +524,7 @@ class Api extends REST_Controller {
                           'gst'=>$gst,
                           'rc_book'=>$rc_book,
                           'user_photo'=>$user_photo,
-                          'kyc_status'=>1
+                          'kyc_doc_status'=>1
                         );
 
             $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
