@@ -281,7 +281,7 @@ class Api extends REST_Controller {
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile_number')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile_number' =>strip_tags(form_error('mobile_number')));
         }else{
 
             $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile_number'));
@@ -290,11 +290,11 @@ class Api extends REST_Controller {
              if($submitdetails){
                 $status = 'Success';
                 $message = 'Data Submitted';
-                $data = array('category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile_number'));
+                $data = array('category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-                $data = array('userid' => '','category_id'=>'','name'=>'','mobile'=>'');
+                $data = array('userid' => '','category_id'=>'','name'=>'','mobile_number'=>'');
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
