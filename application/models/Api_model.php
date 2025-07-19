@@ -135,12 +135,56 @@ class Api_model extends CI_Model{
 				$data[$counter]['company_name'] = $value['company_name'];
 				$data[$counter]['kyc_details_status'] = $value['kyc_details_status'];
 				$data[$counter]['kyc_doc_status'] = $value['kyc_doc_status'];
-				$data[$counter]['aadhar_card'] = $value['aadhar_card'];
-				$data[$counter]['pan_card'] = $value['pan_card'];
-				$data[$counter]['licence'] = $value['licence'];
-				$data[$counter]['gst'] = $value['gst'];
-				$data[$counter]['rc_book'] = $value['rc_book'];
-				$data[$counter]['user_photo'] = $value['user_photo'];
+				
+				if($value['aadhar_card']){
+					$aadhar_card = DOCUMENT_PATH.'/uploads/aadhar_card/'.$value['aadhar_card'];
+				}else{
+					$aadhar_card ='';
+				}
+				$data[$counter]['aadhar_card'] = $aadhar_card;
+
+
+				if($value['pan_card']){
+					$pan_card = DOCUMENT_PATH.'/uploads/pan_card/'.$value['pan_card'];
+				}else{
+					$pan_card ='';
+				}
+				$data[$counter]['pan_card'] = $pan_card;
+
+				if($value['licence']){
+					$licence = DOCUMENT_PATH.'/uploads/licence/'.$value['licence'];
+				}else{
+					$licence ='';
+				}
+				$data[$counter]['licence'] = $licence;
+
+
+				if($value['gst']){
+					$gst = DOCUMENT_PATH.'/uploads/gst/'.$value['gst'];
+				}else{
+					$gst ='';
+				}
+				$data[$counter]['gst'] = $gst;
+
+
+				
+				if($value['rc_book']){
+					$rc_book = DOCUMENT_PATH.'/uploads/rc_book/'.$value['rc_book'];
+				}else{
+					$rc_book ='';
+				}
+				$data[$counter]['rc_book'] = $rc_book;
+
+
+				if($value['user_photo']){
+					$user_photo = DOCUMENT_PATH.'/uploads/user_photo/'.$value['user_photo'];
+				}else{
+					$user_photo ='';
+				}
+				$data[$counter]['user_photo'] = $user_photo;
+
+				
+
 				$data[$counter]['status'] = $value['status'];
 				$data[$counter]['created_date'] = $value['created_date'];
 
