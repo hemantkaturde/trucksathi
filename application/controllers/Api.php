@@ -284,7 +284,7 @@ class Api extends REST_Controller {
 			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile_number' =>strip_tags(form_error('mobile_number')));
         }else{
 
-            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile_number'));
+            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'));
             $submitdetails = $this->api_model->submitbasicdetails('',$data);
 
              if($submitdetails){
