@@ -309,7 +309,7 @@ class Api extends REST_Controller {
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('name', 'Name', 'trim');
-        $this->form_validation->set_rules('mobile', 'Mobile', 'trim');
+        $this->form_validation->set_rules('mobile_number', 'Mobile', 'trim');
         $this->form_validation->set_rules('email', 'Email', 'trim');
         $this->form_validation->set_rules('address', 'Address', 'trim');
         $this->form_validation->set_rules('city', 'City', 'trim');
@@ -328,7 +328,7 @@ class Api extends REST_Controller {
                       $data = array(
                           'category_id'=>$this->input->post('category_id'),
                           'name'=> $this->input->post('name'),
-                          'mobile'=>$this->input->post('mobile'),
+                          'mobile_number'=>$this->input->post('mobile_number'),
                           'email'=>$this->input->post('email'),
                           'address'=>$this->input->post('address'),
                           'city'=>$this->input->post('city'),
@@ -343,11 +343,11 @@ class Api extends REST_Controller {
              if($submitdetails){
                 $status = 'Success';
                 $message = 'KYC Details Submitted';
-			    $data = array('userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=> $this->input->post('name'),'mobile'=>$this->input->post('mobile'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'), 'state'=>$this->input->post('state'), 'pincode'=>$this->input->post('pincode'),'company_name'=>$this->input->post('company_name'),'kyc_details_status'=>1);
+			    $data = array('userid'=>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'name'=> $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'),'email'=>$this->input->post('email'),'address'=>$this->input->post('address'),'city'=>$this->input->post('city'), 'state'=>$this->input->post('state'), 'pincode'=>$this->input->post('pincode'),'company_name'=>$this->input->post('company_name'),'kyc_details_status'=>1);
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name'=>strip_tags(form_error('name')),'mobile'=>strip_tags(form_error('mobile')),'email'=>strip_tags(form_error('email')),'address'=>strip_tags(form_error('address')),'city'=>strip_tags(form_error('city')),'state'=>strip_tags(form_error('state')),'pincode'=>strip_tags(form_error('pincode')),'company_name'=>strip_tags(form_error('company_name')));
+			    $data = array('userinfoid'=>strip_tags(form_error('userinfoid')),'userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name'=>strip_tags(form_error('name')),'mobile_number'=>strip_tags(form_error('mobile_number')),'email'=>strip_tags(form_error('email')),'address'=>strip_tags(form_error('address')),'city'=>strip_tags(form_error('city')),'state'=>strip_tags(form_error('state')),'pincode'=>strip_tags(form_error('pincode')),'company_name'=>strip_tags(form_error('company_name')));
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
