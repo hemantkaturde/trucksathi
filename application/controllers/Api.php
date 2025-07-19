@@ -285,7 +285,7 @@ class Api extends REST_Controller {
         }else{
 
             $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'));
-            $submitdetails = $this->api_model->submitbasicdetails('',$data);
+            $submitdetails = $this->api_model->updateprofiledetails($this->input->post('mobile_number'),$data);
 
              if($submitdetails){
                 $status = 'Success';
