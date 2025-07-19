@@ -204,7 +204,15 @@ class Api extends REST_Controller {
                 if($verify_otp[0]['otp']==trim($this->input->post('otp'))){
                     $status = 'Success';
                     $message = 'OTP verified';
-                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'));
+
+                    $getuserdetailsData = $this->api_model->getuserdetails($data);
+                    if($getuserdetailsData){
+                         $userExits = 'YES';
+                    }else{
+                         $userExits = 'NO';
+                    }
+
+                    $data = array('mobile_number' => $this->input->post('mobile_number'),'otp' => $this->input->post('otp'),'userExits'=>$userExits);
                 }else{
                     $status = 'Failure';
                     $message = 'OTP verification Failed';
