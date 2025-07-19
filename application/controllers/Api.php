@@ -603,7 +603,7 @@ class Api extends REST_Controller {
                 'pincode'=>$this->input->post('pincode'),
             );
 
-            $submitdetails = $this->api_model->updateprofiledetails($userinfoid,$data);
+            $submitdetails = $this->api_model->updateprofiledetails($userid,$data);
 
              if($submitdetails){
                 $status = 'Success';

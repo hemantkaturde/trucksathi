@@ -93,21 +93,21 @@ class Api_model extends CI_Model{
 	}
 
 
-	public function updateprofiledetails($mobile_number,$data){
-		// if($id != '') {
-            $this->db->where('mobile_number', $mobile_number);
+	public function updateprofiledetails($id,$data){
+		 if($id != '') {
+            $this->db->where('id', $id);
             if($this->db->update('tbl_appuser_info', $data)){
                 return TRUE;
             } else {
                 return FALSE;
             }
-        // } else {
-        //     if($this->db->insert('tbl_appuser_info', $data)) {
-        //         return $this->db->insert_id();
-        //     } else {
-        //         return FALSE;
-        //     }
-        // }
+        } else {
+            if($this->db->insert('tbl_appuser_info', $data)) {
+                return $this->db->insert_id();
+            } else {
+                return FALSE;
+            }
+        }
 	}
 
 	public function getuserdetails($data){
