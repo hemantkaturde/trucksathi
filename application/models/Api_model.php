@@ -113,7 +113,7 @@ class Api_model extends CI_Model{
 	public function getuserdetails($data){
 
 		$this->db->select('*');
-		$this->db->where('mobile', $data['mobile_number']);
+		$this->db->where('mobile_number', $data['mobile_number']);
         $query = $this->db->get("tbl_appuser_info");
 		$fetch_result = $query->result_array();
         $data = array();
@@ -126,7 +126,7 @@ class Api_model extends CI_Model{
                 $data[$counter]['category_id'] = $value['category_id'];
 				$data[$counter]['category_name'] = 'Owner';
 				$data[$counter]['name'] = $value['name'];
-                $data[$counter]['mobile'] = $value['mobile'];
+                $data[$counter]['mobile_number'] = $value['mobile_number'];
 				$data[$counter]['email'] = $value['email'];
 				$data[$counter]['address'] = $value['address'];
                 $data[$counter]['state'] = $value['state'];
