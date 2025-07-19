@@ -275,22 +275,22 @@ class Api extends REST_Controller {
 
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
         $this->form_validation->set_rules('name', 'Name', 'trim');
-        $this->form_validation->set_rules('mobile', 'mobile', 'trim|required');
+        $this->form_validation->set_rules('mobile_number', 'mobile', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile' =>strip_tags(form_error('mobile_number')));
         }else{
 
-            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile'));
+            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile'=>$this->input->post('mobile_number'));
             $submitdetails = $this->api_model->submitbasicdetails('',$data);
 
              if($submitdetails){
                 $status = 'Success';
                 $message = 'Data Submitted';
-                $data = array('category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile'));
+                $data = array('category_id'=>$this->input->post('category_id'),'name'=>$this->input->post('name'),'mobile'=>$this->input->post('mobile_number'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
@@ -641,7 +641,7 @@ class Api extends REST_Controller {
                     $data = $getuserdetailsData;
             }else{
                     $status = 'Failure';
-                    $message = 'OTP verification Failed';
+                    $message = 'User Details Data Failed';
                     $data = array();
 
             }
