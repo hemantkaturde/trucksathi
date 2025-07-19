@@ -137,7 +137,7 @@ class Api_model extends CI_Model{
 				$data[$counter]['kyc_doc_status'] = $value['kyc_doc_status'];
 				
 				if($value['aadhar_card']){
-					$aadhar_card = DOCUMENT_PATH.'/uploads/aadhar_card/'.$value['aadhar_card'];
+					$aadhar_card = DOCUMENT_PATH.'/aadhar_card/'.$value['aadhar_card'];
 				}else{
 					$aadhar_card ='';
 				}
@@ -145,14 +145,14 @@ class Api_model extends CI_Model{
 
 
 				if($value['pan_card']){
-					$pan_card = DOCUMENT_PATH.'/uploads/pan_card/'.$value['pan_card'];
+					$pan_card = DOCUMENT_PATH.'/pan_card/'.$value['pan_card'];
 				}else{
 					$pan_card ='';
 				}
 				$data[$counter]['pan_card'] = $pan_card;
 
 				if($value['licence']){
-					$licence = DOCUMENT_PATH.'/uploads/licence/'.$value['licence'];
+					$licence = DOCUMENT_PATH.'/licence/'.$value['licence'];
 				}else{
 					$licence ='';
 				}
@@ -160,7 +160,7 @@ class Api_model extends CI_Model{
 
 
 				if($value['gst']){
-					$gst = DOCUMENT_PATH.'/uploads/gst/'.$value['gst'];
+					$gst = DOCUMENT_PATH.'/gst/'.$value['gst'];
 				}else{
 					$gst ='';
 				}
@@ -169,7 +169,7 @@ class Api_model extends CI_Model{
 
 				
 				if($value['rc_book']){
-					$rc_book = DOCUMENT_PATH.'/uploads/rc_book/'.$value['rc_book'];
+					$rc_book = DOCUMENT_PATH.'/rc_book/'.$value['rc_book'];
 				}else{
 					$rc_book ='';
 				}
@@ -177,13 +177,13 @@ class Api_model extends CI_Model{
 
 
 				if($value['user_photo']){
-					$user_photo = DOCUMENT_PATH.'/uploads/user_photo/'.$value['user_photo'];
+					$user_photo = DOCUMENT_PATH.'/user_photo/'.$value['user_photo'];
 				}else{
 					$user_photo ='';
 				}
 				$data[$counter]['user_photo'] = $user_photo;
 
-				
+
 
 				$data[$counter]['status'] = $value['status'];
 				$data[$counter]['created_date'] = $value['created_date'];
