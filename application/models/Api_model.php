@@ -111,97 +111,11 @@ class Api_model extends CI_Model{
 	}
 
 
-	public function getuserdetailsforotp($data){
-
-		$this->db->select('*');
-		$this->db->where('mobile_number', $data['mobile_number']);
-        $query = $this->db->get("tbl_appuser_info");
-		$fetch_result = $query->result_array();
-        $data = array();
-        $counter = 0;
-        if(count($fetch_result) > 0)
-        {
-            foreach ($fetch_result as $key => $value)
-            {
-				$data[$counter]['userid'] = $value['id'];
-                $data[$counter]['category_id'] = $value['category_id'];
-				$data[$counter]['category_name'] =  $value['category_name'];
-				$data[$counter]['name'] = $value['name'];
-                $data[$counter]['mobile_number'] = $value['mobile_number'];
-				$data[$counter]['email'] = $value['email'];
-				$data[$counter]['address'] = $value['address'];
-                $data[$counter]['state'] = $value['state'];
-				$data[$counter]['city'] = $value['city'];
-				$data[$counter]['pincode'] = $value['pincode'];
-				$data[$counter]['company_name'] = $value['company_name'];
-				$data[$counter]['kyc_details_status'] = $value['kyc_details_status'];
-				$data[$counter]['kyc_doc_status'] = $value['kyc_doc_status'];
-				
-				if($value['aadhar_card']){
-					$aadhar_card = DOCUMENT_PATH.'/aadhar_card/'.$value['aadhar_card'];
-				}else{
-					$aadhar_card ='';
-				}
-				$data[$counter]['aadhar_card'] = $aadhar_card;
-
-
-				if($value['pan_card']){
-					$pan_card = DOCUMENT_PATH.'/pan_card/'.$value['pan_card'];
-				}else{
-					$pan_card ='';
-				}
-
-				$data[$counter]['pan_card'] = $pan_card;
-
-				if($value['licence']){
-					$licence = DOCUMENT_PATH.'/licence/'.$value['licence'];
-				}else{
-					$licence ='';
-				}
-				$data[$counter]['licence'] = $licence;
-
-
-				if($value['gst']){
-					$gst = DOCUMENT_PATH.'/gst/'.$value['gst'];
-				}else{
-					$gst ='';
-				}
-				$data[$counter]['gst'] = $gst;
-
-
-				
-				if($value['rc_book']){
-					$rc_book = DOCUMENT_PATH.'/rc_book/'.$value['rc_book'];
-				}else{
-					$rc_book ='';
-				}
-				$data[$counter]['rc_book'] = $rc_book;
-
-
-				if($value['user_photo']){
-					$user_photo = DOCUMENT_PATH.'/user_photo/'.$value['user_photo'];
-				}else{
-					$user_photo ='';
-				}
-				$data[$counter]['user_photo'] = $user_photo;
-
-
-
-				$data[$counter]['status'] = $value['status'];
-				$data[$counter]['created_date'] = $value['created_date'];
-
-			}
-
-		}
-
-		  return $data;
-	}
-
-
 	public function getuserdetails($data){
 
-		$this->db->select('*');
+		$this->db->select('*,tbl_category_master.category_head as cat_name');
 		$this->db->where('mobile_number', $data['mobile_number']);
+		$this->db->join('tbl_category_master', 'tbl_category_master.cat_id = tbl_appuser_info.category_id');
         $query = $this->db->get("tbl_appuser_info");
 		$fetch_result = $query->result_array();
         $data = array();
@@ -212,7 +126,7 @@ class Api_model extends CI_Model{
             {
 				$data[$counter]['userid'] = $value['id'];
                 $data[$counter]['category_id'] = $value['category_id'];
-				$data[$counter]['category_name'] = $value['category_name'];
+				$data[$counter]['category_name'] = $value['cat_name'];
 				$data[$counter]['name'] = $value['name'];
                 $data[$counter]['mobile_number'] = $value['mobile_number'];
 				$data[$counter]['email'] = $value['email'];
