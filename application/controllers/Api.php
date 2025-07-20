@@ -285,7 +285,7 @@ class Api extends REST_Controller {
         }else{
 
             $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'));
-            $submitdetails = $this->api_model->updateprofiledetails($this->input->post('mobile_number'),$data);
+            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('mobile_number'),$data);
 
              if($submitdetails){
                 $status = 'Success';
@@ -516,10 +516,7 @@ class Api extends REST_Controller {
                     $user_photo = trim($this->input->post('existing_img'));
                 }
 
-                      $data = array(
-                        //   'userinfoid'=> $this->input->post('userinfoid'),
-                        //   'userid'=>$this->input->post('userid'),
-                        //   'category_id'=>$this->input->post('category_id'),
+                $data = array(  
                           'aadhar_card'=> $aadhar_card,
                           'pan_card'=>$pan_card,
                           'licence'=>$licence,
@@ -529,20 +526,20 @@ class Api extends REST_Controller {
                           'kyc_doc_status'=>1
                         );
 
-            $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
+                $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
 
-             if($submitdetails){
-                $status = 'Success';
-                $message = 'KYC Submitted';
-			    $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
-             }else{
-                $status = 'Failure';
-                $message = 'Failure data not Submitted';
-			    $data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
-             }
+                if($submitdetails){
+                    $status = 'Success';
+                    $message = 'KYC Submitted';
+                    $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+                }else{
+                    $status = 'Failure';
+                    $message = 'Failure data not Submitted';
+                    $data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
+                }
 
-            $responseData = array('status' => $status,'message'=> $message,'data' => $data);
-            setContentLength($responseData);
+                $responseData = array('status' => $status,'message'=> $message,'data' => $data);
+                setContentLength($responseData);
         }
     }
 
