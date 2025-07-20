@@ -274,17 +274,18 @@ class Api extends REST_Controller {
         $post_submit = $this->input->post();
 
         $this->form_validation->set_rules('category_id', 'categoryid', 'trim|required');
-        $this->form_validation->set_rules('name', 'Name', 'trim');
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required');
         $this->form_validation->set_rules('mobile_number', 'mobile', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
 		{
             $status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile_number' =>strip_tags(form_error('mobile_number')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'name' =>strip_tags(form_error('name')),'mobile_number' =>strip_tags(form_error('mobile_number')),'pincode'=>strip_tags(form_error('pincode')));
         }else{
 
-            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'));
+            $data = array('category_id'=>$this->input->post('category_id'),'name' => $this->input->post('name'),'mobile_number'=>$this->input->post('mobile_number'),'pincode'=>$this->input->post('pincode'));
             $submitdetails = $this->api_model->submitbasicdetails('',$data);
 
              if($submitdetails){
@@ -294,7 +295,7 @@ class Api extends REST_Controller {
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-                $data = array('userid' => '','category_id'=>'','name'=>'','mobile_number'=>'');
+                $data = array('userid' => '','category_id'=>'','name'=>'','mobile_number'=>'' ,'pincode'=>'');
              }
 
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
