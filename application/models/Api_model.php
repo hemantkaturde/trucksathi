@@ -112,8 +112,9 @@ class Api_model extends CI_Model{
 
 	public function getuserdetails($data){
 
-		$this->db->select('*');
+		$this->db->select('*,tbl_category_master.category_name as cat_name');
 		$this->db->where('mobile_number', $data['mobile_number']);
+		$this->db->join('tbl_category_master', 'tbl_category_master.cat_id = tbl_appuser_info.category_id');
         $query = $this->db->get("tbl_appuser_info");
 		$fetch_result = $query->result_array();
         $data = array();
@@ -124,7 +125,7 @@ class Api_model extends CI_Model{
             {
 				$data[$counter]['userid'] = $value['id'];
                 $data[$counter]['category_id'] = $value['category_id'];
-				$data[$counter]['category_name'] = 'Owner';
+				$data[$counter]['category_name'] = $value['cat_name'];
 				$data[$counter]['name'] = $value['name'];
                 $data[$counter]['mobile_number'] = $value['mobile_number'];
 				$data[$counter]['email'] = $value['email'];
@@ -149,6 +150,7 @@ class Api_model extends CI_Model{
 				}else{
 					$pan_card ='';
 				}
+
 				$data[$counter]['pan_card'] = $pan_card;
 
 				if($value['licence']){
