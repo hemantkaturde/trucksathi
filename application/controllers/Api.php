@@ -205,7 +205,7 @@ class Api extends REST_Controller {
                     $status = 'Success';
                     $message = 'OTP verified';
 
-                    $getuserdetailsData = $this->api_model->getuserdetails($data);
+                    $getuserdetailsData = $this->api_model->getuserdetailsforotp($data);
                     if($getuserdetailsData){
                          $userExits = 'YES';
                     }else{
