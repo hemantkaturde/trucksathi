@@ -51,10 +51,10 @@
                      <tr>
                         <td> <?php echo output($count); $count++; ?></td>
                         <td> <?php echo output($appuserslist['name']); ?></td>
-                        <td> <?php echo output($appuserslist['mobile']); ?></td>
+                        <td> <?php echo output($appuserslist['mobile_number']); ?></td>
                         <td> <?php echo output($appuserslist['pincode']); ?></td>
                         <td> <?php echo output($appuserslist['category_head']); ?></td>
-                        <td>  <span class="badge <?php echo ($appuserslist['kyc_status']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($appuserslist['kyc_status']=='1') ? 'Active' : 'Inactive'; ?></span>  </td>
+                        <td>  <span class="badge <?php echo ($appuserslist['kyc_details_status']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($appuserslist['kyc_details_status']=='1') ? 'Active' : 'Inactive'; ?></span>  </td>
                         <td>
                            <?php //if(userpermission('cm_edit')) { ?>
                            <a class="icon" href="<?php echo base_url(); ?>app_users/editapp_users/<?php echo output($appuserslist['id']); ?>">
