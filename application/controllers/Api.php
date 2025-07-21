@@ -376,7 +376,6 @@ class Api extends REST_Controller {
         }else{
 
 
-
                 if($_FILES['aadhar_card']){
                     $file_adhar_card = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
                     $filename_aadhar_card = str_replace(' ','_',$file_adhar_card);
@@ -396,6 +395,8 @@ class Api extends REST_Controller {
                     }else{
                          $aadhar_card ='';
                     }
+                }else{
+                     $aadhar_card ='';
                 }
                 
 
@@ -420,10 +421,12 @@ class Api extends REST_Controller {
                         $pan_card ='';
                     }
     
+                }else{
+                     $pan_card ='';
                 }
 
 
-                if(!empty($_FILES['licence'])){
+                if($_FILES['licence']){
 
                     $file_licence = rand(1000,100000)."-".$_FILES['licence']['name'];
                     $filename_licence = str_replace(' ','_',$file_licence);
@@ -444,9 +447,11 @@ class Api extends REST_Controller {
                         $licence = '';
                     }
     
+                }else{
+                     $licence ='';
                 }
 
-                if(!empty($_FILES['gst'])){
+                if($_FILES['gst']){
 
                     $file_gst = rand(1000,100000)."-".$_FILES['gst']['name'];
                     $filename_gst = str_replace(' ','_',$file_gst);
@@ -468,10 +473,12 @@ class Api extends REST_Controller {
                        $gst ='';
                     }
     
+                }else{
+                     $gst ='';
                 }
 
                 
-                if(!empty($_FILES['rc_book'])){
+                if($_FILES['rc_book']){
 
                     $file_rc_book = rand(1000,100000)."-".$_FILES['rc_book']['name'];
                     $filename_rc_book = str_replace(' ','_',$file_rc_book);
@@ -493,9 +500,11 @@ class Api extends REST_Controller {
                        $rc_book ='';
                     }
     
+                } else{
+                     $rc_book ='';
                 }
 
-                if(!empty($_FILES['user_photo'])){
+                if($_FILES['user_photo']){
 
                     $file_user_phot = rand(1000,100000)."-".$_FILES['user_photo']['name'];
                     $filename_user_phto = str_replace(' ','_',$file_user_phot);
@@ -516,7 +525,9 @@ class Api extends REST_Controller {
                     }else{
                        $user_photo ='';
                     }
-    
+
+                }else{
+                     $user_photo ='';
                 }
 
 
@@ -535,7 +546,9 @@ class Api extends REST_Controller {
                 if($submitdetails){
                     $status = 'Success';
                     $message = 'KYC Submitted';
-                    $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+                   // $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'),'adhar_card'=>$this->input->post('adhar_card'),'pan_card'=>$this->input->post('pan_card'),'licence'=>$this->input->post('licence'),'gst'=>$this->input->post('gst'),'rc_book'=>$this->input->post('rc_book'),'user_photo'=>$this->input->post('user_photo'));
+                    $data = array('userid' =>$this->input->post('userid'),'category_id'=>$this->input->post('category_id'));
+
                 }else{
                     $status = 'Failure';
                     $message = 'Failure data not Submitted';
