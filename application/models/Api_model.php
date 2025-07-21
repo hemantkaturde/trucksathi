@@ -5,6 +5,7 @@ class Api_model extends CI_Model{
 	public function add_postion($postarray) { 
 		return	$this->db->insert('positions',$postarray);
 	} 
+	
     public function checkgps_auth($v_id) { 
         $this->db->where('v_api_username', $v_id);
         $query = $this->db->get("vehicles");
@@ -12,6 +13,7 @@ class Api_model extends CI_Model{
 			return $query->result_array();
 		} 
 	} 
+
 	public function submitOTP($data){
 		 // Prepare data array
 		 $post_data = array(
@@ -26,6 +28,7 @@ class Api_model extends CI_Model{
 			return TRUE;
 		}
 	}
+
 	public function verify_otp($data){
 		$where = array('mobile_number>='=>$data['mobile_number'],'otp'=> $data['otp']);
 		$otp_data = $this->db->select('*')->from('tbl_appuser_otp')->where($where)->order_by('id','desc')->limit(1)->get()->result_array();
@@ -48,7 +51,6 @@ class Api_model extends CI_Model{
             }
         }
 	}
- 
 
 	public function check_user_exits_or_not($mobile_number){
         $this->db->select('id,app_user_id,category_id,category_name,name,mobile,pincode');
@@ -58,7 +60,6 @@ class Api_model extends CI_Model{
 			return $query->result_array();
 		} 
 	}
-
 
 	public function check_KYC_filled_or_not($mobile_number){
         $this->db->select('*');
@@ -80,7 +81,6 @@ class Api_model extends CI_Model{
 		} 
 	}
 
-
 	public function switch_account($userid,$data){
 
 		    $this->db->where('id', $userid);
@@ -91,7 +91,6 @@ class Api_model extends CI_Model{
             }
 
 	}
-
 
 	public function updateprofiledetails($id,$data){
 		 if($id != '') {
@@ -109,7 +108,6 @@ class Api_model extends CI_Model{
             }
         }
 	}
-
 
 	public function getuserdetails($data){
 

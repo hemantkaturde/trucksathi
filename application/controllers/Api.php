@@ -375,147 +375,151 @@ class Api extends REST_Controller {
 			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
-                if($_FILES['aadhar_card']['name']){
-                    $file = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
-                    $filename_aadhar_card = str_replace(' ','_',$file);
+
+
+                if($_FILES['aadhar_card']){
+                    $file_adhar_card = rand(1000,100000)."-".$_FILES['aadhar_card']['name'];
+                    $filename_aadhar_card = str_replace(' ','_',$file_adhar_card);
     
-                    $config['upload_path'] = 'uploads/aadhar_card'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename_aadhar_card; 
+                    $configadharcard['upload_path'] = 'uploads/aadhar_card'; 
+                    $configadharcard['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $configadharcard['max_size'] = '100000'; // max_size in kb 
+                    $configadharcard['file_name'] = $filename_aadhar_card; 
            
                     // Load upload library 
-                    $this->load->library('upload',$config); 
+                    $this->load->library('upload',$configadharcard); 
             
+                    // $this->upload->initialize($configadharcard); 
                     // File upload
                     if($this->upload->do_upload('aadhar_card')){ 
                         $aadhar_card = $filename_aadhar_card; 
+                    }else{
+                         $aadhar_card ='';
                     }
                 }
+                
 
 
-                if($_FILES['pan_card']['name']){
+                if($_FILES['pan_card']){
 
-                    $file = rand(1000,100000)."-".$_FILES['pan_card']['name'];
-                    $filename = str_replace(' ','_',$file);
+                    $file_pancard = rand(1000,100000)."-".$_FILES['pan_card']['name'];
+                    $filename_pancard = str_replace(' ','_',$file_pancard);
     
-                    $config['upload_path'] = 'uploads/pan_card'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                    $config_pancard['upload_path'] = 'uploads/pan_card'; 
+                    $config_pancard['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config_pancard['max_size'] = '100000'; // max_size in kb 
+                    $config_pancard['file_name'] = $filename_pancard; 
            
                     // Load upload library 
-                    $this->load->library('upload',$config); 
+                    //$this->load->library('upload',$config_pancard); 
+                    $this->upload->initialize($config_pancard); 
             
                     // File upload
                     if($this->upload->do_upload('pan_card')){ 
-                       $pan_card = $filename; 
+                       $pan_card = $filename_pancard; 
                     }else{
-                        $pan_card =trim($this->input->post('existing_img'));
+                        $pan_card ='';
                     }
     
-                }else{
-                    $pan_card = trim($this->input->post('existing_img'));
                 }
 
 
-                if(!empty($_FILES['licence']['name'])){
+                if(!empty($_FILES['licence'])){
 
-                    $file = rand(1000,100000)."-".$_FILES['licence']['name'];
-                    $filename = str_replace(' ','_',$file);
+                    $file_licence = rand(1000,100000)."-".$_FILES['licence']['name'];
+                    $filename_licence = str_replace(' ','_',$file_licence);
     
-                    $config['upload_path'] = 'uploads/licence'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                    $config_licence['upload_path'] = 'uploads/licence'; 
+                    $config_licence['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config_licence['max_size'] = '100000'; // max_size in kb 
+                    $config_licence['file_name'] = $filename_licence; 
            
                     // Load upload library 
-                    $this->load->library('upload',$config); 
+                    //$this->load->library('upload',$config); 
+                    $this->upload->initialize($config_licence); 
             
                     // File upload
                     if($this->upload->do_upload('licence')){ 
-                       $licence = $filename; 
+                        $licence = $filename_licence; 
                     }else{
-                        $licence =trim($this->input->post('existing_img'));
+                        $licence = '';
                     }
     
-                }else{
-                    $licence = trim($this->input->post('existing_img'));
                 }
 
+                // if(!empty($_FILES['gst']['name'])){
 
-                if(!empty($_FILES['gst']['name'])){
-
-                    $file = rand(1000,100000)."-".$_FILES['gst']['name'];
-                    $filename = str_replace(' ','_',$file);
+                //     $file = rand(1000,100000)."-".$_FILES['gst']['name'];
+                //     $filename = str_replace(' ','_',$file);
     
-                    $config['upload_path'] = 'uploads/gst'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                //     $config['upload_path'] = 'uploads/gst'; 
+                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                //     $config['max_size'] = '100000'; // max_size in kb 
+                //     $config['file_name'] = $filename; 
            
-                    // Load upload library 
-                    $this->load->library('upload',$config); 
+                //     // Load upload library 
+                //     $this->load->library('upload',$config); 
             
-                    // File upload
-                    if($this->upload->do_upload('gst')){ 
-                       $gst = $filename; 
-                    }else{
-                       $gst =trim($this->input->post('existing_img'));
-                    }
+                //     // File upload
+                //     if($this->upload->do_upload('gst')){ 
+                //        $gst = $filename; 
+                //     }else{
+                //        $gst =trim($this->input->post('existing_img'));
+                //     }
     
-                }else{
-                    $gst = trim($this->input->post('existing_img'));
-                }
+                // }else{
+                //     $gst = trim($this->input->post('existing_img'));
+                // }
 
                 
-                if(!empty($_FILES['rc_book']['name'])){
+                // if(!empty($_FILES['rc_book']['name'])){
 
-                    $file = rand(1000,100000)."-".$_FILES['rc_book']['name'];
-                    $filename = str_replace(' ','_',$file);
+                //     $file = rand(1000,100000)."-".$_FILES['rc_book']['name'];
+                //     $filename = str_replace(' ','_',$file);
     
-                    $config['upload_path'] = 'uploads/rc_book'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                //     $config['upload_path'] = 'uploads/rc_book'; 
+                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                //     $config['max_size'] = '100000'; // max_size in kb 
+                //     $config['file_name'] = $filename; 
            
-                    // Load upload library 
-                    $this->load->library('upload',$config); 
+                //     // Load upload library 
+                //     $this->load->library('upload',$config); 
             
-                    // File upload
-                    if($this->upload->do_upload('rc_book')){ 
-                       $rc_book = $filename; 
-                    }else{
-                       $rc_book =trim($this->input->post('existing_img'));
-                    }
+                //     // File upload
+                //     if($this->upload->do_upload('rc_book')){ 
+                //        $rc_book = $filename; 
+                //     }else{
+                //        $rc_book =trim($this->input->post('existing_img'));
+                //     }
     
-                }else{
-                    $rc_book = trim($this->input->post('existing_img'));
-                }
+                // }else{
+                //     $rc_book = trim($this->input->post('existing_img'));
+                // }
 
-                if(!empty($_FILES['user_photo']['name'])){
+                // if(!empty($_FILES['user_photo']['name'])){
 
-                    $file = rand(1000,100000)."-".$_FILES['user_photo']['name'];
-                    $filename = str_replace(' ','_',$file);
+                //     $file = rand(1000,100000)."-".$_FILES['user_photo']['name'];
+                //     $filename = str_replace(' ','_',$file);
     
-                    $config['upload_path'] = 'uploads/user_photo'; 
-                    $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                    $config['max_size'] = '100000'; // max_size in kb 
-                    $config['file_name'] = $filename; 
+                //     $config['upload_path'] = 'uploads/user_photo'; 
+                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                //     $config['max_size'] = '100000'; // max_size in kb 
+                //     $config['file_name'] = $filename; 
            
-                    // Load upload library 
-                    $this->load->library('upload',$config); 
+                //     // Load upload library 
+                //     $this->load->library('upload',$config); 
             
-                    // File upload
-                    if($this->upload->do_upload('user_photo')){ 
-                       $user_photo = $filename; 
-                    }else{
-                       $user_photo =trim($this->input->post('existing_img'));
-                    }
+                //     // File upload
+                //     if($this->upload->do_upload('user_photo')){ 
+                //        $user_photo = $filename; 
+                //     }else{
+                //        $user_photo =trim($this->input->post('existing_img'));
+                //     }
     
-                }else{
-                    $user_photo = trim($this->input->post('existing_img'));
-                }
+                // }else{
+                //     $user_photo = trim($this->input->post('existing_img'));
+                // }
+
 
                 $data = array(  
                           'aadhar_card'=> $aadhar_card,
