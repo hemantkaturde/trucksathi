@@ -1,3 +1,5 @@
+
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Device_model extends CI_Model{
 	
@@ -67,11 +69,13 @@ class Device_model extends CI_Model{
 		$this->db->select('*');
         if($params['search']['value'] != "") 
         {
-            $this->db->where("(tbl_device_master.device_name LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_device_master.model_number LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_device_master.serial_number  LIKE '%".$params['search']['value']."%')");
-			$this->db->or_where("tbl_device_master.price  LIKE '%".$params['search']['value']."%')");
-			$this->db->or_where("tbl_device_master.description  LIKE '%".$params['search']['value']."%')");
+            $this->db->group_start(); // Open bracket (
+			$this->db->like('tbl_device_master.device_name', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.model_number', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.serial_number', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.price', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
+            $this->db->group_end(); // Close bracket )
         }
         $query = $this->db->get('tbl_device_master');
         $rowcount = $query->num_rows();
@@ -83,11 +87,13 @@ class Device_model extends CI_Model{
 		$this->db->select('*');
         if($params['search']['value'] != "") 
         {
-            $this->db->where("(tbl_device_master.device_name LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_device_master.model_number LIKE '%".$params['search']['value']."%'");
-            $this->db->or_where("tbl_device_master.serial_number  LIKE '%".$params['search']['value']."%')");
-			$this->db->or_where("tbl_device_master.price  LIKE '%".$params['search']['value']."%')");
-			$this->db->or_where("tbl_device_master.description  LIKE '%".$params['search']['value']."%')");
+            $this->db->group_start(); // Open bracket (
+			$this->db->like('tbl_device_master.device_name', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.model_number', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.serial_number', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.price', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
+            $this->db->group_end(); // Close bracket )
         }
         $query = $this->db->get('tbl_device_master');
         $fetch_result = $query->result_array();
@@ -98,7 +104,6 @@ class Device_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-				$data[$counter]['id'] = $counter+1;
                 $data[$counter]['device_image'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/device_image/'.ucwords($value['device_image'])."'>'.";
 				$data[$counter]['device_name'] = $value['device_name'];
                 $data[$counter]['model_number'] = $value['model_number'];

@@ -27,12 +27,11 @@
             </div>
         </div>
       <div class="card">
-         <div class="card-body p-0">
+         <div class="card-body p-10">
             <div class="table-responsive">
-               <table id="view_device" class="table card-table table-vcenter text-nowrap">
+               <table id="view_device" style="width: 100% !important;" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
                   <thead>
-                     <tr>
-                        <th class="w-1">S.No</th>
+                     <tr style="background-color:#3c8dbc !important;color:#fff">
                         <th>Device Image</th>
                         <th>Device Name</th>
                         <th>Model Number</th>

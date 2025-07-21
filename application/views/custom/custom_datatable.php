@@ -10,9 +10,7 @@
 	                 { "width": "15%", "targets": 1 },
 					 { "width": "15%", "targets": 2 },
 	                 { "width": "15%", "targets": 3 },
-					 { "width": "10%", "targets": 4 },
-					 { "width": "8%", "targets": 5 }
-					
+					 { "width": "8%", "targets": 4 },
 	            ],
 	            responsive: true,
 	            "oLanguage": {
@@ -32,11 +30,21 @@
 	    });
     </script>
 <?php //} ?>
+
+
+
 	<script type="text/javascript">
         $(document).ready(function() {
             var dt = $('#view_device').DataTable({
 	            "columnDefs": [ 
-	                 { className: "details-control", "targets": [ 0 ] },
+	                 { "width": "10%", "targets": 0 },
+					 { "width": "10%", "targets": 1 },
+	                 { "width": "10%", "targets": 2 },
+					 { "width": "10%", "targets": 3 },
+					 { "width": "10%", "targets": 4 },
+					 { "width": "10%", "targets": 5 },
+					 { "width": "10%", "targets": 6 },
+					 { "width": "8%", "targets": 7 },
 	            ],
 	            responsive: true,
 	            "oLanguage": {

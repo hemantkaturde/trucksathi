@@ -98,7 +98,6 @@ class Category_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-				$data[$counter]['id'] = $counter+1;
                 $data[$counter]['category_icon'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/category/'.ucwords($value['category_icon'])."'>'.";
 				$data[$counter]['category_head'] = $value['category_head'];
                 $data[$counter]['category_subhead'] = $value['category_subhead'];
