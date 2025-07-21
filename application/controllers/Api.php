@@ -466,11 +466,9 @@ class Api extends REST_Controller {
                     if($this->upload->do_upload('gst')){ 
                        $gst = $filename_gst; 
                     }else{
-                       $gst =trim($this->input->post('existing_img'));
+                       $gst ='';
                     }
     
-                }else{
-                    $gst = trim($this->input->post('existing_img'));
                 }
 
                 
@@ -493,11 +491,9 @@ class Api extends REST_Controller {
                     if($this->upload->do_upload('rc_book')){ 
                        $rc_book = $filename_rc_book; 
                     }else{
-                       $rc_book =trim($this->input->post('existing_img'));
+                       $rc_book ='';
                     }
     
-                }else{
-                    $rc_book = trim($this->input->post('existing_img'));
                 }
 
                 if(!empty($_FILES['user_photo'])){
@@ -519,11 +515,9 @@ class Api extends REST_Controller {
                     if($this->upload->do_upload('user_photo')){ 
                        $user_photo = $filename_user_phto; 
                     }else{
-                       $user_photo =trim($this->input->post('existing_img'));
+                       $user_photo ='';
                     }
     
-                }else{
-                    $user_photo = trim($this->input->post('existing_img'));
                 }
 
 
