@@ -399,7 +399,6 @@ class Api extends REST_Controller {
                 }
                 
 
-
                 if($_FILES['pan_card']){
 
                     $file_pancard = rand(1000,100000)."-".$_FILES['pan_card']['name'];
