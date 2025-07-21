@@ -447,87 +447,93 @@ class Api extends REST_Controller {
     
                 }
 
-                // if(!empty($_FILES['gst']['name'])){
+                if(!empty($_FILES['gst'])){
 
-                //     $file = rand(1000,100000)."-".$_FILES['gst']['name'];
-                //     $filename = str_replace(' ','_',$file);
+                    $file_gst = rand(1000,100000)."-".$_FILES['gst']['name'];
+                    $filename_gst = str_replace(' ','_',$file_gst);
     
-                //     $config['upload_path'] = 'uploads/gst'; 
-                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                //     $config['max_size'] = '100000'; // max_size in kb 
-                //     $config['file_name'] = $filename; 
+                    $config_gst['upload_path'] = 'uploads/gst'; 
+                    $config_gst['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config_gst['max_size'] = '100000'; // max_size in kb 
+                    $config_gst['file_name'] = $filename_gst; 
            
-                //     // Load upload library 
-                //     $this->load->library('upload',$config); 
+                    // Load upload library 
+                    //$this->load->library('upload',$config); 
+
+                    $this->upload->initialize($config_gst); 
             
-                //     // File upload
-                //     if($this->upload->do_upload('gst')){ 
-                //        $gst = $filename; 
-                //     }else{
-                //        $gst =trim($this->input->post('existing_img'));
-                //     }
+                    // File upload
+                    if($this->upload->do_upload('gst')){ 
+                       $gst = $filename_gst; 
+                    }else{
+                       $gst =trim($this->input->post('existing_img'));
+                    }
     
-                // }else{
-                //     $gst = trim($this->input->post('existing_img'));
-                // }
+                }else{
+                    $gst = trim($this->input->post('existing_img'));
+                }
 
                 
-                // if(!empty($_FILES['rc_book']['name'])){
+                if(!empty($_FILES['rc_book'])){
 
-                //     $file = rand(1000,100000)."-".$_FILES['rc_book']['name'];
-                //     $filename = str_replace(' ','_',$file);
+                    $file_rc_book = rand(1000,100000)."-".$_FILES['rc_book']['name'];
+                    $filename_rc_book = str_replace(' ','_',$file_rc_book);
     
-                //     $config['upload_path'] = 'uploads/rc_book'; 
-                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                //     $config['max_size'] = '100000'; // max_size in kb 
-                //     $config['file_name'] = $filename; 
+                    $config_rc['upload_path'] = 'uploads/rc_book'; 
+                    $config_rc['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config_rc['max_size'] = '100000'; // max_size in kb 
+                    $config_rc['file_name'] = $filename_rc_book; 
            
-                //     // Load upload library 
-                //     $this->load->library('upload',$config); 
-            
-                //     // File upload
-                //     if($this->upload->do_upload('rc_book')){ 
-                //        $rc_book = $filename; 
-                //     }else{
-                //        $rc_book =trim($this->input->post('existing_img'));
-                //     }
-    
-                // }else{
-                //     $rc_book = trim($this->input->post('existing_img'));
-                // }
+                    // Load upload library 
+                    //$this->load->library('upload',$config); 
 
-                // if(!empty($_FILES['user_photo']['name'])){
+                    $this->upload->initialize($config_rc); 
 
-                //     $file = rand(1000,100000)."-".$_FILES['user_photo']['name'];
-                //     $filename = str_replace(' ','_',$file);
+                    // File upload
+                    if($this->upload->do_upload('rc_book')){ 
+                       $rc_book = $filename_rc_book; 
+                    }else{
+                       $rc_book =trim($this->input->post('existing_img'));
+                    }
     
-                //     $config['upload_path'] = 'uploads/user_photo'; 
-                //     $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-                //     $config['max_size'] = '100000'; // max_size in kb 
-                //     $config['file_name'] = $filename; 
+                }else{
+                    $rc_book = trim($this->input->post('existing_img'));
+                }
+
+                if(!empty($_FILES['user_photo'])){
+
+                    $file_user_phot = rand(1000,100000)."-".$_FILES['user_photo']['name'];
+                    $filename_user_phto = str_replace(' ','_',$file_user_phot);
+    
+                    $config_photo['upload_path'] = 'uploads/user_photo'; 
+                    $config_photo['allowed_types'] = 'jpg|jpeg|png|gif'; 
+                    $config_photo['max_size'] = '100000'; // max_size in kb 
+                    $config_photo['file_name'] = $filename_user_phto; 
            
-                //     // Load upload library 
-                //     $this->load->library('upload',$config); 
+                    // Load upload library 
+                    //$this->load->library('upload',$config_photo); 
+
+                    $this->upload->initialize($config_photo); 
             
-                //     // File upload
-                //     if($this->upload->do_upload('user_photo')){ 
-                //        $user_photo = $filename; 
-                //     }else{
-                //        $user_photo =trim($this->input->post('existing_img'));
-                //     }
+                    // File upload
+                    if($this->upload->do_upload('user_photo')){ 
+                       $user_photo = $filename_user_phto; 
+                    }else{
+                       $user_photo =trim($this->input->post('existing_img'));
+                    }
     
-                // }else{
-                //     $user_photo = trim($this->input->post('existing_img'));
-                // }
+                }else{
+                    $user_photo = trim($this->input->post('existing_img'));
+                }
 
 
                 $data = array(  
                           'aadhar_card'=> $aadhar_card,
                           'pan_card'=>$pan_card,
                           'licence'=>$licence,
-                        //   'gst'=>$gst,
-                        //   'rc_book'=>$rc_book,
-                        //   'user_photo'=>$user_photo,
+                          'gst'=>$gst,
+                          'rc_book'=>$rc_book,
+                          'user_photo'=>$user_photo,
                           'kyc_doc_status'=>1
                         );
 
