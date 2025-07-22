@@ -539,7 +539,8 @@ class Api extends REST_Controller {
                           'rc_book'=>$rc_book,
                           'user_photo'=>$user_photo,
                           'kyc_doc_status'=>1
-                        );
+                );
+
 
                 $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
 
