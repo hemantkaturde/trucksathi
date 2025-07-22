@@ -74,6 +74,17 @@
 <script src="<?php echo base_url(); ?>assets/plugins/fullcalendar/custom_datatable.js"></script>
 
 <?php } ?>
+<script src="<?php echo base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+  $(function () {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+  })
+</script>
 <script>
    $('#file').change(function(){
       var ext = $('#file').val().split('.').pop().toLowerCase();

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.css">
 <div class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -101,14 +100,3 @@
    </div>
 </section>
 <!-- /.content -->
-<script src="<?php echo base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script>
-  $(function () {
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
-  })
-</script>
