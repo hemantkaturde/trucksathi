@@ -29,9 +29,9 @@
       <div class="card">
          <div class="card-body p-10">
             <div class="table-responsive">
-               <table id="view_category"  style="width: 100% !important;" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
+               <table id="view_category" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
                   <thead>
-                     <tr style="background-color:#3c8dbc !important;color:#fff">
+                     <tr>
                         <th>Category Icon</th>
                         <th>Category Head</th>
                         <th>Category Subhead</th>
@@ -44,7 +44,6 @@
                   <tbody>
                   </tbody>
                </table>
-              
             </div>
          </div>
          <!-- /.card-body -->
@@ -52,27 +51,3 @@
    </div>
 </section>
 <!-- /.content -->
- <!-- <script type="text/javascript">
-        $(document).ready(function() {
-            var dt = $('#view_category1').DataTable({
-	            "columnDefs": [ 
-	                 { className: "details-control", "targets": [ 0 ] },
-	                 
-	            ],
-	            responsive: true,
-	            "oLanguage": {
-	                "sEmptyTable": "<i>No Category List Found.</i>",
-	            }, 
-	            "bSort" : false,
-	            "bFilter":true,
-	            "bLengthChange": true,
-	            "iDisplayLength": 5,   
-	            "bProcessing": true,
-	            "serverSide": true,
-	            "ajax":{
-                    url :"<?php echo base_url();?>category/fetchCategorylist",
-                    type: "post",
-	            },
-	        });
-	    });
-    </script> -->
