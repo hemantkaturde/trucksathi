@@ -23,6 +23,31 @@ class App_users extends CI_Controller {
 		$this->template->template_render('app_users_list',$data);
 	}
 
+    public function fetchappuserslist(){
+        $params = $_REQUEST;
+        $totalRecords = $this->app_user_model->getappUsersCount($params); 
+        $queryRecords = $this->app_user_model->getappUsersdata($params); 
+
+        // print_r($queryRecords); die;
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
+    }
+
     public function addnew_app_user(){
         
         $data['categoryData'] = $this->app_user_model->getall_category();
@@ -74,6 +99,14 @@ class App_users extends CI_Controller {
 			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
 		}
 		redirect('app_users');
+    }
+
+    public function view_kycDoc($id)
+    {
+        $id = $this->uri->segment(3);
+		$data['appuserdetails'] = $this->app_user_model->get_app_users_details($id);
+        $data['categoryData'] = $this->app_user_model->getall_category();
+		$this->template->template_render('app_user_kyc_doc',$data);
     }
 }
 ?>

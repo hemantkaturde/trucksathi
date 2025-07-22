@@ -31,8 +31,6 @@
     </script>
 <?php //} ?>
 
-
-
 	<script type="text/javascript">
         $(document).ready(function() {
             var dt = $('#view_device').DataTable({
@@ -58,6 +56,35 @@
 	            "serverSide": true,
 	            "ajax":{
                     url :"<?php echo base_url();?>device/fetchDevicelist",
+                    type: "post",
+	            },
+	        });
+	    });
+    </script>
+
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var dt = $('#view_app_user').DataTable({
+	            "columnDefs": [ 
+	                 { "width": "25%", "targets": 0 },
+					 { "width": "15%", "targets": 1 },
+	                 { "width": "15%", "targets": 2 },
+					 { "width": "20%", "targets": 3 },
+					 { "width": "15%", "targets": 4 },
+					 { "width": "10%", "targets": 5 }
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>No Device List Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 10,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>App_users/fetchappuserslist",
                     type: "post",
 	            },
 	        });

@@ -34,7 +34,7 @@
                     <div class="col-sm-12 offset-md-3 col-md-6">
                       <div class="form-group">
                           <label class="form-label">Mobile No<span class="text-danger form-required">*</span></label>
-                          <input type="number"  class="form-control" value="<?php echo (isset($appuserdetails)) ? $appuserdetails[0]['mobile']:'' ?>" id="mobile" name="mobile" placeholder="Enter Mobile Number">
+                          <input type="number"  class="form-control" value="<?php echo (isset($appuserdetails)) ? $appuserdetails[0]['mobile_number']:'' ?>" id="mobile_number" name="mobile_number" placeholder="Enter Mobile Number">
                       </div>
                     </div>
 
@@ -88,7 +88,7 @@
     $('#myform').validate({
         rules: {
             name:"required",
-            mobile:"required",
+            mobile_number:"required",
             pincode:"required",
             category_id:"required",
         },

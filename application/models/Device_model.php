@@ -116,7 +116,7 @@ class Device_model extends CI_Model{
 					$data[$counter]['status'] = "<span class='badge badge-danger'>Inactive</span>";
 				}
 				
-                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/editdevice/'.output($value['id']).'"><i class="fa fa-edit"></i></a>
+                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/editdevice/'.output($value['id']).'"><i class="fa fa-edit"></i></a> | 
 				<a data-toggle="modal" href="" onclick="confirmation('.base_url()."device/deletedevice".'","'.output($value['id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
               
