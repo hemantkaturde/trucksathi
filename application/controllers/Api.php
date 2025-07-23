@@ -326,7 +326,9 @@ class Api extends REST_Controller {
 			$data = array('userid' =>strip_tags(form_error('userid')),'category_id'=>strip_tags(form_error('category_id')),'adhar_card'=>strip_tags(form_error('adhar_card')),'pan_card'=>strip_tags(form_error('pan_card')),'licence'=>strip_tags(form_error('licence')),'gst'=>strip_tags(form_error('gst')),'rc_book'=>strip_tags(form_error('rc_book')),'user_photo'=>strip_tags(form_error('user_photo')));
         }else{
 
-                      $data = array(
+            if($this->input->post('company_name')){
+
+                $data = array(
                           'category_id'=>$this->input->post('category_id'),
                           'name'=> $this->input->post('name'),
                           'mobile_number'=>$this->input->post('mobile_number'),
@@ -339,6 +341,24 @@ class Api extends REST_Controller {
                           'kyc_details_status'=>1
                         );
 
+
+            }else{
+
+                $data = array(
+                          'category_id'=>$this->input->post('category_id'),
+                          'name'=> $this->input->post('name'),
+                          'mobile_number'=>$this->input->post('mobile_number'),
+                          'email'=>$this->input->post('email'),
+                          'address'=>$this->input->post('address'),
+                          'city'=>$this->input->post('city'),
+                          'state'=>$this->input->post('state'),
+                          'pincode'=>$this->input->post('pincode'),
+                          'kyc_details_status'=>1
+                        );
+
+
+            }
+                      
             $submitdetails = $this->api_model->submitbasicdetails($this->input->post('userid'),$data);
 
              if($submitdetails){
