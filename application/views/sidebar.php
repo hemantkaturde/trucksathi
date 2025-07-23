@@ -16,8 +16,8 @@
                </a>
             </li>
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                      Masters
@@ -26,21 +26,21 @@
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?>">
+                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
                         <i class="fas fa-cosg icon nav-icon"></i>
                         <p>Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?>">
+                     <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
                         <i class="nav-icon fas faa-plus"></i>
-                        <p>Category Master</p>
+                        <p>Category Master </p>
                      </a>
                   </li>
                </ul>
             </li>
             <li class="nav-item">
-               <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?>">
+               <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?> <?php echo activate_menu('editapp_users');?> <?php echo activate_menu('view_kycDoc');?>">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                      App User's

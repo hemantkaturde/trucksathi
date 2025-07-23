@@ -103,6 +103,8 @@ class App_users extends CI_Controller {
 
     public function view_kycDoc($id)
     {
+        // print_r($this->uri->segment(2)); die;
+
         $id = $this->uri->segment(3);
 		$data['appuserdetails'] = $this->app_user_model->get_app_users_details($id);
         $data['categoryData'] = $this->app_user_model->getall_category();

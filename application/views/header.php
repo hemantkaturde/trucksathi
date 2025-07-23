@@ -3,6 +3,8 @@
      $CI = get_instance();
      $last = $CI->uri->total_segments();
      $seg = $CI->uri->segment($last);
+    //  print_r($seg); die;
+
      if(is_numeric($seg)) {
        $seg = $CI->uri->segment($last-1);
      }
