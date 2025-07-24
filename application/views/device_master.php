@@ -33,7 +33,7 @@
                   <thead>
                      <tr>
                         <th>Device Image</th>
-                        <th>Device Name</th>
+                        <th>Device Title</th>
                         <th>Model Number</th>
                         <th>Serial Number</th>
                         <th>Price </th>

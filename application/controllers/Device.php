@@ -51,7 +51,6 @@ class Device extends CI_Controller {
 	{
 		$testxss = xssclean($_POST);
 		if($testxss){
-
 			$exist = $this->db->select('*')->from('tbl_device_master')->where('device_name',$this->input->post('device_name'))->get()->num_rows();
 			if($exist == 0) {
 				$response = $this->device_model->add_device($this->input->post());
@@ -78,11 +77,13 @@ class Device extends CI_Controller {
     }
 
     public function updatedevice(){
+
         $testxss = xssclean($_POST);
 		if($testxss){
             $exist = $this->db->select('*')->from('tbl_device_master')->where('id !=',$this->input->post('id'))->where('device_name',$this->input->post('device_name'))->get()->num_rows();
 			if($exist == 0) {
                 $response = $this->device_model->update_device($this->input->post());
+
 				if($response) {
 					$this->session->set_flashdata('successmessage', 'Device updated successfully..');
 				} else
