@@ -49,8 +49,9 @@ class Device extends CI_Controller {
 
     public function insertdevice()
 	{
-		$testxss = xssclean($_POST);
-		if($testxss){
+		// $testxss = xssclean($_POST);
+		// if($testxss){
+			$_POST['description'] = htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8');
 			$exist = $this->db->select('*')->from('tbl_device_master')->where('device_name',$this->input->post('device_name'))->get()->num_rows();
 			if($exist == 0) {
 				$response = $this->device_model->add_device($this->input->post());
@@ -64,10 +65,10 @@ class Device extends CI_Controller {
 				$this->session->set_flashdata('warningmessage', 'Device name already exist.');
 			}
 			redirect('device');
-		} else {
-			$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
-			redirect('device');
-		}
+		// } else {
+		// 	$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
+		// 	redirect('device');
+		// }
 	}
 
     public function editdevice(){
@@ -78,8 +79,9 @@ class Device extends CI_Controller {
 
     public function updatedevice(){
 
-        $testxss = xssclean($_POST);
-		if($testxss){
+        // $testxss = xssclean($_POST);
+		// if($testxss){
+			$_POST['description'] = htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8');
             $exist = $this->db->select('*')->from('tbl_device_master')->where('id !=',$this->input->post('id'))->where('device_name',$this->input->post('device_name'))->get()->num_rows();
 			if($exist == 0) {
                 $response = $this->device_model->update_device($this->input->post());
@@ -95,10 +97,10 @@ class Device extends CI_Controller {
             }
             redirect('device');
 			    
-		} else {
-			$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
-			redirect('device');
-		}
+		// } else {
+		// 	$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
+		// 	redirect('device');
+		// }
     }
 
     public function deletedevice(){

@@ -34,6 +34,7 @@
                      <tr>
                         <th>Device Image</th>
                         <th>Device Title</th>
+                        <th>Device Type</th>
                         <th>Model Number</th>
                         <th>Serial Number</th>
                         <th>Price </th>

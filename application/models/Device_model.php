@@ -106,6 +106,7 @@ class Device_model extends CI_Model{
             {
                 $data[$counter]['device_image'] = "<img class='img-fluid' style='width: 30px;' src='".base_url().'uploads/device_image/'.ucwords($value['device_image'])."'>'.";
 				$data[$counter]['device_name'] = $value['device_name'];
+				$data[$counter]['device_type'] = $value['device_type'];
                 $data[$counter]['model_number'] = $value['model_number'];
 				$data[$counter]['serial_number'] = $value['serial_number'];
 				$data[$counter]['price'] = $value['price'];
