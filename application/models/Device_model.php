@@ -110,7 +110,7 @@ class Device_model extends CI_Model{
                 $data[$counter]['model_number'] = $value['model_number'];
 				$data[$counter]['serial_number'] = $value['serial_number'];
 				$data[$counter]['price'] = $value['price'];
-				$data[$counter]['description'] = $value['description'];
+				// $data[$counter]['description'] = $value['description'];
 				if($value['status']=='1'){
 					$data[$counter]['status'] = "<span class='badge badge-success'>Active</span>";
 				}else{

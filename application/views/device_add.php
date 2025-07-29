@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.css">
+<style>
+  .form-check-input { margin-left: 1.25rem; }
+</style>
 <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -55,7 +58,6 @@
                       <div class="form-group">
                          <label class="form-label">Price<span class="text-danger form-required">*</span></label>
                           <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['price']:'' ?>" id="price" name="price" placeholder="Enter Price">
-
                       </div>
                     </div>
 
@@ -95,15 +97,37 @@
                           <option <?php echo (isset($devicedetails) && $devicedetails[0]['years']==15) ? 'selected':'' ?> value="15">15 Years</option>
                         </select>
                       </div>
+
+                      <div class="form-group">
+                        <div class="form-check">
+                          <label class="form-label">Theft Protection</label>
+                          <input class="form-check-input" name="is_theft_pro" id="is_theft_pro" type="checkbox" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['is_theft_pro']:'0' ?>" <?php echo (isset($devicedetails) && $devicedetails[0]['is_theft_pro']==1) ? 'checked':'' ?>>
+                        </div>
+
+                         <!-- <label class="form-label">Theft Protection<span class="text-danger form-required">*</span></label> -->
+                          <!-- <input type="checkbox" required="true" size="2" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['theft_pro_amount']:'' ?>" id="theft_pro" name="theft_pro" placeholder="Enter Theft Protection"> -->
+                      </div>
+                      <div class="form-group">
+                         <label class="form-label">Theft Protection amount<span class="text-danger form-required">*</span></label>
+                          <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['theft_pro_amount']:'' ?>" id="theft_pro_amount" name="theft_pro_amount" placeholder="Enter Theft Protection amount">
+                      </div>
+
                     </div>
 
                     <div class="col-sm-6 col-md-8">
                       <div class="form-group">
                        <label class="form-label">Description</label>
-                        <textarea class="form-control textarea" required="true" id="description" autocomplete="off" placeholder="Description"  name="description"><?php echo (isset($devicedetails)) ? $devicedetails[0]['description']:'' ?></textarea>
+                        <textarea class="form-control textarea" rows="5" required="true" id="description" autocomplete="off" placeholder="Description"  name="description"><?php echo (isset($devicedetails)) ? $devicedetails[0]['description']:'' ?></textarea>
                       </div>
                     </div>
-                    
+                    <div class="col-sm-6 col-md-4">
+                      
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                      
+                    </div>
+
                 </div>
                  <input type="hidden" id="created_at" name="created_at" value="<?php echo date('Y-m-d h:i:s'); ?>">
   
@@ -120,6 +144,23 @@
 <script>
   $(function () {
     // Summernote
-    $('.textarea').summernote()
+    $('.textarea').summernote({
+      height: 180,
+    })
   })
+</script>
+<script>
+    $('#is_theft_pro').change(function () {
+         var chk = $("#is_theft_pro")
+         var IsChecked = chk[0].checked
+         if (IsChecked) {
+          IsChecked = 1;
+          chk.attr('checked', 'checked')
+         } 
+         else {
+          IsChecked =0;
+          chk.removeAttr('checked')                            
+         }
+          chk.attr('value', IsChecked)
+     });
 </script>

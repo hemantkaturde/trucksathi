@@ -38,7 +38,7 @@
                         <th>Model Number</th>
                         <th>Serial Number</th>
                         <th>Price </th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Status</th>
                         <?php //if(userpermission('dm_edit') || userpermission('dm_del')) { ?>
                         <th>Action</th>
