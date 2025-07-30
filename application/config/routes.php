@@ -53,3 +53,6 @@ $route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['triptracking/(:any)'] = 'triptracking';
+
+$route['bodyType'] ='master/body_type';
+$route['bodyType/(:num)'] ='master/body_type/$1';

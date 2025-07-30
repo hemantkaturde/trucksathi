@@ -20,6 +20,7 @@
 
 <script src="<?= base_url(); ?>assets/plugins/datetimepicker/datetimepicker.js"></script>
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datetimepicker/datetimepicker.css">
+<script src="<?= base_url(); ?>assets/master.js"></script>
 
 
 
@@ -76,6 +77,7 @@
 <?php } ?>
 <script src="<?php echo base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <script>
+   var baseURL = "<?php echo base_url(); ?>";
   $(function () {
     $(document).on('click', '[data-toggle="lightbox"]', function(event) {
       event.preventDefault();

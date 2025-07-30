@@ -39,6 +39,11 @@
       <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/plugins/toast/toast.min.css" />
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.css">
       <script src="<?= base_url(); ?>assets/plugins/toast/toast.min.js"></script>
+      <style>
+        .error{
+            color: crimson;
+        }
+      </style>
    </head>
    <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
       <div class="wrapper">

@@ -37,6 +37,12 @@
                         <p>Category Master </p>
                      </a>
                   </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url().'bodyType'; ?>" class="nav-link <?php echo activate_menu('bodyType');?>">
+                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <p>Body Type Master</p>
+                     </a>
+                  </li>
                </ul>
             </li>
             <li class="nav-item">

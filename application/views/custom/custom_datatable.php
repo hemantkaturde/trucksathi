@@ -92,3 +92,29 @@
 	    });
     </script>
 
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var dt = $('#view_bodytype').DataTable({
+	            "columnDefs": [ 
+	                 { "width": "15%", "targets": 0 },
+					 { "width": "10%", "targets": 1 },
+	                 { "width": "8%", "targets": 2 }
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>Body type Not Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 5,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>master/bodytypelist",
+                    type: "post",
+	            },
+	        });
+	    });
+    </script>
+
