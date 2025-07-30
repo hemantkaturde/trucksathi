@@ -16,8 +16,8 @@
                </a>
             </li>
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('bodyType'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?> <?php echo activate_menu('bodyType');?>">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                      Masters
