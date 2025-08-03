@@ -16,8 +16,8 @@
                </a>
             </li>
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('bodyType'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?> <?php echo activate_menu('bodyType');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('bodyType'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('tyre_master'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('capacity'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('vehicle_size'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?> <?php echo activate_menu('bodyType');?> <?php echo activate_menu('tyre_master');?> <?php echo activate_menu('capacity');?> <?php echo activate_menu('vehicle_size');?>">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                      Masters
@@ -27,20 +27,38 @@
                <ul class="nav nav-treeview">
                   <li class="nav-item">
                      <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <i class="fas fa-mobile icon nav-icon"></i>
                         <p>Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
-                        <i class="nav-icon fas faa-plus"></i>
+                        <i class="nav-icon fas fa-plus"></i>
                         <p>Category Master </p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'bodyType'; ?>" class="nav-link <?php echo activate_menu('bodyType');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <i class="fas fa-car icon nav-icon"></i>
                         <p>Body Type Master</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url().'tyre_master'; ?>" class="nav-link <?php echo activate_menu('tyre_master');?>">
+                        <i class="fas fa-life-ring icon nav-icon"></i>
+                        <p>Tyre Master</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url().'capacity'; ?>" class="nav-link <?php echo activate_menu('capacity');?>">
+                        <i class="fas fa-wave-square icon nav-icon"></i>
+                        <p>Capacity Master</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url().'vehicle_size'; ?>" class="nav-link <?php echo activate_menu('vehicle_size');?>">
+                        <i class="fas fa-truck-pickup icon nav-icon"></i>
+                        <p>Vehicle Size Master</p>
                      </a>
                   </li>
                </ul>

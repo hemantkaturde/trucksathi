@@ -56,3 +56,9 @@ $route['triptracking/(:any)'] = 'triptracking';
 
 $route['bodyType'] ='master/body_type';
 $route['bodyType/(:num)'] ='master/body_type/$1';
+$route['tyre_master'] ='master/tyre_master';
+$route['tyre_master/(:num)'] ='master/tyre_master/$1';
+$route['capacity'] ='master/capacity';
+$route['capacity/(:num)'] ='master/capacity/$1';
+$route['vehicle_size'] ='master/vehicle_size';
+$route['vehicle_size/(:num)'] ='master/vehicle_size/$1';

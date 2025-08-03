@@ -26,17 +26,17 @@
 
             <div class="card">
                 <div class="card-body p-10">
-                    <form method="post" id="bTypeform">
+                    <form method="post" id="vehiclesizeform">
                         <div class="col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label class="form-label">Body type<span class="text-danger form-required">*</span></label>
-                                <input type="text" class="form-control" value="<?php echo (isset($btypedetails)) ? $btypedetails[0]['btype_name']: '' ?>" id="btype_name" name="btype_name" placeholder="Enter Body Type">
+                                <label class="form-label">Vehicle Size<span class="text-danger form-required">*</span></label>
+                                <input type="text" class="form-control" value="<?php echo (isset($vehiclesizedetails)) ? $vehiclesizedetails[0]['vsize_name']: '' ?>" id="vsize_name" name="vsize_name" placeholder="Enter vehicle size">
                             </div>
-                            <?php if(isset($btypedetails)){ ?>
-                            <input type="hidden" name="btype_id" id="btype_id" value="<?php echo (isset($btypedetails)) ? $btypedetails[0]['btype_id']:'' ?>" >
+                            <?php if(isset($vehiclesizedetails)){ ?>
+                                <input type="hidden" name="vsize_id" id="vsize_id" value="<?php echo (isset($vehiclesizedetails)) ? $vehiclesizedetails[0]['vsize_id']:'' ?>" >
                             <?php } ?>
                             <div class="form-group float-right">
-                                <button type="submit" class="btn btn-primary"><?php echo (isset($btypedetails)) ? 'UPDATE': 'SAVE' ?></button>
+                                <button type="submit" class="btn btn-primary"><?php echo (isset($vehiclesizedetails)) ? 'UPDATE': 'SAVE' ?></button>
                             </div>
                         </div>
                     </form>
@@ -49,10 +49,10 @@
             <div class="card">
                 <div class="card-body p-10">
                     <div class="table-responsive">
-                    <table id="view_bodytype" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
+                    <table id="view_vehiclesize" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
                         <thead>
                             <tr>
-                                <th>Body Type</th>
+                                <th>Vehicle size</th>
                                 <th>Status</th>
                                 <?php //if(userpermission('cm_edit') || userpermission('cm_del')) { ?>
                                 <th>Action</th>

@@ -93,6 +93,7 @@
     </script>
 
 	<script type="text/javascript">
+		// ====== BODY TYPE =======
         $(document).ready(function() {
             var dt = $('#view_bodytype').DataTable({
 	            "columnDefs": [ 
@@ -112,6 +113,81 @@
 	            "serverSide": true,
 	            "ajax":{
                     url :"<?php echo base_url();?>master/bodytypelist",
+                    type: "post",
+	            },
+	        });
+	    });
+
+		// ====== TYRE MASTER =====
+		$(document).ready(function() {
+            var dt = $('#view_tyre').DataTable({
+	            "columnDefs": [ 
+	                 { "width": "15%", "targets": 0 },
+					 { "width": "10%", "targets": 1 },
+	                 { "width": "8%", "targets": 2 }
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>Tyre Data Not Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 5,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>master/tyrelist",
+                    type: "post",
+	            },
+	        });
+	    });
+
+		// ====== CAPACITY MASTER =====
+		$(document).ready(function() {
+            var dt = $('#view_capacity').DataTable({
+	            "columnDefs": [ 
+	                 { "width": "15%", "targets": 0 },
+					 { "width": "10%", "targets": 1 },
+	                 { "width": "8%", "targets": 2 }
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>Capacity Data Not Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 5,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>master/capacitylist",
+                    type: "post",
+	            },
+	        });
+	    });
+
+		// ====== VEHICLE SIZE MASTER =====
+		$(document).ready(function() {
+            var dt = $('#view_vehiclesize').DataTable({
+	            "columnDefs": [ 
+	                 { "width": "15%", "targets": 0 },
+					 { "width": "10%", "targets": 1 },
+	                 { "width": "8%", "targets": 2 }
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>Vehicle size Data Not Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 5,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>master/vehiclesizelist",
                     type: "post",
 	            },
 	        });
