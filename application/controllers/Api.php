@@ -705,11 +705,11 @@ class Api extends REST_Controller {
             $getdeviceinfodata = $this->api_model->getdeviceinfo($data);
             if($getdeviceinfodata){
                     $status = 'Success';
-                    $message = 'Device Details Data';
+                    $message = 'Device List Data';
                     $data = $getdeviceinfodata;
             }else{
                     $status = 'Failure';
-                    $message = 'Device Details Data Failed';
+                    $message = 'Device List Data Failed';
                     $data = array();
 
             }
