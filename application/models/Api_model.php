@@ -232,6 +232,46 @@ class Api_model extends CI_Model{
 	}
 
 
+
+	
+	public function getdevicedetails($data){
+
+		$this->db->select('*');
+		$this->db->where('id', $data['deviceid']);
+        $query = $this->db->get("tbl_device_master");
+		$fetch_result = $query->result_array();
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['deviceid'] = $value['id'];
+                $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
+				$data[$counter]['device_type'] = $value['device_type'];
+				$data[$counter]['model_number'] = $value['model_number'];
+                $data[$counter]['serial_number '] = $value['serial_number '];
+				$data[$counter]['price'] = $value['price'];
+				$data[$counter]['description'] = $value['description'];
+                $data[$counter]['years'] = $value['years'];
+			    $data[$counter]['theft_price'] = 200;
+
+                 if($value['device_image']){
+                    $device_image = DOCUMENT_PATH.'/device_image/'.$value['device_image'];
+				 }else{
+                    $device_image ='';
+				 }
+				 
+				 
+				$data[$counter]['device_image'] =  $device_image;
+			}
+
+		}
+
+		  return $data;
+	}
+
+
 		// public function getdeviceinfo($data){
 
 	// 	$this->db->select('*');

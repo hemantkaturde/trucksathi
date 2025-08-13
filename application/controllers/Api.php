@@ -723,4 +723,39 @@ class Api extends REST_Controller {
     }
 
 
+      public function getdevicedetails_post(){
+
+    
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('deviceid', 'DeviceId', 'trim|required');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('deviceid' =>strip_tags(form_error('deviceid')));
+		}
+		else
+		{
+            $data = array('deviceid' => $this->input->post('deviceid'));
+            $getdevicedetails = $this->api_model->getdevicedetails($data);
+            if($getdevicedetails){
+                    $status = 'Success';
+                    $message = 'Device Details Data';
+                    $data = $getdevicedetails;
+            }else{
+                    $status = 'Failure';
+                    $message = 'Device Details Data Failed';
+                    $data = array();
+
+            }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $getdevicedetails);
+            setContentLength($responseData);
+
+
+        }
+
+    }
+
+
 }
