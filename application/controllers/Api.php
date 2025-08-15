@@ -727,8 +727,6 @@ class Api extends REST_Controller {
     }
 
     public function getdevicedetails_post(){
-
-    
         $post_submit = $this->input->post();
         $this->form_validation->set_rules('deviceid', 'DeviceId', 'trim|required');
 		if ($this->form_validation->run() == FALSE)
@@ -760,16 +758,17 @@ class Api extends REST_Controller {
 
     }
 
-
     public function submitorder_post(){
-      $post_submit = $this->input->post(); 
 
+      $post_submit = $this->input->post(); 
       $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
       $this->form_validation->set_rules('deviceid', 'Device Id', 'trim|required');
       $this->form_validation->set_rules('theft_protection', 'Theft Protection', 'trim|required');
       $this->form_validation->set_rules('theft_protection_amount', 'Theft Protection Amount', 'trim|required');
       $this->form_validation->set_rules('device_count', 'Device Count', 'trim|required');
       $this->form_validation->set_rules('device_amount', 'Device Amount', 'trim|required');
+      $this->form_validation->set_rules('gst_percentage', 'Gst Percentage', 'trim|required');
+      $this->form_validation->set_rules('gst_value', 'Gst Value', 'trim|required');
       $this->form_validation->set_rules('grand_total', 'Grand Total', 'trim|required');
       $this->form_validation->set_rules('orderid', 'Orderid', 'trim|required');
       $this->form_validation->set_rules('transaction_id', 'Transaction Id', 'trim|required');
@@ -778,29 +777,29 @@ class Api extends REST_Controller {
 		{
 			$status = 'Failure';
 			$message = 'Validation error';
-			$data = array('userid' =>strip_tags(form_error('userid')),'deviceid' =>strip_tags(form_error('deviceid')),'theft_protection' =>strip_tags(form_error('theft_protection')),'theft_protection_amount' =>strip_tags(form_error('theft_protection_amount')),'device_count' =>strip_tags(form_error('device_count')),'device_amount' =>strip_tags(form_error('device_amount')),'grand_total' =>strip_tags(form_error('grand_total')),'grand_total' =>strip_tags(form_error('grand_total')));
+			$data = array('userid' =>strip_tags(form_error('userid')),'deviceid' =>strip_tags(form_error('deviceid')),'theft_protection' =>strip_tags(form_error('theft_protection')),'theft_protection_amount' =>strip_tags(form_error('theft_protection_amount')),'device_count' =>strip_tags(form_error('device_count')),'device_amount' =>strip_tags(form_error('device_amount')),'grand_total' =>strip_tags(form_error('grand_total')),'orderid' =>strip_tags(form_error('orderid')),'transaction_id' =>strip_tags(form_error('transaction_id')),'gst_percentage' =>strip_tags(form_error('gst_percentage')),'gst_value' =>strip_tags(form_error('gst_value')));
 		}
 		else
 		{
-            $data = array('userid'=>$this->input->post('userid'),'deviceid' => $this->input->post('deviceid'),'theft_protection'=>$this->input->post('theft_protection'),'theft_protection_amount'=>$this->input->post('theft_protection_amount'),'device_count'=>$this->input->post('device_count'),'device_amount'=>$this->input->post('device_amount'),'grand_total'=>$this->input->post('grand_total'),'orderid'=>$this->input->post('orderid'),'transaction_id'=>$this->input->post('transaction_id'));
+            $data = array('userid'=>$this->input->post('userid'),'deviceid' => $this->input->post('deviceid'),'theft_protection'=>$this->input->post('theft_protection'),'theft_protection_amount'=>$this->input->post('theft_protection_amount'),'device_count'=>$this->input->post('device_count'),'device_amount'=>$this->input->post('device_amount'),'grand_total'=>$this->input->post('grand_total'),'orderid'=>$this->input->post('orderid'),'transaction_id'=>$this->input->post('transaction_id'),'gst_percentage'=>$this->input->post('gst_percentage'),'gst_value'=>$this->input->post('gst_value'));
             $submitorderdetails = $this->api_model->submitorderdetails('',$data);
-
             if($submitorderdetails){
                 $status = 'Success';
                 $message = 'Data Submitted';
-                $data = array('userid'=>$this->input->post('userid'),'deviceid' => $this->input->post('deviceid'),'theft_protection'=>$this->input->post('theft_protection'),'theft_protection_amount'=>$this->input->post('theft_protection_amount'),'device_count'=>$this->input->post('device_count'),'device_amount'=>$this->input->post('device_amount'),'grand_total'=>$this->input->post('grand_total'),'orderid'=>$this->input->post('orderid'),'transaction_id'=>$this->input->post('transaction_id'));
+                $data = array('userid'=>$this->input->post('userid'),'deviceid' => $this->input->post('deviceid'),'theft_protection'=>$this->input->post('theft_protection'),'theft_protection_amount'=>$this->input->post('theft_protection_amount'),'device_count'=>$this->input->post('device_count'),'device_amount'=>$this->input->post('device_amount'),'grand_total'=>$this->input->post('grand_total'),'orderid'=>$this->input->post('orderid'),'transaction_id'=>$this->input->post('transaction_id'),'gst_percentage'=>$this->input->post('gst_percentage'),'gst_value'=>$this->input->post('gst_value'));
              }else{
                 $status = 'Failure';
                 $message = 'Failure data not Submitted';
-                $data = array('userid'=>'','deviceid' => '','theft_protection'=>'','theft_protection_amount'=>'','device_count'=>'','device_amount'=>'','grand_total'=>'','orderid'=>'','transaction_id'=>'');
+                $data = array('userid'=>'','deviceid' => '','theft_protection'=>'','theft_protection_amount'=>'','device_count'=>'','device_amount'=>'','grand_total'=>'','orderid'=>'','transaction_id'=>'','gst_percentage' =>'','gst_value' =>'');
              }
-
             $responseData = array('status' => $status,'message'=> $message,'data' => $data);
             setContentLength($responseData);
         }
     }
 
 
+
+    
 
 
 
@@ -830,12 +829,12 @@ class Api extends REST_Controller {
             ];
 
             $razorpayOrder = $api->order->create($orderData);
-            // $orderArray = $razorpayOrder->toArray();
+            $orderArray = $razorpayOrder->toArray();
         
              if($razorpayOrder){
                     $status = 'Success';
                     $message = 'Order Id Succussfully Created';
-                    $data = array('order_id'=>$razorpayOrder->id);
+                    $data = $orderArray;
             }else{
                     $status = 'Failure';
                     $message = 'Order Id Failed';
