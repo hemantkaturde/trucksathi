@@ -271,13 +271,13 @@ class Api_model extends CI_Model{
 	public function submitorderdetails($id,$data){
 		if($id != '') {
             $this->db->where('id', $id);
-            if($this->db->update('tbl_appuser_info', $data)){
+            if($this->db->update('tbl_device_order', $data)){
                 return TRUE;
             } else {
                 return FALSE;
             }
         } else {
-            if($this->db->insert('tbl_appuser_info', $data)) {
+            if($this->db->insert('tbl_device_order', $data)) {
                 return $this->db->insert_id();
             } else {
                 return FALSE;
