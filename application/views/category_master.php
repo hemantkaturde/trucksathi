@@ -32,7 +32,7 @@
                <table id="view_category" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
                   <thead>
                      <tr>
-                        <th>Category Icon</th>
+                        <!-- <th>Category Icon</th> -->
                         <th>Category Head</th>
                         <th>Category Subhead</th>
                         <th>Status</th>

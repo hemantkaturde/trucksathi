@@ -10,7 +10,6 @@
 	                 { "width": "15%", "targets": 1 },
 					 { "width": "15%", "targets": 2 },
 	                 { "width": "15%", "targets": 3 },
-					 { "width": "8%", "targets": 4 },
 	            ],
 	            responsive: true,
 	            "oLanguage": {
