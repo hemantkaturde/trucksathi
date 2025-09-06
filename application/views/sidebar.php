@@ -62,35 +62,6 @@
                      </a>
                   </li>
                </ul>
-
-
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>Device Master</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>settings/smtpconfig" class="nav-link <?php echo activate_menu('smtpconfig');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>SMTP Configuration</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>settings/email_template" class="nav-link <?php echo activate_menu('email_template');?><?php echo activate_menu('edit_email_template');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Email Template</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="<?= base_url(); ?>settings/websitesetting_traccar" class="nav-link <?php echo activate_menu('websitesetting_traccar');?>">
-                        <i class="nav-icon fas faa-plus"></i>
-                        <p>Traccar Config</p>
-                     </a>
-                  </li>
-               </ul>
-
             </li>
             <li class="nav-item">
                <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?> <?php echo activate_menu('editapp_users');?> <?php echo activate_menu('view_kycDoc');?>">
