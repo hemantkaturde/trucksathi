@@ -76,7 +76,6 @@
                <ul class="nav nav-treeview">
                   <li class="nav-item">
                      <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
-                        <i class="fas fa-mobile icon nav-icon"></i>
                         <p>Device Master</p>
                      </a>
                   </li>
