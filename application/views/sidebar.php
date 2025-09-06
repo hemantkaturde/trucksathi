@@ -69,7 +69,7 @@
                <a href="#" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?><?php echo activate_menu('adduser');?>">
                   <i class="nav-icon fa fa-user"></i>
                   <p>
-                     Device 
+                    GPS Device 
                      <i class="right fas fa-angle-left"></i>
                   </p>
                </a>
@@ -77,7 +77,7 @@
                   <li class="nav-item">
                      <a href="<?= base_url(); ?>users" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?>">
                         <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>Device Master</p>
+                        <p>GPS Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
