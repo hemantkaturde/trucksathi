@@ -77,7 +77,7 @@
                   <li class="nav-item">
                      <a href="<?= base_url(); ?>device" class="nav-link <?php echo activate_menu('adduser');?>">
                         <i class="nav-icon fas faa-plus"></i>
-                        <p>GPS Device Order</p>
+                        <p>GPS Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
