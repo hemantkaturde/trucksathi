@@ -75,8 +75,9 @@
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
-                        <p>Device Master</p>
+                     <a href="<?= base_url(); ?>device" class="nav-link <?php echo activate_menu('adduser');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>GPS Device Order</p>
                      </a>
                   </li>
                   <li class="nav-item">
