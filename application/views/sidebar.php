@@ -25,12 +25,12 @@
                   </p>
                </a>
                <ul class="nav nav-treeview">
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                      <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
                         <i class="fas fa-mobile icon nav-icon"></i>
                         <p>Device Master</p>
                      </a>
-                  </li>
+                  </li> -->
                   <li class="nav-item">
                      <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
                         <i class="nav-icon fas fa-plus"></i>
@@ -75,15 +75,15 @@
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= base_url(); ?>users" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?>">
-                        <i class="fas fa-cosg icon nav-icon"></i>
-                        <p>GPS Device Master</p>
+                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
+                        <i class="fas fa-mobile icon nav-icon"></i>
+                        <p>Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url(); ?>users/adduser" class="nav-link <?php echo activate_menu('adduser');?>">
                         <i class="nav-icon fas faa-plus"></i>
-                        <p>Device Order</p>
+                        <p>GPS Device Order</p>
                      </a>
                   </li>
                </ul>
