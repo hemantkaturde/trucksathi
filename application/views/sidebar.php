@@ -27,35 +27,70 @@
                <ul class="nav nav-treeview">
                   <li class="nav-item">
                      <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
+                        <i class="fas fa-mobile icon nav-icon"></i>
                         <p>Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'category'; ?>" class="nav-link <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?>">
+                        <i class="nav-icon fas fa-plus"></i>
                         <p>Category Master </p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'bodyType'; ?>" class="nav-link <?php echo activate_menu('bodyType');?>">
+                        <i class="fas fa-car icon nav-icon"></i>
                         <p>Body Type Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'tyre_master'; ?>" class="nav-link <?php echo activate_menu('tyre_master');?>">
+                        <i class="fas fa-life-ring icon nav-icon"></i>
                         <p>Tyre Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'capacity'; ?>" class="nav-link <?php echo activate_menu('capacity');?>">
+                        <i class="fas fa-wave-square icon nav-icon"></i>
                         <p>Capacity Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
                      <a href="<?= base_url().'vehicle_size'; ?>" class="nav-link <?php echo activate_menu('vehicle_size');?>">
+                        <i class="fas fa-truck-pickup icon nav-icon"></i>
                         <p>Vehicle Size Master</p>
                      </a>
                   </li>
                </ul>
+
+
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                     <a href="<?= base_url().'device'; ?>" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?>">
+                        <i class="fas fa-cosg icon nav-icon"></i>
+                        <p>Device Master</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>settings/smtpconfig" class="nav-link <?php echo activate_menu('smtpconfig');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>SMTP Configuration</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>settings/email_template" class="nav-link <?php echo activate_menu('email_template');?><?php echo activate_menu('edit_email_template');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Email Template</p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="<?= base_url(); ?>settings/websitesetting_traccar" class="nav-link <?php echo activate_menu('websitesetting_traccar');?>">
+                        <i class="nav-icon fas faa-plus"></i>
+                        <p>Traccar Config</p>
+                     </a>
+                  </li>
+               </ul>
+
             </li>
             <li class="nav-item">
                <a href="<?= base_url(); ?>app_users" class="nav-link <?php echo activate_menu('app_users');?> <?php echo activate_menu('addnew_app_user');?> <?php echo activate_menu('editapp_users');?> <?php echo activate_menu('view_kycDoc');?>">
