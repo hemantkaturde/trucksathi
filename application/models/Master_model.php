@@ -280,7 +280,6 @@ class Master_model extends CI_Model{
         $query = $this->db->get('tbl_promotion_master');
         $rowcount = $query->num_rows();
         return $rowcount;
-
 	}
 
 
