@@ -327,5 +327,111 @@ class Master extends CI_Controller {
 		}
 		redirect('vehicle_size');
     }
+
+    // ===============================================
+    // =========== PROMOTION MASTER START ============
+    public function promotion($id=NULL)
+	{
+        $data['title'] = 'Promotion';
+        // $data['promotionlist'] = $this->master_model->getall_promotion();
+		$this->template->template_render('master/promotion_master',$data);
+	}
+
+    public function fetchPromotionlist()
+	{
+		$params = $_REQUEST;
+        $totalRecords = $this->master_model->getPromotionCount($params); 
+        $queryRecords = $this->master_model->getPromotiondata($params); 
+
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
+	}
+
+    public function addnew_promotion(){
+        $this->template->template_render('master/promotion_add');
+    }
+
+    public function insertpromotion()
+	{
+		$testxss = xssclean($_POST);
+		if($testxss){
+
+			$exist = $this->db->select('*')->from('tbl_promotion_master')->where('promo_title',$this->input->post('promo_title'))->get()->num_rows();
+			if($exist == 0) {
+				$response = $this->master_model->add_promotion($this->input->post());
+
+				if($response) {
+					$this->session->set_flashdata('successmessage', 'New promotion added successfully..');
+				} else {
+					$this->session->set_flashdata('warningmessage', 'Something went wrong.');
+				}
+			} else {
+				$this->session->set_flashdata('warningmessage', 'Promotion title already exist.');
+			}
+			redirect('promotion');
+		} else {
+			$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
+			redirect('promotion');
+		}
+	}
+
+    public function editpromotion(){
+        $id = $this->uri->segment(3);
+		$data['promotiondetails'] = $this->master_model->get_promotiondetails($id);
+		$this->template->template_render('master/promotion_add',$data);
+    }
+
+    public function updatepromotion(){
+		
+        $testxss = xssclean($_POST);
+		if($testxss){
+            $exist = $this->db->select('*')->from('tbl_promotion_master')->where('promo_id !=',$this->input->post('promo_id'))->where('promo_title',$this->input->post('promo_title'))->get()->num_rows();
+			if($exist == 0) {
+                $response = $this->master_model->update_promotion($this->input->post());
+				if($response) {
+					$this->session->set_flashdata('successmessage', 'promotion updated successfully..');
+				} else
+				{
+					$this->session->set_flashdata('warningmessage', 'Something went wrong..Try again');
+				}
+            }else{
+                $this->session->set_flashdata('warningmessage', 'promotion title already exist.');
+            }
+            redirect('promotion');
+			    
+		} else {
+			$this->session->set_flashdata('warningmessage', 'Error! Your input are not allowed.Please try again');
+			redirect('promotion');
+		}
+    }
+
+    public function deletepromotion(){
+        $id = $this->input->post('del_id');
+        
+		$deleteresp = $this->db->delete('tbl_promotion_master', array('promo_id' => $id));
+		if($deleteresp) {
+			$this->session->set_flashdata('successmessage', 'Promotion deleted successfully..');
+		} else {
+			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
+		}
+		redirect('promotion');
+    }
+
+    // ===============================================
 }
 ?>

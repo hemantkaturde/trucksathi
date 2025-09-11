@@ -62,3 +62,8 @@ $route['capacity'] ='master/capacity';
 $route['capacity/(:num)'] ='master/capacity/$1';
 $route['vehicle_size'] ='master/vehicle_size';
 $route['vehicle_size/(:num)'] ='master/vehicle_size/$1';
+
+$route['promotion'] ='master/promotion';
+$route['add-promotion'] ='master/addnew_promotion';
+
+
