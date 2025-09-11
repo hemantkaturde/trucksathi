@@ -129,4 +129,88 @@ class Device_model extends CI_Model{
         
 		
 	}
+
+	// ===================================================
+
+	public function getDeviceOrderCount($params){
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+			$this->db->group_start(); // Open bracket (
+			$this->db->like('tbl_device_order.theft_protection', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.theft_protection_amount', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.device_count', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.device_amount', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.gst_percentage', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
+			$this->db->group_end(); // Close bracket )
+        }
+        $this->db->from('tbl_device_order');
+		$this->db->join('tbl_appuser_info', 'tbl_appuser_info.id=tbl_device_order.userid','left');
+		$this->db->join('tbl_device_master', 'tbl_device_master.id=tbl_device_order.deviceid','left');
+		$query = $this->db->get();
+        $rowcount = $query->num_rows();
+        return $rowcount;
+	}
+
+	public function getDeviceOrderdata($params){
+		// $this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+			$this->db->group_start();
+			$this->db->like('tbl_device_order.theft_protection', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.theft_protection_amount', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.device_count', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.device_amount', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.gst_percentage', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
+			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
+			$this->db->group_end();
+        }
+        $this->db->from('tbl_device_order');
+		$this->db->join('tbl_appuser_info', 'tbl_appuser_info.id=tbl_device_order.userid','left');
+		$this->db->join('tbl_device_master', 'tbl_device_master.id=tbl_device_order.deviceid','left');
+		$query = $this->db->get();
+
+        $fetch_result = $query->result_array();
+
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['name'] = $value['name'];
+				$data[$counter]['device_name'] = $value['device_name'];
+                // $data[$counter]['theft_protection'] = $value['theft_protection'];
+				if($value['theft_protection']=='1'){
+					$data[$counter]['theft_protection'] = "<span class='badge badge-success'>YES</span>";
+				}else{
+					$data[$counter]['theft_protection'] = "<span class='badge badge-danger'>NO</span>";
+				}
+				$data[$counter]['theft_protection_amount'] = $value['theft_protection_amount'];
+				$data[$counter]['device_count'] = $value['device_count'];
+				$data[$counter]['device_amount'] = $value['device_amount'];
+				$data[$counter]['gst_percentage'] = $value['gst_percentage'];
+				$data[$counter]['gst_value'] = $value['gst_value'];
+				$data[$counter]['grand_total'] = $value['grand_total'];
+				
+				
+                $data[$counter]['action'] = '<a class="icon" href="#"><i class="fa fa-download" title="Download Invoice"></i></a> | 
+											<a class="icon text-success" href="#"><i class="fa fa-file" title="Certificate"></i></a> 
+				';
+              
+                $counter++; 
+            }
+        }
+        return $data;
+	}
+
+	// ===================================================
 } 

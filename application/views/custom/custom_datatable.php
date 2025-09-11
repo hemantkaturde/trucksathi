@@ -218,5 +218,37 @@
 	            },
 	        });
 	    });
+
+		$(document).ready(function() {
+            var dt = $('#view_device_order').DataTable({
+	            "columnDefs": [ 
+	                 { className: "details-control", "targets": [ 0 ] },
+	                 { "width": "10%", "targets": 0 },
+	                 { "width": "10%", "targets": 1 },
+					 { "width": "10%", "targets": 2 },
+	                 { "width": "10%", "targets": 3 },
+					 { "width": "10%", "targets": 4 },
+					 { "width": "10%", "targets": 5 },
+					 { "width": "10%", "targets": 6 },
+					 { "width": "10%", "targets": 7 },
+					 { "width": "10%", "targets": 8 },
+					 { "width": "10%", "targets": 9 },
+	            ],
+	            responsive: true,
+	            "oLanguage": {
+	                "sEmptyTable": "<i>No device order List Found.</i>",
+	            }, 
+	            "bSort" : false,
+	            "bFilter":true,
+	            "bLengthChange": true,
+	            "iDisplayLength": 15,   
+	            "bProcessing": true,
+	            "serverSide": true,
+	            "ajax":{
+                    url :"<?php echo base_url();?>device/fetchDeviceOrderlist",
+                    type: "post",
+	            },
+	        });
+	    });
     </script>
 
