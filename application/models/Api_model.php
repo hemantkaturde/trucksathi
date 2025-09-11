@@ -286,4 +286,35 @@ class Api_model extends CI_Model{
 	}
 
 
+	public function getpromotaionmaster($data){
+
+		$this->db->select('*');
+		$this->db->where('status', 1);
+        $query = $this->db->get("tbl_promotion_master");
+		$fetch_result = $query->result_array();
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['promo_id'] = $value['promo_id'];
+                $data[$counter]['promo_title'] = $value['promo_title'];
+                 if($value['promo_banner']){
+                    $promo_banner = DOCUMENT_PATH.'/promotion/'.$value['promo_banner'];
+				 }else{
+                    $promo_banner ='';
+				 }
+				 
+				 
+				$data[$counter]['promo_banner'] =  $promo_banner;
+				$data[$counter]['promo_url'] =  $promo_url;
+			}
+
+		}
+
+		  return $data;
+	}
+
+
 } 

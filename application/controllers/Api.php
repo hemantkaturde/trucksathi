@@ -22,6 +22,7 @@ class Api extends REST_Controller {
 
 
     }
+
     public function index_get() {
          $write_content = var_export($_GET, true);
             file_put_contents("myloggets.php", $write_content);
@@ -99,6 +100,7 @@ class Api extends REST_Controller {
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) + cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
         return $angle * $earthRadius;
     }
+
     public function currentpositions_get()     
     { 
         $data = array();
@@ -124,6 +126,7 @@ class Api extends REST_Controller {
         }
         $this->set_response($resp);
     }
+
     public function checkgeofence($vid,$lat,$log)     
     { 
         $vgeofence = $this->geofence_model->getvechicle_geofence($vid);
@@ -797,6 +800,37 @@ class Api extends REST_Controller {
         }
     }
 
+    public function getpromotaiondata_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+
+	    if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')));
+		}
+		else
+		{
+            $data = array('mobile_number' => $this->input->post('mobile_number'));
+            $getpromotaionDetailsData = $this->api_model->getpromotaionmaster($data);
+            if($getpromotaionDetailsData){
+                    $status = 'Success';
+                    $message = 'Promotion Details Data';
+                    $data = $getpromotaionDetailsData;
+            }else{
+                    $status = 'Failure';
+                    $message = 'Promotion Details Data Failed';
+                    $data = array();
+
+            }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $getpromotaionDetailsData);
+            setContentLength($responseData);
+        }
+
+    }
 
 
     
