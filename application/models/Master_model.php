@@ -37,7 +37,7 @@ class Master_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'bodyType/'.output($value['btype_id']).'"><i class="fa fa-edit"></i></a> | 
-                <a href="'.base_url().'master/delbodyType/'.output($value['btype_id']).'" class="icon text-danger"><i class="fa fa-trash"></i></a>
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."master/deletebodyType"."',".output($value['btype_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 
@@ -90,7 +90,7 @@ class Master_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'tyre_master/'.output($value['tyre_id']).'"><i class="fa fa-edit"></i></a> | 
-                <a href="'.base_url().'master/deltyre/'.output($value['tyre_id']).'" class="icon text-danger"><i class="fa fa-trash"></i></a>
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."master/deletetyre"."',".output($value['tyre_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 
@@ -142,7 +142,7 @@ class Master_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'capacity/'.output($value['capacity_id']).'"><i class="fa fa-edit"></i></a> | 
-                <a href="'.base_url().'master/deletecapacity/'.output($value['capacity_id']).'" class="icon text-danger"><i class="fa fa-trash"></i></a>
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."master/deletecapacity"."',".output($value['capacity_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 
@@ -194,7 +194,7 @@ class Master_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'vehicle_size/'.output($value['vsize_id']).'"><i class="fa fa-edit"></i></a> | 
-                <a href="'.base_url().'master/deletevehiclesize/'.output($value['vsize_id']).'" class="icon text-danger"><i class="fa fa-trash"></i></a>
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."master/deletevehiclesize"."',".output($value['vsize_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 
@@ -280,7 +280,6 @@ class Master_model extends CI_Model{
         $query = $this->db->get('tbl_promotion_master');
         $rowcount = $query->num_rows();
         return $rowcount;
-
 	}
 
 
@@ -313,7 +312,7 @@ class Master_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'master/editpromotion/'.output($value['promo_id']).'"><i class="fa fa-edit"></i></a> | 
-				<a data-toggle="modal" href="" onclick="confirmation('.base_url().'master/deletepromotion'.','.output($value['promo_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				<a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."master/deletepromotion"."',".output($value['promo_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 

@@ -78,7 +78,7 @@ class Master extends CI_Controller {
         echo json_encode($json_data);
     }
 
-    public function deletebodyType($id){
+    public function deletebodyType(){
         $id = $this->input->post('del_id');
 		$deleteresp = $this->db->delete('tbl_body_type', array('btype_id' => $id));
 		if($deleteresp) {
@@ -87,16 +87,6 @@ class Master extends CI_Controller {
 			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
 		}
 		redirect('bodyType');
-    }
-    public function delbodyType($id){
-        $deleteresp = $this->db->delete('tbl_body_type', array('btype_id' => $id));
-		if($deleteresp) {
-			$this->session->set_flashdata('successmessage', 'Body type deleted successfully..');
-		} else {
-			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
-		}
-		redirect('bodyType');
-
     }
     // ======================================================
 
@@ -166,15 +156,15 @@ class Master extends CI_Controller {
         echo json_encode($json_data);
     }
 
-    public function deletetyre($id){
+    public function deletetyre(){
         $id = $this->input->post('del_id');
 		$deleteresp = $this->db->delete('tbl_tyre', array('tyre_id' => $id));
 		if($deleteresp) {
-			$this->session->set_flashdata('successmessage', 'Body type deleted successfully..');
+			$this->session->set_flashdata('successmessage', 'Tyre deleted successfully..');
 		} else {
 			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
 		}
-		redirect('tyre');
+		redirect('tyre_master');
     }
     // =============================================
     // =========== CAPCITY MASTER START ============
@@ -241,11 +231,11 @@ class Master extends CI_Controller {
         echo json_encode($json_data);
     }
 
-    public function deletecapacity($id){
+    public function deletecapacity(){
         $id = $this->input->post('del_id');
 		$deleteresp = $this->db->delete('tbl_capacity', array('capacity_id' => $id));
 		if($deleteresp) {
-			$this->session->set_flashdata('successmessage', 'Body type deleted successfully..');
+			$this->session->set_flashdata('successmessage', 'Capacity deleted successfully..');
 		} else {
 			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
 		}

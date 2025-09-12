@@ -109,7 +109,7 @@ class Category_model extends CI_Model{
 				}
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'category/editcategory/'.output($value['cat_id']).'"><i class="fa fa-edit"></i></a> | 
-				<a data-toggle="modal" href="" onclick="confirmation('.base_url()."category/deletecategory".'","'.output($value['cat_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				<a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."category/deletecategory"."',".output($value['cat_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
 				';
 
                 $counter++; 

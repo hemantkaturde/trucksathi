@@ -16,8 +16,8 @@
                </a>
             </li>
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('bodyType'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('tyre_master'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('capacity'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('vehicle_size'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('promotion'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('masters');?><?php echo activate_menu('device');?><?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?> <?php echo activate_menu('bodyType');?> <?php echo activate_menu('tyre_master');?> <?php echo activate_menu('capacity');?> <?php echo activate_menu('vehicle_size');?> <?php echo activate_menu('promotion');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('masters'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('category'))=='active') ? 'menu-open':'' ?><?php echo ((activate_menu('addnew_category'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editcategory'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('bodyType'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('tyre_master'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('capacity'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('vehicle_size'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('promotion'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('masters');?> <?php echo activate_menu('category');?> <?php echo activate_menu('addnew_category');?> <?php echo activate_menu('editcategory');?> <?php echo activate_menu('bodyType');?> <?php echo activate_menu('tyre_master');?> <?php echo activate_menu('capacity');?> <?php echo activate_menu('vehicle_size');?> <?php echo activate_menu('promotion');?>">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                      Masters
@@ -71,8 +71,8 @@
             </li>
 
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('users'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('adduser'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('edituser'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('users');?> <?php echo activate_menu('edituser');?><?php echo activate_menu('adduser');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device_order'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('device_order');?>">
                   <i class="nav-icon fa fa-user"></i>
                   <p>
                     GPS Device 
@@ -81,13 +81,13 @@
                </a>
                <ul class="nav nav-treeview">
                   <li class="nav-item">
-                     <a href="<?= base_url(); ?>device" class="nav-link <?php echo activate_menu('adduser');?>">
+                     <a href="<?= base_url(); ?>device" class="nav-link <?php echo activate_menu('device');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>GPS Device Master</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= base_url(); ?>users/adduser" class="nav-link <?php echo activate_menu('adduser');?>">
+                     <a href="<?= base_url(); ?>device/device_order" class="nav-link <?php echo activate_menu('device_order');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>GPS Device Order</p>
                      </a>
