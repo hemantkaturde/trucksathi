@@ -832,6 +832,41 @@ class Api extends REST_Controller {
 
     }
 
+    public function getactiveplans_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+
+	    if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')));
+		}
+		else
+		{
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'));
+            $getactiveplansdata = $this->api_model->getactiveplansdata($data);
+            if($getactiveplansdata){
+                    $status = 'Success';
+                    $message = 'Active Plans Details Data';
+                    $data = $getactiveplansdata;
+            }else{
+                    $status = 'Failure';
+                    $message = 'Active Plans Details Data Failed';
+                    $data = array();
+
+            }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $getactiveplansdata);
+            setContentLength($responseData);
+        }
+
+    }
+
+
+
 
     
 
