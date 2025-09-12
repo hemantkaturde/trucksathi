@@ -316,8 +316,8 @@ class Api_model extends CI_Model{
 
 		$this->db->select('*');
 		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
-		$this->db->where('status', 1);
-		$this->db->where('userid', $data['userid']);
+		$this->db->where('tbl_device_order.status', 1);
+		$this->db->where('tbl_device_order.userid', $data['userid']);
         $query = $this->db->get("tbl_device_order");
 		$fetch_result = $query->result_array();
         $data = array();
