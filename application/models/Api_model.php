@@ -285,7 +285,6 @@ class Api_model extends CI_Model{
         }
 	}
 
-
 	public function getpromotaionmaster($data){
 
 		$this->db->select('*');
@@ -316,6 +315,7 @@ class Api_model extends CI_Model{
 	public function getactiveplansdata($data){
 
 		$this->db->select('*');
+		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
 		$this->db->where('status', 1);
 		$this->db->where('userid', $data['userid']);
         $query = $this->db->get("tbl_device_order");
@@ -351,6 +351,8 @@ class Api_model extends CI_Model{
 		}
 		return $data;
 	}
+
+	
 
 
 } 
