@@ -145,5 +145,9 @@ class Device extends CI_Controller {
         echo json_encode($json_data);
 	}
 	// ==========================================
+    
+    public function invoice(){
+		$this->template->template_render('custom/invoice');
+	}
 }
 ?>
