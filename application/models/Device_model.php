@@ -133,7 +133,8 @@ class Device_model extends CI_Model{
 	// ===================================================
 
 	public function getDeviceOrderCount($params){
-		$this->db->select('*');
+		// $this->db->select('*');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
         if($params['search']['value'] != "") 
         {
 			$this->db->group_start(); // Open bracket (
@@ -157,8 +158,8 @@ class Device_model extends CI_Model{
 	}
 
 	public function getDeviceOrderdata($params){
-		// $this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
-		$this->db->select('*');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		// $this->db->select('*');
         if($params['search']['value'] != "") 
         {
 			$this->db->group_start();
@@ -202,7 +203,7 @@ class Device_model extends CI_Model{
 				$data[$counter]['grand_total'] = $value['grand_total'];
 				
 				
-                $data[$counter]['action'] = '<a class="icon" href="#"><i class="fa fa-download" title="Download Invoice"></i></a> | 
+                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/download_invoice/'.output($value['id']).'"><i class="fa fa-download" title="Download Invoice"></i></a> | 
 											<a class="icon text-success" href="#"><i class="fa fa-file" title="Certificate"></i></a> 
 				';
               
@@ -210,6 +211,21 @@ class Device_model extends CI_Model{
             }
         }
         return $data;
+	}
+
+	public function getInvoicedata($id){
+		// $this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		$this->db->select('do.*, ai.id as user_id, ai.name as name, ai.mobile_number, ai.email, ai.address, ai.company_name, dm.id as device_id, dm.device_name');
+        $this->db->from('tbl_device_order do');
+		$this->db->join('tbl_appuser_info ai', 'ai.id=do.userid','left');
+		$this->db->join('tbl_device_master dm', 'dm.id=do.deviceid','left');
+		$this->db->where('do.id',$id);
+		$query = $this->db->get();
+        $fetch_result= $query->result_array();
+
+		// $fetch_result['customerData'] = $this->db->select('*')->from('tbl_appuser_info')->where('id',$u_id)->get()->row();
+
+        return $fetch_result;
 	}
 
 	// ===================================================

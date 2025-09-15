@@ -34,19 +34,14 @@
                                 GSTIN - 24CQHPM1394N1ZD</label>
                             </div>
                             <div class="col-md-4">
-                                <label>Invoice No.: #1</label></br>
-                                <label>Date: <?php echo date('d-m-Y', strtotime($invoiceData[0]['created_at'])) ; ?></label>
+                                <label>Invoice No.:</label></br>
+                                <label>Date: </label>
                                 <!-- <h1 class="text-primary text-bold text-right">TAX INVOICE</h1> -->
                             </div>
                             <div class="col-md-12 mt-2">
                                 <h5 class="text-bold text-primary">CUSTOMER DETAILS</h5>
                                 <label>
-                                    Customer Name - <?php echo $invoiceData[0]['name']; ?></br>
-                                    Company Name - <?php echo $invoiceData[0]['company_name']; ?></br>
-                                    Address - <?php echo $invoiceData[0]['address']; ?></br>
-                                    Phone - <?php echo $invoiceData[0]['mobile_number']; ?></br>
-                                    Email - <?php echo $invoiceData[0]['email']; ?></br>
-                                    GSTIN - 
+                                    Customer Name -</br>Company Name -</br>Address -</br>Phone -</br>Email -</br>GSTIN -
                                 </label>
                             </div>
                         </div>
@@ -65,14 +60,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($invoiceData as $key => $value) { ?>
                                             <tr>
-                                                <td><?php echo $value['device_name']; ?></td>
-                                                <td><?php echo $value['device_count']; ?></td>
-                                                <td><?php echo '₹ '.$value['device_amount']; ?></td>
-                                                <td><?php echo '₹ '.($value['device_count']*$value['device_amount']); ?></td>
-                                            </tr>    
-                                            <?php } ?>
+                                                <td>plan name 1</td>
+                                                <td>2</td>
+                                                <td>Rs. 40</td>
+                                                <td>Rs. 80</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Theft Protection (Relay) Installation</td>
+                                                <td>1</td>
+                                                <td>Rs. 10</td>
+                                                <td>Rs. 10</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -85,7 +84,7 @@
                                 <label for="">GPS PLAN AMOUNT</label>
                             </div>
                             <div class="col-md-2">
-                                <label for=""><?php echo '₹ '.$invoiceData[0]['device_amount']; ?></label>
+                                <label for="">Rs.611</label>
                             </div>
                         </div>
                         <div class="row">
@@ -93,15 +92,15 @@
                                 <label for="">THEFT PROTECTION COST</label>
                             </div>
                             <div class="col-md-2">
-                                <label for=""><?php echo '₹ '.$invoiceData[0]['theft_protection_amount']; ?></label>
+                                <label for="">Rs.611</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="offset-md-7 col-md-3">
-                                <label for="">GST (<?php echo '₹ '.round($invoiceData[0]['gst_percentage']); ?>%)</label>
+                                <label for="">GST (18%)</label>
                             </div>
                             <div class="col-md-2">
-                                <label for=""><?php echo '₹ '.$invoiceData[0]['gst_value']; ?></label>
+                                <label for="">Rs.611</label>
                             </div>
                         </div>
                         <div class="row">
@@ -112,7 +111,7 @@
                                 <label for="">GRAND TOTAL</label>
                             </div>
                             <div class="col-md-2">
-                                <label for=""><?php echo '₹ '.$invoiceData[0]['grand_total']; ?></label>
+                                <label for="">Rs.611</label>
                             </div>
                         </div>
 

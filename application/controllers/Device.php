@@ -149,5 +149,15 @@ class Device extends CI_Controller {
     public function invoice(){
 		$this->template->template_render('custom/invoice');
 	}
+
+    public function download_invoice(){
+        $id = $this->uri->segment(3);
+		$data['invoiceData'] = $this->device_model->getInvoicedata($id);
+        // echo "<pre>";
+        // print_r($_SESSION['session_data']);
+        // print_r($data); die;
+        $this->template->template_render('custom/invoice',$data);
+    }
+    // ==========================================
 }
 ?>
