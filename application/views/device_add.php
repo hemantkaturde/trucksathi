@@ -36,8 +36,8 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
-                          <label class="form-label">Device Type<span class="text-danger form-required">*</span></label>
-                          <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['device_type']:'' ?>" id="device_type" name="device_type" placeholder="Device Type">
+                          <label class="form-label">Device Type</label>
+                          <input type="text" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['device_type']:'' ?>" id="device_type" name="device_type" placeholder="Device Type">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
@@ -46,13 +46,13 @@
                           <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['model_number']:'' ?>" id="model_number" name="model_number" placeholder="Model Number">
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-4">
+                    <!-- <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                          <label class="form-label">Serial Number<span class="text-danger form-required">*</span></label>
                           <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['serial_number']:'' ?>" id="serial_number" name="serial_number" placeholder="Serial Number">
 
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
@@ -97,7 +97,8 @@
                           <option <?php echo (isset($devicedetails) && $devicedetails[0]['years']==15) ? 'selected':'' ?> value="15">15 Years</option>
                         </select>
                       </div>
-
+                    </div>  
+                    <div class="col-sm-6 col-md-4">
                       <div class="form-group">
                         <div class="form-check">
                           <label class="form-label">Theft Protection</label>

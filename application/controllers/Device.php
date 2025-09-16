@@ -159,5 +159,29 @@ class Device extends CI_Controller {
         $this->template->template_render('custom/invoice',$data);
     }
     // ==========================================
+    //          START CREATE CERTIFICATE
+
+    public function device_certificate($id){
+        $data['orderDetails'] = $this->device_model->get_deviceorderdetails($id);
+        $this->template->template_render('master/do_certificate_add',$data);
+    }
+
+    public function certificate_addnew(){
+        $data = $this->input->post();
+        $response = $this->db->insert('tbl_device_certificate', $data);
+        if($response) {
+            $this->session->set_flashdata('successmessage', 'Certificate created successfully..');
+        } else {
+            $this->session->set_flashdata('warningmessage', 'Something went wrong.');
+        }
+        redirect('device/device_order');
+    }
+
+    public function view_certificate($id){
+        $data['certificateDetails'] = $this->device_model->get_devicecertificatedetails($id);
+        // print_r($data); die;
+        $this->template->template_render('custom/view_certificate', $data);
+    }
+    // ==========================================
 }
 ?>

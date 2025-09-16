@@ -36,7 +36,7 @@
                         <th>Device Title</th>
                         <th>Device Type</th>
                         <th>Model Number</th>
-                        <th>Serial Number</th>
+                        <!-- <th>Serial Number</th> -->
                         <th>Price </th>
                         <!-- <th>Description</th> -->
                         <th>Status</th>

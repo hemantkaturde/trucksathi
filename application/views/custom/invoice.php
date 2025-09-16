@@ -67,7 +67,7 @@
                                         <tbody>
                                             <?php foreach ($invoiceData as $key => $value) { ?>
                                             <tr>
-                                                <td><?php echo $value['device_name']; ?></td>
+                                                <td><?php echo $value['dv_name']; ?></td>
                                                 <td><?php echo $value['device_count']; ?></td>
                                                 <td><?php echo '₹ '.$value['device_amount']; ?></td>
                                                 <td><?php echo '₹ '.($value['device_count']*$value['device_amount']); ?></td>

@@ -27,4 +27,5 @@ class Template {
             return $this->CI->load->view('template', $this->template);
         }
 	}
+    
 }

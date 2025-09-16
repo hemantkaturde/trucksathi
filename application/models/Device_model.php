@@ -72,7 +72,6 @@ class Device_model extends CI_Model{
             $this->db->group_start(); // Open bracket (
 			$this->db->like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.model_number', $params['search']['value']);
-			$this->db->or_like('tbl_device_master.serial_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.price', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
             $this->db->group_end(); // Close bracket )
@@ -90,7 +89,6 @@ class Device_model extends CI_Model{
             $this->db->group_start(); // Open bracket (
 			$this->db->like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.model_number', $params['search']['value']);
-			$this->db->or_like('tbl_device_master.serial_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.price', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
             $this->db->group_end(); // Close bracket )
@@ -108,7 +106,6 @@ class Device_model extends CI_Model{
 				$data[$counter]['device_name'] = $value['device_name'];
 				$data[$counter]['device_type'] = $value['device_type'];
                 $data[$counter]['model_number'] = $value['model_number'];
-				$data[$counter]['serial_number'] = $value['serial_number'];
 				$data[$counter]['price'] = $value['price'];
 				// $data[$counter]['description'] = $value['description'];
 				if($value['status']=='1'){
@@ -158,7 +155,7 @@ class Device_model extends CI_Model{
 	}
 
 	public function getDeviceOrderdata($params){
-		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*, tbl_device_master.device_name as dv_name');
 		// $this->db->select('*');
         if($params['search']['value'] != "") 
         {
@@ -188,7 +185,7 @@ class Device_model extends CI_Model{
             foreach ($fetch_result as $key => $value)
             {
 				$data[$counter]['name'] = $value['name'];
-				$data[$counter]['device_name'] = $value['device_name'];
+				$data[$counter]['device_name'] = $value['dv_name'];
                 // $data[$counter]['theft_protection'] = $value['theft_protection'];
 				if($value['theft_protection']=='1'){
 					$data[$counter]['theft_protection'] = "<span class='badge badge-success'>YES</span>";
@@ -204,7 +201,8 @@ class Device_model extends CI_Model{
 				
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/download_invoice/'.output($value['id']).'"><i class="fa fa-download" title="Download Invoice"></i></a> | 
-											<a class="icon text-success" href="#"><i class="fa fa-file" title="Certificate"></i></a> 
+											<a class="icon text-success" href="'.base_url().'device/device_certificate/'.output($value['id']).'"><i class="fa fa-file" title="Add Certificate"></i></a> | 
+											<a class="icon text-info" href="'.base_url().'device/view_certificate/'.output($value['id']).'"><i class="fa fa-eye" title="View"></i></a>
 				';
               
                 $counter++; 
@@ -215,7 +213,7 @@ class Device_model extends CI_Model{
 
 	public function getInvoicedata($id){
 		// $this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
-		$this->db->select('do.*, ai.id as user_id, ai.name as name, ai.mobile_number, ai.email, ai.address, ai.company_name, dm.id as device_id, dm.device_name');
+		$this->db->select('do.*, ai.id as user_id, ai.name as name, ai.mobile_number, ai.email, ai.address, ai.company_name, dm.id as device_id, dm.device_name as dv_name');
         $this->db->from('tbl_device_order do');
 		$this->db->join('tbl_appuser_info ai', 'ai.id=do.userid','left');
 		$this->db->join('tbl_device_master dm', 'dm.id=do.deviceid','left');
@@ -228,5 +226,12 @@ class Device_model extends CI_Model{
         return $fetch_result;
 	}
 
+	public function get_deviceorderdetails($id) { 
+		return $this->db->select('*')->from('tbl_device_order')->where('id',$id)->get()->result_array();
+	}
+
+	public function get_devicecertificatedetails($id){
+		return $this->db->select('*')->from('tbl_device_certificate')->where('dc_orderid',$id)->get()->result_array();
+	}
 	// ===================================================
 } 
