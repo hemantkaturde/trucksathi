@@ -365,7 +365,7 @@ class Api_model extends CI_Model{
             return $data;
 		}else  if($data['certificate_flag']=='certificate'){
 			$this->db->select('*');
-			$this->db->where('tbl_device_certificate .dc_orderid ', $data['orderid']);
+			$this->db->where('tbl_device_certificate.dc_orderid ', $data['orderid']);
 			$this->db->where('tbl_device_certificate.dc_deviceid ', $data['deviceid']);
 			$this->db->where('tbl_device_certificate.dc_userid ', $data['userid']);
 			$query = $this->db->get("tbl_device_certificate");
