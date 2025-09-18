@@ -188,6 +188,7 @@ class Api_model extends CI_Model{
 
 				$data[$counter]['status'] = $value['status'];
 				$data[$counter]['created_date'] = $value['created_date'];
+				$counter++;
 
 			}
 
@@ -224,6 +225,7 @@ class Api_model extends CI_Model{
 				 
 				 
 				// $data[$counter]['device_image'] =  $device_image;
+				$counter++;
 			}
 
 		}
@@ -261,6 +263,7 @@ class Api_model extends CI_Model{
 				 
 				 
 				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
 			}
 
 		}
@@ -306,6 +309,7 @@ class Api_model extends CI_Model{
 				 }
 				$data[$counter]['promo_banner'] =  $promo_banner;
 				$data[$counter]['promo_url'] =  $promo_url;
+				$counter++;
 			}
 
 		}
@@ -345,13 +349,13 @@ class Api_model extends CI_Model{
 				 
 				 
 				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
 
 			}
 
 		}
 		return $data;
 	}
-
 
 	public function downloadcertificates($data){
 
@@ -382,9 +386,11 @@ class Api_model extends CI_Model{
 					$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
 					$data[$counter]['dc_installation_date'] = $value['dc_installation_date'];
 					$data[$counter]['dc_certificate_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
+					$counter++;
 				}
 			}
 			return $data;
 			}
 	}
+
 } 
