@@ -251,7 +251,7 @@ class Api_model extends CI_Model{
 				$data[$counter]['price'] = $value['price'];
 				$data[$counter]['description'] = $value['description'];
                 $data[$counter]['years'] = $value['years'];
-			    $data[$counter]['theft_price'] = 200;
+			    $data[$counter]['theft_price'] = $value['theft_pro_amount'];
 
                  if($value['device_image']){
                     $device_image = DOCUMENT_PATH.'/device_image/'.$value['device_image'];
