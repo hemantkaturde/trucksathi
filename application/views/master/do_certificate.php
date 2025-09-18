@@ -21,8 +21,11 @@
 <!-- Main content -->
 <section class="content">
    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 m-1">
+        <div class="row mb-1">
+            <div class="col-md-6 text-left"> 
+               <a href="<?php echo base_url().'device/device_order'; ?>"><button type="button" class="btn btn-success"><i class="fas fa-reply"></i> Back to device order</button></a>
+            </div>
+            <div class="col-md-6 text-right">
                 <?php if($check['count'] > $check['rows'] ){ ?>
                     <a href="<?php echo base_url().'device/certificate_add/'.$this->uri->segment(3); ?>"><button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add New</button></a>
                 <?php } ?>
@@ -32,20 +35,29 @@
          <div class="card-body p-10">
             <div class="table-responsive">
                <table id="certificate_data" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline">
-                  <thead>
+                  <thead class="text-center">
                      <tr>
-                        <th>Certificate No.</th>
-                        <th>Date</th>
+                        <th rowspan="2">Certificate No.</th>
+                        <th rowspan="2">Date</th>
+                        <th colspan="6">Vehicle Details</th>
+                        <th colspan="6">Device Details</th>
+                        <th rowspan="2">Action</th>
+                     </tr>
+                     <tr>
                         <th>Owner Name</th>
                         <th>Veh Registration No.</th>
-                        <!-- <th>Serial Number</th> -->
                         <th>Chassis No.</th>
                         <th>Engine Number</th>
-                        <!-- <th>Status</th> -->
-                        <?php //if(userpermission('dm_edit') || userpermission('dm_del')) { ?>
-                        <th>Action</th>
-                        <?php //} ?>
+                        <th>Vehicle Type</th>
+                        <th>Model/Make</th>
+                        <th>Device IMEI/Serial No.</th>
+                        <th>Make & Model of Device</th>
+                        <th>Device Type</th>
+                        <th>Installation date</th>
+                        <th>Installed By</th>
+                        <th style="border-right: 1px solid #fff;">Fitted At</th>
                      </tr>
+                     
                   </thead>
                   <tbody>
                   </tbody>
@@ -65,17 +77,22 @@
 		$(document).ready(function() {
             var dt = $('#certificate_data').DataTable({
 	            "columnDefs": [ 
-	                 { className: "details-control", "targets": [ 0 ] },
-	                 { "width": "10%", "targets": 0 },
-	                 { "width": "10%", "targets": 1 },
-					 { "width": "10%", "targets": 2 },
-	                 { "width": "10%", "targets": 3 },
-					 { "width": "10%", "targets": 4 },
-					 { "width": "10%", "targets": 5 },
-					 { "width": "10%", "targets": 6 },
-					//  { "width": "10%", "targets": 7 },
-					//  { "width": "10%", "targets": 8 },
-					//  { "width": "10%", "targets": 9 },
+	               { className: "details-control", "targets": [ 0 ] },
+	               { "width": "10%", "targets": 0 },
+	               { "width": "10%", "targets": 1 },
+					   { "width": "10%", "targets": 2 },
+	               { "width": "10%", "targets": 3 },
+					   { "width": "10%", "targets": 4 },
+                  { "width": "10%", "targets": 5 },
+                  { "width": "10%", "targets": 6 },
+                  { "width": "10%", "targets": 7 },
+                  { "width": "10%", "targets": 8 },
+                  { "width": "10%", "targets": 9 },
+                  { "width": "10%", "targets": 10 },
+                  { "width": "10%", "targets": 11 },
+                  { "width": "10%", "targets": 12 },
+                  { "width": "10%", "targets": 13 },
+                  { "width": "10%", "targets": 14 },
 	            ],
 	            responsive: true,
 	            "oLanguage": {

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/datetimepicker/datetimepicker.css">
 <script src="<?= base_url(); ?>assets/master.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
 <script type="text/javascript">
    <?php if ($this->session->flashdata('successmessage')) { ?>
@@ -155,6 +155,20 @@
       addAddress();
       delAddress();
    });
+
+   $(function () {
+        $("#dc_certificate_date").datepicker({ 
+        autoclose: true,
+        todayHighlight: true,
+        format:'dd-mm-yyyy',
+        });
+
+        $("#dc_installation_date").datepicker({ 
+        autoclose: true,
+        todayHighlight: true,
+        format:'dd-mm-yyyy',
+        });
+    });
 
 
 

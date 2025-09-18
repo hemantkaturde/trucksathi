@@ -219,9 +219,6 @@ class Device_model extends CI_Model{
 		$this->db->where('do.id',$id);
 		$query = $this->db->get();
         $fetch_result= $query->result_array();
-
-		// $fetch_result['customerData'] = $this->db->select('*')->from('tbl_appuser_info')->where('id',$u_id)->get()->row();
-
         return $fetch_result;
 	}
 	public function get_deviceordercount($id){
@@ -278,15 +275,23 @@ class Device_model extends CI_Model{
             foreach ($fetch_result as $key => $value)
             {
 				$data[$counter]['dc_cerificate_no'] = $value['dc_cerificate_no'];
-				$data[$counter]['dc_certificate_date'] = $value['dc_certificate_date'];
-                // $data[$counter]['theft_protection'] = $value['theft_protection'];
-				
+				$data[$counter]['dc_certificate_date'] = date('d-m-Y',strtotime($value['dc_certificate_date']));
 				$data[$counter]['dc_owner_name'] = $value['dc_owner_name'];
 				$data[$counter]['dc_vehicle_reg_no'] = $value['dc_vehicle_reg_no'];
 				$data[$counter]['dc_chassis_no'] = $value['dc_chassis_no'];
 				$data[$counter]['dc_engine_no'] = $value['dc_engine_no'];
+				$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
+				$data[$counter]['dc_vehicle_model'] = $value['dc_vehicle_model'];
+				$data[$counter]['dc_device_serial_no'] = $value['dc_device_serial_no'];
+				$data[$counter]['dc_device_model'] = $value['dc_device_model'];
+				$data[$counter]['dc_device_type'] = $value['dc_device_type'];
+				$data[$counter]['dc_installation_date'] = date('d-m-Y',strtotime($value['dc_installation_date']));
+				$data[$counter]['dc_installed_by'] = $value['dc_installed_by'];
+				$data[$counter]['dc_fitted_at'] = $value['dc_fitted_at'];
 				
-                $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/view_certificate/'.output($value['dc_id']).'"><i class="fa fa-eye" title="Download Certificate"></i></a>';
+                $data[$counter]['action'] = ' <a class="icon" href="'.base_url().'device/certificate_edit/'.output($value['dc_id']).'"><i class="fa fa-edit"></i></a> | 
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."device/deletecertificate"."',".output($value['dc_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				<a class="icon text-success" href="'.base_url().'device/view_certificate/'.output($value['dc_id']).'"><i class="fa fa-eye" title="Download Certificate"></i></a>';
                 $counter++; 
             }
         }
