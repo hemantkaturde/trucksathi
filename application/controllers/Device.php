@@ -160,8 +160,13 @@ class Device extends CI_Controller {
     }
     // ==========================================
     //          START CREATE CERTIFICATE
-
     public function device_certificate($id){
+        $data['check'] = $this->device_model->get_deviceordercount($id);
+        $this->template->template_render('master/do_certificate',$data);
+    }
+
+    public function certificate_add(){
+        $id = $this->uri->segment(3);
         $data['orderDetails'] = $this->device_model->get_deviceorderdetails($id);
         $this->template->template_render('master/do_certificate_add',$data);
     }
@@ -174,7 +179,33 @@ class Device extends CI_Controller {
         } else {
             $this->session->set_flashdata('warningmessage', 'Something went wrong.');
         }
-        redirect('device/device_order');
+        redirect('device/device_certificate/'.$data['dc_orderid']);
+    }
+
+    public function fetchCertificatelist(){
+        
+
+        $params = $_REQUEST;
+        // print_r($params['id']);print_r("test"); die;
+        $totalRecords = $this->device_model->get_certificateCount($params); 
+        $queryRecords = $this->device_model->get_certificatedata($params); 
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
     }
 
     public function view_certificate($id){
