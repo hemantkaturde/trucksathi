@@ -326,7 +326,7 @@ class Api_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-
+                $data[$counter]['deviceid'] = $value['id'];
 				$data[$counter]['deviceid'] = $value['id'];
                 $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
 				$data[$counter]['device_type'] = $value['device_type'];
