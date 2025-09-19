@@ -318,7 +318,7 @@ class Api_model extends CI_Model{
 
 	public function getactiveplansdata($data){
 
-		$this->db->select('*');
+		$this->db->select('*,tbl_device_order.id as orderid');
 		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
 		$this->db->where('tbl_device_order.status', 1);
 		$this->db->where('tbl_device_order.userid', $data['userid']);
@@ -330,7 +330,7 @@ class Api_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-                $data[$counter]['deviceid'] = $value['id'];
+                $data[$counter]['orderid'] = $value['orderid'];
 				$data[$counter]['deviceid'] = $value['id'];
                 $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
 				$data[$counter]['device_type'] = $value['device_type'];
@@ -392,5 +392,7 @@ class Api_model extends CI_Model{
 			return $data;
 			}
 	}
+
+	
 
 } 
