@@ -33,6 +33,7 @@
                   <thead>
                      <tr>
                         <th>User</th>
+                        <th>Mobile No.</th>
                         <th>Device</th>
                         <th>Theft Protection</th>
                         <th>Theft Protection amount</th>

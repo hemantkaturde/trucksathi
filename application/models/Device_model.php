@@ -131,7 +131,7 @@ class Device_model extends CI_Model{
 
 	public function getDeviceOrderCount($params){
 		// $this->db->select('*');
-		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_appuser_info.mobile_number,tbl_device_order.id as id, tbl_device_order.*');
         if($params['search']['value'] != "") 
         {
 			$this->db->group_start(); // Open bracket (
@@ -155,7 +155,7 @@ class Device_model extends CI_Model{
 	}
 
 	public function getDeviceOrderdata($params){
-		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*, tbl_device_master.device_name as dv_name');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_appuser_info.mobile_number,tbl_device_order.id as id, tbl_device_order.*, tbl_device_master.device_name as dv_name');
 		// $this->db->select('*');
         if($params['search']['value'] != "") 
         {
@@ -185,6 +185,7 @@ class Device_model extends CI_Model{
             foreach ($fetch_result as $key => $value)
             {
 				$data[$counter]['name'] = $value['name'];
+				$data[$counter]['mobile_number'] = $value['mobile_number'];
 				$data[$counter]['device_name'] = $value['dv_name'];
                 // $data[$counter]['theft_protection'] = $value['theft_protection'];
 				if($value['theft_protection']=='1'){
