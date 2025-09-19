@@ -357,6 +357,48 @@ class Api_model extends CI_Model{
 		return $data;
 	}
 
+	public function getactiveplansdetails($data){
+
+		$this->db->select('*,tbl_device_order.id as orderid');
+		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
+		$this->db->where('tbl_device_order.status', 1);
+		$this->db->where('tbl_device_order.deviceid', $data['deviceid']);
+		$this->db->where('tbl_device_order.id', $data['orderid']);
+        $query = $this->db->get("tbl_device_order");
+		$fetch_result = $query->result_array();
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+                $data[$counter]['orderid'] = $value['orderid'];
+				$data[$counter]['deviceid'] = $value['id'];
+                $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
+				$data[$counter]['device_type'] = $value['device_type'];
+				$data[$counter]['model_number'] = $value['model_number'];
+                $data[$counter]['serial_number '] = $value['serial_number '];
+				$data[$counter]['price'] = $value['price'];
+				$data[$counter]['description'] = $value['description'];
+                $data[$counter]['years'] = $value['years'];
+			    $data[$counter]['theft_price'] = $value['theft_protection_amount'];
+
+                 if($value['device_image']){
+                    $device_image = DOCUMENT_PATH.'/device_image/'.$value['device_image'];
+				 }else{
+                    $device_image ='';
+				 }
+				 
+				 
+				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
+
+			}
+
+		}
+		return $data;
+	}
+
 	public function downloadcertificates($data){
 
         if($data['certificate_flag']=='invoice'){

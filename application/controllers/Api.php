@@ -865,6 +865,43 @@ class Api extends REST_Controller {
 
     }
 
+
+      public function getactiveplansdetails_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('deviceid', 'Deviceid', 'trim|required');
+        $this->form_validation->set_rules('orderid', 'Orderid', 'trim|required');
+
+	    if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')),'orderid' =>strip_tags(form_error('orderid')),'deviceid' =>strip_tags(form_error('deviceid')));
+		}
+		else
+		{
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'),'orderid'=> $this->input->post('orderid'),'deviceid'=> $this->input->post('deviceid'));
+            $getactiveplansdata = $this->api_model->getactiveplansdetails($data);
+            if($getactiveplansdata){
+                    $status = 'Success';
+                    $message = 'Active Plans Details Data';
+                    $data = $getactiveplansdata;
+            }else{
+                    $status = 'Failure';
+                    $message = 'Active Plans Details Data Failed';
+                    $data = array();
+
+            }
+
+            $responseData = array('status' => $status,'message'=> $message,'data' => $getactiveplansdata);
+            setContentLength($responseData);
+        }
+
+    }
+
+
     // public function downloadinvoice_post(){
 
     //     $post_submit = $this->input->post();
