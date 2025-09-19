@@ -401,38 +401,38 @@ class Api_model extends CI_Model{
 
 	public function downloadcertificates($data){
 
-        if($data['certificate_flag']=='invoice'){
+        // if($data['certificate_flag']=='invoice'){
 			$data = array();
 			$data[0]['invoice_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
             return $data;
-		}else  if($data['certificate_flag']=='certificate'){
-			$this->db->select('*');
-			$this->db->where('tbl_device_certificate.dc_orderid ', $data['orderid']);
-			$this->db->where('tbl_device_certificate.dc_deviceid ', $data['deviceid']);
-			$this->db->where('tbl_device_certificate.dc_userid ', $data['userid']);
-			$query = $this->db->get("tbl_device_certificate");
-			$fetch_result = $query->result_array();
-			$data = array();
-			$counter = 0;
-			if(count($fetch_result) > 0)
-			{
-				foreach ($fetch_result as $key => $value)
-				{
+		// }else  if($data['certificate_flag']=='certificate'){
+		// 	$this->db->select('*');
+		// 	$this->db->where('tbl_device_certificate.dc_orderid ', $data['orderid']);
+		// 	$this->db->where('tbl_device_certificate.dc_deviceid ', $data['deviceid']);
+		// 	$this->db->where('tbl_device_certificate.dc_userid ', $data['userid']);
+		// 	$query = $this->db->get("tbl_device_certificate");
+		// 	$fetch_result = $query->result_array();
+		// 	$data = array();
+		// 	$counter = 0;
+		// 	if(count($fetch_result) > 0)
+		// 	{
+		// 		foreach ($fetch_result as $key => $value)
+		// 		{
 
-					$data[$counter]['dc_cerificate_no'] = $value['dc_cerificate_no'];
-					$data[$counter]['dc_certificate_date	'] = $value['dc_certificate_date'];
-					$data[$counter]['dc_owner_name'] = $value['dc_owner_name'];
-					$data[$counter]['dc_vehicle_reg_no'] = $value['dc_vehicle_reg_no'];
-					$data[$counter]['dc_chassis_no '] = $value['dc_chassis_no '];
-					$data[$counter]['dc_engine_no'] = $value['dc_engine_no'];
-					$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
-					$data[$counter]['dc_installation_date'] = $value['dc_installation_date'];
-					$data[$counter]['dc_certificate_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
-					$counter++;
-				}
-			}
-			return $data;
-			}
+		// 			$data[$counter]['dc_cerificate_no'] = $value['dc_cerificate_no'];
+		// 			$data[$counter]['dc_certificate_date	'] = $value['dc_certificate_date'];
+		// 			$data[$counter]['dc_owner_name'] = $value['dc_owner_name'];
+		// 			$data[$counter]['dc_vehicle_reg_no'] = $value['dc_vehicle_reg_no'];
+		// 			$data[$counter]['dc_chassis_no '] = $value['dc_chassis_no '];
+		// 			$data[$counter]['dc_engine_no'] = $value['dc_engine_no'];
+		// 			$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
+		// 			$data[$counter]['dc_installation_date'] = $value['dc_installation_date'];
+		// 			$data[$counter]['dc_certificate_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
+		// 			$counter++;
+		// 		}
+		// 	}
+		// 	return $data;
+		// 	}
 	}
 
 	
