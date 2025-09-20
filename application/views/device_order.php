@@ -42,7 +42,7 @@
                         <th>GST %</th>
                         <th>GST value</th>
                         <th>Grand Total</th>
-                        <th>OrderId</th>
+                        <th>Order No.</th>
                         <th>Created Date</th>
                         <?php //if(userpermission('cm_edit') || userpermission('cm_del')) { ?>
                         <th>Action</th>
