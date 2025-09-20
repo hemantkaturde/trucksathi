@@ -200,6 +200,8 @@ class Device_model extends CI_Model{
 				$data[$counter]['gst_value'] = $value['gst_value'];
 				$data[$counter]['grand_total'] = $value['grand_total'];
 				
+				$data[$counter]['orderid'] = $value['orderid'];
+				$data[$counter]['grand_total2'] = date('d-m-Y',strtotime($value['created_at']));
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/download_invoice/'.output($value['id']).'"><i class="fa fa-download" title="Download Invoice"></i></a> | 
 											<a class="icon text-success" href="'.base_url().'device/device_certificate/'.output($value['id']).'"><i class="fa fa-file" title="Add Certificate"></i></a>
