@@ -20,7 +20,8 @@ class Master_model extends CI_Model{
             $this->db->where("(tbl_body_type.btype_name LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_body_type.created_date LIKE '%".$params['search']['value']."%')");
         }
-        $query = $this->db->get('tbl_body_type');
+        $this->db->order_by('btype_id','DESC');
+        $query = $this->db->get('tbl_body_type');        
         $fetch_result = $query->result_array();
 
         $data = array();
@@ -73,6 +74,7 @@ class Master_model extends CI_Model{
             $this->db->where("(tbl_tyre.tyre_name LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_tyre.created_date LIKE '%".$params['search']['value']."%')");
         }
+        $this->db->order_by('tyre_id','DESC');
         $query = $this->db->get('tbl_tyre');
         $fetch_result = $query->result_array();
 
@@ -125,6 +127,7 @@ class Master_model extends CI_Model{
             $this->db->where("(tbl_capacity.capacity LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_capacity.created_date LIKE '%".$params['search']['value']."%')");
         }
+        $this->db->order_by('capacity_id','DESC');
         $query = $this->db->get('tbl_capacity');
         $fetch_result = $query->result_array();
 
@@ -177,6 +180,7 @@ class Master_model extends CI_Model{
             $this->db->where("(tbl_vehicle_size.vsize_name LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_vehicle_size.created_date LIKE '%".$params['search']['value']."%')");
         }
+        $this->db->order_by('vsize_id','DESC');
         $query = $this->db->get('tbl_vehicle_size');
         $fetch_result = $query->result_array();
 
@@ -292,6 +296,7 @@ class Master_model extends CI_Model{
             $this->db->or_where("tbl_promotion_master.promo_url LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_promotion_master.created_date LIKE '%".$params['search']['value']."%')");
         }
+        $this->db->order_by('promo_id','DESC');
         $query = $this->db->get('tbl_promotion_master');
         $fetch_result = $query->result_array();
 

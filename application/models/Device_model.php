@@ -93,6 +93,7 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
             $this->db->group_end(); // Close bracket )
         }
+		$this->db->order_by('id','DESC');
         $query = $this->db->get('tbl_device_master');
         $fetch_result = $query->result_array();
 
@@ -143,6 +144,7 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
 			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
 			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.mobile_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->group_end(); // Close bracket )
         }
@@ -168,12 +170,14 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
 			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
 			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.mobile_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->group_end();
         }
         $this->db->from('tbl_device_order');
 		$this->db->join('tbl_appuser_info', 'tbl_appuser_info.id=tbl_device_order.userid','left');
 		$this->db->join('tbl_device_master', 'tbl_device_master.id=tbl_device_order.deviceid','left');
+		$this->db->order_by('id','DESC');
 		$query = $this->db->get();
 
         $fetch_result = $query->result_array();

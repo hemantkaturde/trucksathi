@@ -89,6 +89,7 @@ class Category_model extends CI_Model{
             $this->db->or_where("tbl_category_master.category_subhead LIKE '%".$params['search']['value']."%'");
             $this->db->or_where("tbl_category_master.created_date LIKE '%".$params['search']['value']."%')");
         }
+		$this->db->order_by('cat_id','DESC');
         $query = $this->db->get('tbl_category_master');
         $fetch_result = $query->result_array();
 
