@@ -86,5 +86,11 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 /*HERE RAZORPAY PAYMENT KEY AND SECREATE KEY*/
-define('API_KEY', 'rzp_test_R5UnPtYa43pS2v');
-define('API_SECRET', '7u9WmDfANblkRA1UxUHHelY2');
+// define('API_KEY', 'rzp_test_R5UnPtYa43pS2v');
+// define('API_SECRET', '7u9WmDfANblkRA1UxUHHelY2');
+
+
+
+/*HERE RAZORPAY PAYMENT KEY AND SECREATE KEY*/
+define('API_KEY', 'rzp_test_RKZmI4UQSpEEiA');
+define('API_SECRET', 'a9i1Ws2Y4DPtpPLkf7dc0oQ5');
