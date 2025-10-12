@@ -33,6 +33,7 @@
                   <thead>
                      <tr>
                         <th>User</th>
+                        <th>Mobile No.</th>
                         <th>Device</th>
                         <th>Theft Protection</th>
                         <th>Theft Protection amount</th>
@@ -41,6 +42,8 @@
                         <th>GST %</th>
                         <th>GST value</th>
                         <th>Grand Total</th>
+                        <th>Order No.</th>
+                        <th>Created Date</th>
                         <?php //if(userpermission('cm_edit') || userpermission('cm_del')) { ?>
                         <th>Action</th>
                         <?php //} ?>

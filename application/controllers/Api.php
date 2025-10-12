@@ -865,24 +865,25 @@ class Api extends REST_Controller {
 
     }
 
-    public function downloadinvoice_post(){
+
+      public function getactiveplansdetails_post(){
 
         $post_submit = $this->input->post();
         $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
         $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
         $this->form_validation->set_rules('deviceid', 'Deviceid', 'trim|required');
-
+        $this->form_validation->set_rules('orderid', 'Orderid', 'trim|required');
 
 	    if ($this->form_validation->run() == FALSE)
 		{
 			$status = 'Failure';
 			$message = 'Validation error';
-			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')));
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')),'orderid' =>strip_tags(form_error('orderid')),'deviceid' =>strip_tags(form_error('deviceid')));
 		}
 		else
 		{
-            $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'));
-            $getactiveplansdata = $this->api_model->getactiveplansdata($data);
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'),'orderid'=> $this->input->post('orderid'),'deviceid'=> $this->input->post('deviceid'));
+            $getactiveplansdata = $this->api_model->getactiveplansdetails($data);
             if($getactiveplansdata){
                     $status = 'Success';
                     $message = 'Active Plans Details Data';
@@ -897,9 +898,78 @@ class Api extends REST_Controller {
             $responseData = array('status' => $status,'message'=> $message,'data' => $getactiveplansdata);
             setContentLength($responseData);
         }
+
     }
 
 
+    // public function downloadinvoice_post(){
+
+    //     $post_submit = $this->input->post();
+    //     $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+    //     $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+    //     $this->form_validation->set_rules('deviceid', 'Deviceid', 'trim|required');
+
+
+	//     if ($this->form_validation->run() == FALSE)
+	// 	{
+	// 		$status = 'Failure';
+	// 		$message = 'Validation error';
+	// 		$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')));
+	// 	}
+	// 	else
+	// 	{
+    //         $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'));
+    //         $getactiveplansdata = $this->api_model->getactiveplansdata($data);
+    //         if($getactiveplansdata){
+    //                 $status = 'Success';
+    //                 $message = 'Active Plans Details Data';
+    //                 $data = $getactiveplansdata;
+    //         }else{
+    //                 $status = 'Failure';
+    //                 $message = 'Active Plans Details Data Failed';
+    //                 $data = array();
+
+    //         }
+
+    //         $responseData = array('status' => $status,'message'=> $message,'data' => $getactiveplansdata);
+    //         setContentLength($responseData);
+    //     }
+    // }
+
+
+    public function downloadcertificates_post(){
+
+        $post_submit = $this->input->post();
+        $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'trim|required');
+        $this->form_validation->set_rules('userid', 'Userid', 'trim|required');
+        $this->form_validation->set_rules('deviceid', 'Deviceid', 'trim|required');
+        $this->form_validation->set_rules('orderid', 'Orderid', 'trim|required');
+        $this->form_validation->set_rules('certificate_flag', 'Certificate Flag', 'trim|required');
+
+	    if ($this->form_validation->run() == FALSE)
+		{
+			$status = 'Failure';
+			$message = 'Validation error';
+			$data = array('mobile_number' =>strip_tags(form_error('mobile_number')),'userid' =>strip_tags(form_error('userid')),'deviceid' =>strip_tags(form_error('deviceid')),'certificate_flag' =>strip_tags(form_error('certificate_flag')),'orderid' =>strip_tags(form_error('orderid')));
+		}
+		else
+		{
+            $data = array('mobile_number' => $this->input->post('mobile_number'),'userid'=> $this->input->post('userid'),'deviceid'=> $this->input->post('deviceid'),'certificate_flag'=> $this->input->post('certificate_flag'),'orderid'=> $this->input->post('orderid'));
+            $downloadcertificatesdata = $this->api_model->downloadcertificates($data);
+            if($downloadcertificatesdata){
+                    $status = 'Success';
+                    $message = 'Download certificates Data Success';
+                    $data = $downloadcertificatesdata;
+            }else{
+                    $status = 'Failure';
+                    $message = 'Download certificates Data Failed';
+                    $data = array();
+
+            }
+            $responseData = array('status' => $status,'message'=> $message,'data' => $downloadcertificatesdata);
+            setContentLength($responseData);
+        }
+    }
 
     /* RAZORPAY SETTING HERE */
     public function rzorpaycreateorder_post(){

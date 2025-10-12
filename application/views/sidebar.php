@@ -71,8 +71,8 @@
             </li>
 
 
-            <li class="nav-item has-treeview <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device_order'))=='active') ? 'menu-open':'' ?>">
-               <a href="#" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('device_order');?>">
+            <li class="nav-item has-treeview <?php echo ((activate_menu('device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('addnew_device'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('editdevice'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device_order'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('device_certificate'))=='active') ? 'menu-open':'' ?> <?php echo ((activate_menu('download_invoice'))=='active') ? 'menu-open':'' ?>">
+               <a href="#" class="nav-link <?php echo activate_menu('device');?> <?php echo activate_menu('addnew_device');?> <?php echo activate_menu('editdevice');?> <?php echo activate_menu('device_order');?> <?php echo activate_menu('device_certificate');?> <?php echo activate_menu('download_invoice');?>">
                   <i class="nav-icon fa fa-user"></i>
                   <p>
                     GPS Device 
@@ -87,7 +87,7 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="<?= base_url(); ?>device/device_order" class="nav-link <?php echo activate_menu('device_order');?>">
+                     <a href="<?= base_url(); ?>device/device_order" class="nav-link <?php echo activate_menu('device_order');?> <?php echo activate_menu('download_invoice');?> <?php echo activate_menu('device_certificate');?>">
                         <i class="nav-icon fas faa-plus"></i>
                         <p>GPS Device Order</p>
                      </a>

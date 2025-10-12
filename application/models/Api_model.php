@@ -188,6 +188,7 @@ class Api_model extends CI_Model{
 
 				$data[$counter]['status'] = $value['status'];
 				$data[$counter]['created_date'] = $value['created_date'];
+				$counter++;
 
 			}
 
@@ -224,6 +225,7 @@ class Api_model extends CI_Model{
 				 
 				 
 				// $data[$counter]['device_image'] =  $device_image;
+				$counter++;
 			}
 
 		}
@@ -261,6 +263,7 @@ class Api_model extends CI_Model{
 				 
 				 
 				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
 			}
 
 		}
@@ -306,6 +309,7 @@ class Api_model extends CI_Model{
 				 }
 				$data[$counter]['promo_banner'] =  $promo_banner;
 				$data[$counter]['promo_url'] =  $promo_url;
+				$counter++;
 			}
 
 		}
@@ -314,7 +318,7 @@ class Api_model extends CI_Model{
 
 	public function getactiveplansdata($data){
 
-		$this->db->select('*');
+		$this->db->select('*,tbl_device_order.id as orderid');
 		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
 		$this->db->where('tbl_device_order.status', 1);
 		$this->db->where('tbl_device_order.userid', $data['userid']);
@@ -326,7 +330,7 @@ class Api_model extends CI_Model{
         {
             foreach ($fetch_result as $key => $value)
             {
-
+                $data[$counter]['orderid'] = $value['orderid'];
 				$data[$counter]['deviceid'] = $value['id'];
                 $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
 				$data[$counter]['device_type'] = $value['device_type'];
@@ -345,6 +349,7 @@ class Api_model extends CI_Model{
 				 
 				 
 				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
 
 			}
 
@@ -352,7 +357,84 @@ class Api_model extends CI_Model{
 		return $data;
 	}
 
-	
+	public function getactiveplansdetails($data){
 
+		$this->db->select('*,tbl_device_order.id as orderid');
+		$this->db->join('tbl_device_master', 'tbl_device_master.id = tbl_device_order.deviceid');
+		$this->db->where('tbl_device_order.status', 1);
+		$this->db->where('tbl_device_order.deviceid', $data['deviceid']);
+		$this->db->where('tbl_device_order.id', $data['orderid']);
+        $query = $this->db->get("tbl_device_order");
+		$fetch_result = $query->result_array();
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+                $data[$counter]['orderid'] = $value['orderid'];
+				$data[$counter]['deviceid'] = $value['id'];
+                $data[$counter]['device_name'] = $value['device_name'].'-'.$value['price'];
+				$data[$counter]['device_type'] = $value['device_type'];
+				$data[$counter]['model_number'] = $value['model_number'];
+                $data[$counter]['serial_number '] = $value['serial_number '];
+				$data[$counter]['price'] = $value['price'];
+				$data[$counter]['description'] = $value['description'];
+                $data[$counter]['years'] = $value['years'];
+			    $data[$counter]['theft_price'] = $value['theft_protection_amount'];
+
+                 if($value['device_image']){
+                    $device_image = DOCUMENT_PATH.'/device_image/'.$value['device_image'];
+				 }else{
+                    $device_image ='';
+				 }
+				 
+				 
+				$data[$counter]['device_image'] =  $device_image;
+				$counter++;
+
+			}
+
+		}
+		return $data;
+	}
+
+	public function downloadcertificates($data){
+
+        if($data['certificate_flag']=='invoice'){
+			$data = array();
+			$data[0]['invoice_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
+            return $data;
+		}else  if($data['certificate_flag']=='certificate'){
+			$this->db->select('*');
+			$this->db->where('tbl_device_certificate.dc_orderid ', $data['orderid']);
+			$this->db->where('tbl_device_certificate.dc_deviceid ', $data['deviceid']);
+			$this->db->where('tbl_device_certificate.dc_userid ', $data['userid']);
+			$query = $this->db->get("tbl_device_certificate");
+			$fetch_result = $query->result_array();
+			$data = array();
+			$counter = 0;
+			if(count($fetch_result) > 0)
+			{
+				foreach ($fetch_result as $key => $value)
+				{
+
+					$data[$counter]['dc_cerificate_no'] = $value['dc_cerificate_no'];
+					$data[$counter]['dc_certificate_date	'] = $value['dc_certificate_date'];
+					$data[$counter]['dc_owner_name'] = $value['dc_owner_name'];
+					$data[$counter]['dc_vehicle_reg_no'] = $value['dc_vehicle_reg_no'];
+					$data[$counter]['dc_chassis_no '] = $value['dc_chassis_no '];
+					$data[$counter]['dc_engine_no'] = $value['dc_engine_no'];
+					$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
+					$data[$counter]['dc_installation_date'] = $value['dc_installation_date'];
+					$data[$counter]['dc_certificate_url'] = 'https://morth.nic.in/sites/default/files/dd12-13_0.pdf';
+					$counter++;
+				}
+			}
+			return $data;
+			}
+	}
+
+	
 
 } 

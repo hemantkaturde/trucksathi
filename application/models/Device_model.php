@@ -93,6 +93,7 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_master.description', $params['search']['value']);
             $this->db->group_end(); // Close bracket )
         }
+		$this->db->order_by('id','DESC');
         $query = $this->db->get('tbl_device_master');
         $fetch_result = $query->result_array();
 
@@ -131,7 +132,7 @@ class Device_model extends CI_Model{
 
 	public function getDeviceOrderCount($params){
 		// $this->db->select('*');
-		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_appuser_info.mobile_number,tbl_device_order.id as id, tbl_device_order.*');
         if($params['search']['value'] != "") 
         {
 			$this->db->group_start(); // Open bracket (
@@ -143,6 +144,7 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
 			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
 			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.mobile_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->group_end(); // Close bracket )
         }
@@ -155,7 +157,7 @@ class Device_model extends CI_Model{
 	}
 
 	public function getDeviceOrderdata($params){
-		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_device_order.id as id, tbl_device_order.*, tbl_device_master.device_name as dv_name');
+		$this->db->select('tbl_appuser_info.id as user_id,tbl_appuser_info.name,tbl_appuser_info.mobile_number,tbl_device_order.id as id, tbl_device_order.*, tbl_device_master.device_name as dv_name');
 		// $this->db->select('*');
         if($params['search']['value'] != "") 
         {
@@ -168,12 +170,14 @@ class Device_model extends CI_Model{
 			$this->db->or_like('tbl_device_order.gst_value', $params['search']['value']);
 			$this->db->or_like('tbl_device_order.grand_total', $params['search']['value']);
 			$this->db->or_like('tbl_appuser_info.name', $params['search']['value']);
+			$this->db->or_like('tbl_appuser_info.mobile_number', $params['search']['value']);
 			$this->db->or_like('tbl_device_master.device_name', $params['search']['value']);
 			$this->db->group_end();
         }
         $this->db->from('tbl_device_order');
 		$this->db->join('tbl_appuser_info', 'tbl_appuser_info.id=tbl_device_order.userid','left');
 		$this->db->join('tbl_device_master', 'tbl_device_master.id=tbl_device_order.deviceid','left');
+		$this->db->order_by('id','DESC');
 		$query = $this->db->get();
 
         $fetch_result = $query->result_array();
@@ -185,6 +189,7 @@ class Device_model extends CI_Model{
             foreach ($fetch_result as $key => $value)
             {
 				$data[$counter]['name'] = $value['name'];
+				$data[$counter]['mobile_number'] = $value['mobile_number'];
 				$data[$counter]['device_name'] = $value['dv_name'];
                 // $data[$counter]['theft_protection'] = $value['theft_protection'];
 				if($value['theft_protection']=='1'){
@@ -199,10 +204,11 @@ class Device_model extends CI_Model{
 				$data[$counter]['gst_value'] = $value['gst_value'];
 				$data[$counter]['grand_total'] = $value['grand_total'];
 				
+				$data[$counter]['orderid'] = $value['orderid'];
+				$data[$counter]['grand_total2'] = date('d-m-Y',strtotime($value['created_at']));
 				
                 $data[$counter]['action'] = '<a class="icon" href="'.base_url().'device/download_invoice/'.output($value['id']).'"><i class="fa fa-download" title="Download Invoice"></i></a> | 
-											<a class="icon text-success" href="'.base_url().'device/device_certificate/'.output($value['id']).'"><i class="fa fa-file" title="Add Certificate"></i></a> | 
-											<a class="icon text-info" href="'.base_url().'device/view_certificate/'.output($value['id']).'"><i class="fa fa-eye" title="View"></i></a>
+											<a class="icon text-success" href="'.base_url().'device/device_certificate/'.output($value['id']).'"><i class="fa fa-file" title="Add Certificate"></i></a>
 				';
               
                 $counter++; 
@@ -220,10 +226,14 @@ class Device_model extends CI_Model{
 		$this->db->where('do.id',$id);
 		$query = $this->db->get();
         $fetch_result= $query->result_array();
-
-		// $fetch_result['customerData'] = $this->db->select('*')->from('tbl_appuser_info')->where('id',$u_id)->get()->row();
-
         return $fetch_result;
+	}
+	public function get_deviceordercount($id){
+		$data1 = $this->db->select('id,device_count')->from('tbl_device_order')->where('id',$id)->get()->row();
+		// print_r($id);
+		$data['count'] = $data1->device_count;
+		$data['rows'] = $this->db->select('*')->from('tbl_device_certificate')->where('dc_orderid',$id)->get()->num_rows();
+		return $data;
 	}
 
 	public function get_deviceorderdetails($id) { 
@@ -231,7 +241,68 @@ class Device_model extends CI_Model{
 	}
 
 	public function get_devicecertificatedetails($id){
-		return $this->db->select('*')->from('tbl_device_certificate')->where('dc_orderid',$id)->get()->result_array();
+		return $this->db->select('*')->from('tbl_device_certificate')->where('dc_id',$id)->get()->result_array();
+	}
+
+	public function get_certificateCount($params){
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+			$this->db->group_start();
+			$this->db->like('tbl_device_certificate.dc_cerificate_no', $params['search']['value']);
+			$this->db->or_like('tbl_device_certificate.dc_owner_name', $params['search']['value']);
+			$this->db->group_end();
+        }
+        $this->db->from('tbl_device_certificate');
+		$query = $this->db->get();
+        $rowcount = $query->num_rows();
+        return $rowcount;
+	}
+
+	public function get_certificatedata($params){
+		$id = $this->uri->segment(3);
+		$this->db->select('*');
+        if($params['search']['value'] != "") 
+        {
+			$this->db->group_start();
+			$this->db->like('tbl_device_certificate.dc_cerificate_no', $params['search']['value']);
+			$this->db->or_like('tbl_device_certificate.dc_owner_name', $params['search']['value']);
+			$this->db->group_end();
+        }
+		$this->db->where('dc_orderid', $params['id']);
+        $this->db->from('tbl_device_certificate');
+		
+		$query = $this->db->get();
+        $fetch_result = $query->result_array();
+
+        $data = array();
+        $counter = 0;
+        if(count($fetch_result) > 0)
+        {
+            foreach ($fetch_result as $key => $value)
+            {
+				$data[$counter]['dc_cerificate_no'] = $value['dc_cerificate_no'];
+				$data[$counter]['dc_certificate_date'] = date('d-m-Y',strtotime($value['dc_certificate_date']));
+				$data[$counter]['dc_owner_name'] = $value['dc_owner_name'];
+				$data[$counter]['dc_vehicle_reg_no'] = $value['dc_vehicle_reg_no'];
+				$data[$counter]['dc_chassis_no'] = $value['dc_chassis_no'];
+				$data[$counter]['dc_engine_no'] = $value['dc_engine_no'];
+				$data[$counter]['dc_vehicle_type'] = $value['dc_vehicle_type'];
+				$data[$counter]['dc_vehicle_model'] = $value['dc_vehicle_model'];
+				$data[$counter]['dc_device_serial_no'] = $value['dc_device_serial_no'];
+				$data[$counter]['dc_device_model'] = $value['dc_device_model'];
+				$data[$counter]['dc_device_type'] = $value['dc_device_type'];
+				$data[$counter]['dc_installation_date'] = date('d-m-Y',strtotime($value['dc_installation_date']));
+				$data[$counter]['dc_installed_by'] = $value['dc_installed_by'];
+				$data[$counter]['dc_fitted_at'] = $value['dc_fitted_at'];
+				
+                $data[$counter]['action'] = ' <a class="icon" href="'.base_url().'device/certificate_edit/'.output($value['dc_id']).'"><i class="fa fa-edit"></i></a> | 
+                <a data-toggle="modal" href="" onclick="confirmation('."'".base_url()."device/deletecertificate"."',".output($value['dc_id']).')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a>
+				<a class="icon text-success" href="'.base_url().'device/view_certificate/'.output($value['dc_id']).'"><i class="fa fa-eye" title="Download Certificate"></i></a>';
+                $counter++; 
+            }
+        }
+        return $data;
 	}
 	// ===================================================
 } 

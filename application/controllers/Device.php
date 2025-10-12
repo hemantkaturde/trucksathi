@@ -160,21 +160,88 @@ class Device extends CI_Controller {
     }
     // ==========================================
     //          START CREATE CERTIFICATE
-
     public function device_certificate($id){
+        $data['check'] = $this->device_model->get_deviceordercount($id);
+        $this->template->template_render('master/do_certificate',$data);
+    }
+
+    public function certificate_add(){
+        $id = $this->uri->segment(3);
         $data['orderDetails'] = $this->device_model->get_deviceorderdetails($id);
         $this->template->template_render('master/do_certificate_add',$data);
     }
 
     public function certificate_addnew(){
         $data = $this->input->post();
+        $data['created_id'] = $_SESSION['session_data']['u_id'];
+        $data['dc_certificate_date'] = date('Y-m-d', strtotime($data['dc_certificate_date']));
+        $data['dc_installation_date'] = date('Y-m-d H:i:s', strtotime($data['dc_installation_date']));
         $response = $this->db->insert('tbl_device_certificate', $data);
         if($response) {
             $this->session->set_flashdata('successmessage', 'Certificate created successfully..');
         } else {
             $this->session->set_flashdata('warningmessage', 'Something went wrong.');
         }
-        redirect('device/device_order');
+        redirect('device/device_certificate/'.$data['dc_orderid']);
+    }
+
+    public function certificate_update(){
+        $data = $this->input->post();
+        $data['updated_id'] = $_SESSION['session_data']['u_id'];
+        $data['dc_certificate_date'] = date('Y-m-d', strtotime($data['dc_certificate_date']));
+        $data['dc_installation_date'] = date('Y-m-d H:i:s', strtotime($data['dc_installation_date']));
+        $this->db->where('dc_id',$this->input->post('dc_id'));
+        $response = $this->db->update('tbl_device_certificate', $data);
+        if($response) {
+            $this->session->set_flashdata('successmessage', 'Certificate updated successfully..');
+        } else {
+            $this->session->set_flashdata('warningmessage', 'Something went wrong.');
+        }
+        redirect('device/device_certificate/'.$data['dc_orderid']);
+    }
+
+    public function certificate_edit(){
+        $id = $this->uri->segment(3);
+        $data['certDetails'] = $this->device_model->get_devicecertificatedetails($id);
+        $this->template->template_render('master/do_certificate_update',$data);
+    }
+
+    public function deletecertificate(){
+        $order_id = $this->uri->segment(3);
+        $id = $this->input->post('del_id');
+        $orderData = $this->db->select('*')->from('tbl_device_certificate')->where('dc_id',$id)->get()->result_array();
+        
+		$deleteresp = $this->db->delete('tbl_device_certificate', array('dc_id' => $id));
+		if($deleteresp) {
+			$this->session->set_flashdata('successmessage', 'Certificate deleted successfully..');
+		} else {
+			$this->session->set_flashdata('warningmessage', 'Unexpected error..Try again');
+		}
+		redirect('device/device_certificate/'.$orderData[0]['dc_orderid']);
+    }
+
+    public function fetchCertificatelist(){
+        $params = $_REQUEST;
+        // print_r($params['id']);print_r("test"); die;
+        $totalRecords = $this->device_model->get_certificateCount($params); 
+        $queryRecords = $this->device_model->get_certificatedata($params); 
+        $data = array();
+        foreach ($queryRecords as $key => $value)
+        {
+            $i = 0;
+            foreach($value as $v)
+            {
+                $data[$key][$i] = $v;
+                $i++;
+            }
+        }
+        $json_data = array(
+            "draw"            => intval( $params['draw'] ),   
+            "recordsTotal"    => intval( $totalRecords ),  
+            "recordsFiltered" => intval($totalRecords),
+            "data"            => $data   // total data array
+            );
+        echo json_encode($json_data);
     }
 
     public function view_certificate($id){

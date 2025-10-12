@@ -12,6 +12,9 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid mb-5 row">
+        <div class="col-md-4 mb-2">
+            <a href="<?php echo base_url().'device/device_order'; ?>"><button type="button" class="btn btn-success"><i class="fas fa-reply"></i> Back to device order</button></a>
+        </div>
         <div class="offset-md-2 col-md-8">
             <div class="card">
                 <div class="card-body">
