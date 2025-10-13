@@ -163,8 +163,38 @@
 
 
             <?php } ?>
-          
 
+
+            <?php if($appuserdetails[0]['category_head']=='Booking Agent-Transporter'){ ?>
+
+                
+                  <!-- USER PHOTO -->
+                    <div class="col-4">
+                        <div class="card card-primary image">
+                            <div class="card-header"><h3 class="card-title">User Photo</h3></div>
+                            <div class="card-body p-10">
+                                <a href="<?php echo (isset($appuserdetails)) ? base_url().'uploads/user_photo/'.$appuserdetails[0]['user_photo']:'' ?>" data-toggle="lightbox" data-title="<?php echo (isset($appuserdetails)) ? 'USER PHOTO : '.$appuserdetails[0]['aadhar_card']:'' ?>">
+                                    <img src="<?php echo (isset($appuserdetails)) ? base_url().'uploads/user_photo/'.$appuserdetails[0]['user_photo']:'' ?>" class="img-fluid-thumbnail img-fluid mb-2" alt="USER PHOTO"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                       <!-- GST -->
+            <div class="col-4">
+                <div class="card card-primary image">
+                    <div class="card-header"><h3 class="card-title">GST</h3></div>
+                    <div class="card-body p-10">
+                        <a href="<?php echo (isset($appuserdetails)) ? base_url().'uploads/gst/'.$appuserdetails[0]['gst']:'' ?>" data-toggle="lightbox" data-title="<?php echo (isset($appuserdetails)) ? 'GST : '.$appuserdetails[0]['gst']:'' ?>">
+                            <img src="<?php echo (isset($appuserdetails)) ? base_url().'uploads/gst/'.$appuserdetails[0]['gst']:'' ?>" class="img-fluid-thumbnail img-fluid mb-2" alt="gst"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          
+             <?php } ?>
             <!-- PAN CARD -->
             <!-- <div class="col-4">
                 <div class="card card-primary image">
