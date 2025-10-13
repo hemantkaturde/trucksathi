@@ -132,7 +132,7 @@
            <?php } ?>
 
 
-            <?php if($appuserdetails[0]['category_head']=='Owner'){ ?>
+            <?php if($appuserdetails[0]['category_head']=='Booking Agent-Transporter'){ ?>
 
                   <!-- USER PHOTO -->
                     <div class="col-4">
