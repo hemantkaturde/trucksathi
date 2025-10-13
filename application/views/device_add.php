@@ -30,7 +30,7 @@
                  <?php } ?>
                     <div class="col-sm-6 col-md-4">
                       <div class="form-group">
-                          <label class="form-label">Device Title<span class="text-danger form-required">*</span></label>
+                          <label class="form-label">GPS Device Plan Name<span class="text-danger form-required">*</span></label>
                           <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['device_name']:'' ?>" id="device_name" name="device_name" placeholder="Device Title">
                       </div>
                     </div>
@@ -109,7 +109,7 @@
                           <!-- <input type="checkbox" required="true" size="2" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['theft_pro_amount']:'' ?>" id="theft_pro" name="theft_pro" placeholder="Enter Theft Protection"> -->
                       </div>
                       <div class="form-group">
-                         <label class="form-label">Theft Protection amount<span class="text-danger form-required">*</span></label>
+                         <label class="form-label">Theft Protection amount</label>
                           <input type="text" required="true" class="form-control" value="<?php echo (isset($devicedetails)) ? $devicedetails[0]['theft_pro_amount']:'' ?>" id="theft_pro_amount" name="theft_pro_amount" placeholder="Enter Theft Protection amount">
                       </div>
 

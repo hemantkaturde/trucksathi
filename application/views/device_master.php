@@ -33,7 +33,7 @@
                   <thead>
                      <tr>
                         <th>Device Image</th>
-                        <th>Device Title</th>
+                        <th>GPS Device Plan Name</th>
                         <th>Device Type</th>
                         <th>Model Number</th>
                         <!-- <th>Serial Number</th> -->
