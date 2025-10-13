@@ -43,31 +43,6 @@
                      </tr>
                   </thead>
                   <tbody>
-                  
-                  <?php //if(!empty($appuserslist)){  $count=1;
-                        //foreach($appuserslist as $appuserslist){
-                        ?>
-                     <!-- <tr> -->
-                        <!-- <td> <?php echo output($count); $count++; ?></td>
-                        <td> <?php echo output($appuserslist['name']); ?></td>
-                        <td> <?php echo output($appuserslist['mobile_number']); ?></td>
-                        <td> <?php echo output($appuserslist['pincode']); ?></td>
-                        <td> <?php echo output($appuserslist['category_head']); ?></td>
-                        <td>  <span class="badge <?php echo ($appuserslist['kyc_details_status']=='1') ? 'badge-success' : 'badge-danger'; ?> "><?php echo ($appuserslist['kyc_details_status']=='1') ? 'Active' : 'Inactive'; ?></span>  </td>
-                        <td> -->
-                           <?php //if(userpermission('cm_edit')) { ?>
-                           <!-- <a class="icon" href="<?php echo base_url(); ?>app_users/editapp_users/<?php echo output($appuserslist['id']); ?>">
-                           <i class="fa fa-edit"></i>
-                           </a> -->
-                           <?php  //} 
-                           //if(userpermission('cm_del')) { ?> 
-                              <!-- | <a data-toggle="modal" href="" onclick="confirmation('<?php echo base_url(); ?>app_users/delete_app_users','<?= output($appuserslist['id']); ?>')" data-target="#deleteconfirm" class="icon text-danger" data-toggle="tooltip" data-placement="top"><i class="fa fa-trash"></i></a> -->
-                            
-                           <?php //} ?>
-                        <!-- </td>
-                     </tr>     -->
-                     <?php //}  } ?>
-                  </tbody>
                </table>
               
             </div>

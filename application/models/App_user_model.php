@@ -5,7 +5,7 @@ class App_user_model extends CI_Model{
 		return $this->db->select('*')->from('tbl_category_master')->order_by('cat_id','desc')->get()->result_array();
 	} 
     public function get_app_users_details($id) { 
-		return $this->db->select('*')->from('tbl_appuser_info')->where('id',$id)->get()->result_array();
+		return $this->db->select('*')->from('tbl_appuser_info')->join('tbl_category_master', 'tbl_category_master.cat_id=tbl_appuser_info.category_id','left')->where('id',$id)->get()->result_array();
 	} 
 
     public function getall_app_users_details() { 
