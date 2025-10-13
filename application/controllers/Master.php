@@ -307,8 +307,9 @@ class Master extends CI_Controller {
         echo json_encode($json_data);
     }
 
-    public function deletevehiclesize($id){
+    public function deletevehiclesize(){
         $id = $this->input->post('del_id');
+
 		$deleteresp = $this->db->delete('tbl_vehicle_size', array('vsize_id' => $id));
 		if($deleteresp) {
 			$this->session->set_flashdata('successmessage', 'Vehicle size deleted successfully..');
